@@ -24,7 +24,7 @@
 ###
 ###################################################################
 
-x <- 63
+x <- 83
 ########## R1_Intro.ppt Slides 1 to 6 ## familiar with R studio
 age <- c(10, 12, 25, 50, 55, 80)       # initialize a vector
 systolic <- c(120, 118, 122, 160, 149, 140)
@@ -124,6 +124,8 @@ summary(theModel)
 ## reflowed if it contains long comments;
 #' roxygen comments will not be wrapped in any case
 1 + 1
+
+
 
 if (TRUE) {
   x = 1  # inline comments
