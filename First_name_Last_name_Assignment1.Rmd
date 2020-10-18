@@ -1,9 +1,23 @@
 ---
-title: "BST 625: Assignment 4 (R portion, 5 points in total)"
+title: 'BST 625: Assignment 1 (R portion, 5 points in total)'
 author: "Your Name"
-date: "Due date 10/21/2020"
-output: pdf_document
+date: "Due date 10/26/2020"
+output:
+  pdf_document: default
 ---
+Use this .Rmd R markdown file to generate a pdf or word document to submit through blackboard
+
+(1)	Open the .Rmd file in your R studio. When you opening it at the first time, R studio will remind you to install packages that you need on the top of your file and you should click yes and then your “knit” button will turn blue. If you missed the chance of clicking “yes”, you can close R studio and reopen it again
+
+(2)	Instead of clicking “run”, you will click the “Knit” button to generate a pdf or word document in your working directory (how to set up working directory is in our slides “R1_Intro.ppt” page 4 where source file location means the folder where you keep your .Rmd file). There is a pointing down arrow near the “Knit” button where you can choose pdf or word (see the attachment in our blackboard under this assignment item). If you click “knit” the first time and have an error, you may have to click “Knit” again
+ 
+(3)	Type in R command as instructed, “Knit”, and submit the generated document through blackboard. If you are approaching the deadline and you are unable to generate your pdf or word document, you can type in your answers in this word document and submit it
+
+My demonstration of R Markdown usage can be found in our recorded zoom video on Oct 12,2020 at timeline “01:25:49”
+
+More content of R Markdown can be found in our class slides “R1_RMarkdown.ppt”
+
+If you are not able to Knit to pdf, you can watch the zoom recording on Oct 14 at timeline “01:55:31”
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
@@ -14,10 +28,10 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 First I wrote down 
 
 ```{r}
-data <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 ```
 
-then there is an object created in my environment. Can you guess what I am doing? (1 point) If your answer is no, you still get your point since we have not covered this yet.
+then there is an object created in my environment. Can you guess what I am doing? (1 point) If your answer is no, you will still get your point since we have not covered this yet.
 
 ```{r}
 ## write down your answer after "## ---|" in the next line. Provide code as you will
@@ -28,7 +42,7 @@ then there is an object created in my environment. Can you guess what I am doing
 Then I wrote
 
 ```{r}
-Pain_long <- data$pain
+Pain_long <- dat$pain
 ```
 
 What is *Pain_long*? (2 points)
@@ -39,7 +53,7 @@ What is *Pain_long*? (2 points)
 ```
 # Question 3 (2 points)
 
-Conduct some operation on *Pain_long*. In other words, provide any function using *Pain_long* as an input (1 point). Hint: a function is in the format of *function.name()*. Describe your operation in English  (1 point) 
+Conduct some operation on *Pain_long*. In other words, provide any function using *Pain_long* as an input (1 point). Hint: a function is in the format of *functionname()*. Describe your operation in English  (1 point) 
 
 ```{r}
 ## Tell R what you want to do in the next line
@@ -47,13 +61,13 @@ Conduct some operation on *Pain_long*. In other words, provide any function usin
 ## write down your answer after "## ---|" in the next line. Provide code as you will
 ## ----|
 ```
-# Bonus 
+# Bonus (1 point)
 
-Share something with me about what you learned by yourself **beyond** what we have covered so far (1 point)
+Share something with me about what you have learned by yourself **beyond** what we have covered so far (1 point)
 
 ```{r}
-## Tell R what you want to do in the next line
+## Tell R your command in the next line
 
-## write down what is the above command(s) about
+## write down the purpose of the above command
 ## ----|
 ```
