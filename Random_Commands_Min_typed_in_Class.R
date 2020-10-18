@@ -40,3 +40,9 @@ x[3] ## x[3] is NA but it is still there
 x <- mtcars$mpg ## another way to assign a vector
 x <- c(mtcars$mpg, mtcars$cyl) ## another way to assign a vector
 head(x)
+## save your environment in your harddrive. Not useful for most of you because
+## you should use the commands in your script to create your objects again when 
+## you open a new script
+save.image("C:/Users/mlu6/Dropbox/R book/GitR/BST625/evn20201018.RData") 
+## the above command is "expensive" in space since it saves all the objects, I often use
+save(x, mtcars, file = "evn20201018.RData") ## to save specific objects
