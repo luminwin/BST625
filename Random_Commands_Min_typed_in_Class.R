@@ -36,3 +36,7 @@ crazy.mean(c("1", "2"))
 x <- 5 ## A value is still a vector in R
 x
 x[3] ## x[3] is NA but it is still there
+
+x <- mtcars$mpg ## another way to assign a vector
+x <- c(mtcars$mpg, mtcars$cyl) ## another way to assign a vector
+head(x)
