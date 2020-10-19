@@ -35,7 +35,16 @@ table(dosage)
 
 condition <- c(FALSE, TRUE)
 is.logical(condition)
+typeof(condition)
 x <- c(6, 3, 8, 10) 
 y <- 6:9 
 x == y # check if x equals to y through comparing each element 
+age <- c(10, 12, 25, 50, 55, 80)
+age[c(FALSE,TRUE,TRUE,TRUE,TRUE,TRUE)]
+
 age[c(FALSE,TRUE,TRUE)] 
+age[c(FALSE,TRUE,TRUE,FALSE,TRUE,TRUE)] 
+
+age <- c(10, 12, 25, 50, 55, 80)
+systolic <- c(120, 118, 122, 160, 149, 140)
+age[systolic== 118]
