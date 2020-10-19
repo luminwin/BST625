@@ -48,3 +48,9 @@ age[c(FALSE,TRUE,TRUE,FALSE,TRUE,TRUE)]
 age <- c(10, 12, 25, 50, 55, 80)
 systolic <- c(120, 118, 122, 160, 149, 140)
 age[systolic== 118]
+
+cancer <- c(0, 1, 0, 1, 1) 
+as.factor(cancer) 
+is.ordered(esoph$agegp) 
+is.factor(esoph$agegp) 
+
