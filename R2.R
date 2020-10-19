@@ -92,14 +92,30 @@ plot(age, systolic)
 plot(systolic)
 
 methods(plot)
+par(mfrow = c(1, 2))
+plot(age, systolic)
 
 plot(cars$dist~cars$speed,
      xlim = c(0, 30),
      ylim = c(0, 140),
-     xaxs = "i",
-     yaxs = "i",
+   #  xaxs = "i",
+   #  yaxs = "i",
      main = "Relationship between car distance & speed",
      xlab = "Speed (miles per hour)",
      ylab = "Distance travelled (miles)",
      col = "red",
      pch = 19)
+
+par(mfrow = c(1, 2))
+plot(age, systolic)
+plot(systolic~age,
+    # xlim = c(10, 80),
+    # ylim = c(100, 170),
+     #  xaxs = "i",
+     #  yaxs = "i",
+     main = "Relationship between age & systolic",
+     xlab = "Age (year)",
+     ylab = "Systolic",
+     col = "red",
+     pch = 17)
+range(age)
