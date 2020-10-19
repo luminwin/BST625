@@ -28,9 +28,10 @@
 # pie chart
 data(esoph) ## bring esoph data from environment "package:datasets" to environment ".GlobalEnv"
 ## esoph <- esoph # the same as above
-originalPar <- par()
-par(mfrow = c(1, 2))
+# originalPar <- par() # default setting of figure layout
+par(mfrow = c(1, 2)) # Multiple figures in 1 graphic with 1 row and 2 columns
 pie(table(esoph$agegp), main = "Age groups from Smoking, \n Alcohol and (O)esophageal Cancer")
+par(mfrow = c(1, 1)) # change back to the default setting
 
 # scatter plot
 
