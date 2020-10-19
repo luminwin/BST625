@@ -33,3 +33,9 @@ dosage <- c("0-9g/day", "10-19", "20-29", "30+", "0-9g/day", "10-19", "20-29", "
 summary(dosage) 
 table(dosage)
 
+condition <- c(FALSE, TRUE)
+is.logical(condition)
+x <- c(6, 3, 8, 10) 
+y <- 6:9 
+x == y # check if x equals to y through comparing each element 
+age[c(FALSE,TRUE,TRUE)] 
