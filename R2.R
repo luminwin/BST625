@@ -51,12 +51,22 @@ age[systolic== 118]
 
 cancer <- c(0, 1, 0, 1, 1) 
 can.fac <- as.factor(cancer) 
+lvls <- c("0", "1")
+lvls[c(1, 2, 1, 2, 2)]
 
-x <- esoph$agegp
+
 ?esoph
 help(esoph)
 head(esoph)
+tail(esoph)
+x <- esoph$agegp
 head(x)
 is.ordered(esoph$agegp) 
 is.factor(esoph$agegp) 
+
+x <- c(1, 2, "Tom", FALSE) ## atomic
+age <- c(26, 23, 38, 40) 
+mtrx <- matrix(age, nrow = 2, ncol = 2)
+
+
 
