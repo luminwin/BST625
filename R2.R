@@ -12,3 +12,12 @@ is.vector(age) # Is it a vector or not?
 class(age)
 
 age[c(5,2:7)] 
+age[5]
+
+
+dosageWeek1 <- c(2, 8, 9, 13, 25) 
+dosageWeek2 <- c(1, 7, 6, 12, 23) 
+dosage <- dosageWeek1 + dosageWeek2 
+dosage 
+
+summary(dosage) 
