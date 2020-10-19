@@ -17,7 +17,12 @@ age[5]
 
 dosageWeek1 <- c(2, 8, 9, 13, 25) 
 dosageWeek2 <- c(1, 7, 6, 12, 23) 
-dosage <- dosageWeek1 + dosageWeek2 
+dosage <- dosageWeek1 / dosageWeek2 
 dosage 
-
 summary(dosage) 
+
+names <- c("Raymond", "Lori", "Mary", "Andrew")
+
+id1 <- as.character(1:4)
+id2 <- paste(5:8) 
+id <- c(id1, id2) 
