@@ -50,7 +50,13 @@ systolic <- c(120, 118, 122, 160, 149, 140)
 age[systolic== 118]
 
 cancer <- c(0, 1, 0, 1, 1) 
-as.factor(cancer) 
+can.fac <- as.factor(cancer) 
+
+x <- esoph$agegp
+?esoph
+help(esoph)
+head(esoph)
+head(x)
 is.ordered(esoph$agegp) 
 is.factor(esoph$agegp) 
 
