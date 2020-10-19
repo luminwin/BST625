@@ -7,5 +7,8 @@ length(age) ## length of a vector
 summary(age)
 
 is.numeric(age) # is it numeric or not? is.character(), is.na(), is.logical()...
+is.list(age)
 is.vector(age) # Is it a vector or not?
 class(age)
+
+age[c(5,2:7)] 
