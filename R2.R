@@ -25,4 +25,11 @@ names <- c("Raymond", "Lori", "Mary", "Andrew")
 
 id1 <- as.character(1:4)
 id2 <- paste(5:8) 
+paste("X", 5:8, collapse = "_") 
+paste("X", 5:8, sep = "_") 
 id <- c(id1, id2) 
+
+dosage <- c("0-9g/day", "10-19", "20-29", "30+", "0-9g/day", "10-19", "20-29", "30+", "0-9g/day") 
+summary(dosage) 
+table(dosage)
+
