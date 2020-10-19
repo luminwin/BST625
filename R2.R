@@ -85,4 +85,21 @@ as.data.frame(baliseNamedList)
 
 class(baliseNamedList)
 
+age <- c(10, 12, 25, 50, 55, 80)
+systolic <- c(120, 118, 122, 160, 149, 140)
 
+plot(age, systolic)
+plot(systolic)
+
+methods(plot)
+
+plot(cars$dist~cars$speed,
+     xlim = c(0, 30),
+     ylim = c(0, 140),
+     xaxs = "i",
+     yaxs = "i",
+     main = "Relationship between car distance & speed",
+     xlab = "Speed (miles per hour)",
+     ylab = "Distance travelled (miles)",
+     col = "red",
+     pch = 19)
