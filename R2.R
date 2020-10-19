@@ -67,15 +67,22 @@ is.factor(esoph$agegp)
 x <- c(1, 2, "Tom", FALSE) ## atomic
 age <- c(26, 23, 38, 40) 
 mtrx <- matrix(age, nrow = 2, ncol = 3)
+class(mtrx)
 as.matrix(x)
 
 names <- c("Raymond", "Lori", "Mary", "Andrew") 
 heightInInches <- c(67, 62, 60.01, 68) 
 isFemale <- c(FALSE, TRUE, TRUE, FALSE) 
+
 baliseList <- list(names, heightInInches, isFemale)
+baliseList[[1]]
+baliseList[1]
+
 baliseNamedList <- list(names = names, 
                         height = heightInInches, 
                         isFemale = isFemale) 
 as.data.frame(baliseNamedList)
+
+class(baliseNamedList)
 
 
