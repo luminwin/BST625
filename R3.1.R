@@ -77,5 +77,20 @@ laryngectomy %>% select(age, gender)
 laryngectomy %>% select(., age, gender)
 
 
-laryngectomy %>% select(age, gender)
+laryngectomy %>% select(age, gender) 
 laryngectomy %>% select(., age, gender)
+
+rm(tib, x, y, z) # remove objects in case they are in your environment
+tib <- tibble(x = 1:3, y = 3:1)
+select(tib, x)
+select(tib, 1)
+select(tib, y)
+select(tib, 2)
+select(tib, x, y)
+select(tib, 1, 2)
+
+select(tib, x, y, z)  # chokes because no z anywhere
+
+z <-2
+select(tib, z ,x)  # uses the z object outside of the tibble
+
