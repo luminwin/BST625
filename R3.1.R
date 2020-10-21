@@ -69,13 +69,13 @@ laryngectomy %>%
 #########################################################
 ######################## slide 15
 laryngectomy$age # age at cancer
-laryngectomy$sex #  sex of patient
+laryngectomy$gender #  sex of patient
 
-select(laryngectomy, age, sex)
+select(laryngectomy, age, gender)
 
-laryngectomy %>% select(age, sex)
-laryngectomy %>% select(., age, sex)
+laryngectomy %>% select(age, gender)
+laryngectomy %>% select(., age, gender)
 
 
-laryngectomy %>% select(age, sex)
-laryngectomy %>% select(., age, sex)
+laryngectomy %>% select(age, gender)
+laryngectomy %>% select(., age, gender)
