@@ -63,3 +63,19 @@ laryngectomy %>%
 
 laryngectomy %>%
   arrange(desc(age)) 
+
+#########################################################
+# Column manipulation select() --- select column/variable
+#########################################################
+######################## slide 15
+laryngectomy$age # age at cancer
+laryngectomy$sex #  sex of patient
+
+select(laryngectomy, age, sex)
+
+laryngectomy %>% select(age, sex)
+laryngectomy %>% select(., age, sex)
+
+
+laryngectomy %>% select(age, sex)
+laryngectomy %>% select(., age, sex)
