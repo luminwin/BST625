@@ -25,4 +25,4 @@ balises <- as_tibble(baliseNamedList2)
 ######################## slide 6
 glimpse(baliseTbl ) 
 
-source("DataInput_laryngectomy.R")
+source("~/Dropbox/R book/GitR/BST625/DataInput_laryngectomy.R")
