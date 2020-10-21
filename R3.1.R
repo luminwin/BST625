@@ -35,9 +35,31 @@ laryngectomy <- read_csv("laryngectomy.csv")
 ############################################
 ######################## slide 9
 laryngectomy %>%
-  filter(age == 1)  # the people who died
+  filter(age == 54)  
+
+laryng.ag54 <- laryngectomy %>%
+  filter(age == 54) 
+
+filter(laryngectomy, age == 54)
+
+
+laryngectomy %>%
+  filter(death == 1)  # the people who died
+colnames(laryngectomy)
+laryngectomy$death
+
 laryngectomy %>%
   filter(is.na(pathology))  # people missing pathology
+
 laryngectomy %>%
   filter(!is.na(pathology))  # people not missing pathology
 
+laryngectomy %>%
+  filter(complete.cases(.))
+
+
+laryngectomy %>%
+  arrange(age) 
+
+laryngectomy %>%
+  arrange(desc(age)) 
