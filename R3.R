@@ -1,3 +1,3 @@
-# head(mtcars)
+head(mtcars)
 #install.packages("tidyverse")
 library(dplyr)
