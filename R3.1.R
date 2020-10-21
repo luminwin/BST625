@@ -30,3 +30,14 @@ laryngectomy <- read.csv("~/Dropbox/R book/GitR/BST625/laryngectomy.csv")
 head(laryngectomy)
 laryngectomy <- read_csv("laryngectomy.csv")
 
+############################################
+# Row manipulation filter() ---pick records
+############################################
+######################## slide 9
+laryngectomy %>%
+  filter(age == 1)  # the people who died
+laryngectomy %>%
+  filter(is.na(pathology))  # people missing pathology
+laryngectomy %>%
+  filter(!is.na(pathology))  # people not missing pathology
+
