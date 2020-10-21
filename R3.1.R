@@ -107,6 +107,16 @@ tib[, which(colnames(tib) == "y")]
 complications <- laryngectomy %>% 
   select(complications:comp_2plus)
 
+First4 <- laryngectomy %>% select(age:trt_mod)
+laryngectomy[, 1:4]
+
 withoutComplicationVars <- laryngectomy %>%   
   select(-(complications:comp_2plus))
+laryngectomy[, -c(1:4)]
 
+colnames(laryngectomy)
+colnames(withoutComplicationVars)
+
+######################## slide 22
+laryngectomy %>%
+  select(ends_with("_fu"))
