@@ -26,3 +26,7 @@ balises <- as_tibble(baliseNamedList2)
 glimpse(baliseTbl ) 
 
 source("~/Dropbox/R book/GitR/BST625/DataInput_laryngectomy.R")
+laryngectomy <- read.csv("~/Dropbox/R book/GitR/BST625/laryngectomy.csv")
+head(laryngectomy)
+laryngectomy <- read_csv("laryngectomy.csv")
+
