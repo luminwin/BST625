@@ -8,6 +8,9 @@ mtcars %>% head(., )
 # tibble is similar to data.frame
 ##################################
 ######################## slide 5
+balisedf<- data.frame(names = c("Raymond", "Lori", "Mary", "Andrew"),  
+                    heightInInches = c(67, 62, 60.01, 68),  
+                    isFemale = c(FALSE, TRUE, TRUE, FALSE))
 
 baliseTbl <- tibble(names = c("Raymond", "Lori", "Mary", "Andrew"),  
                     heightInInches = c(67, 62, 60.01, 68),  
