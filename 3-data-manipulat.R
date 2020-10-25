@@ -32,6 +32,10 @@ library(dplyr)
 ######################## slide 2
 mtcars %>% head
 
+mtcars %>% head(., )
+mtcars %>% lm(mpg~cyl, data = .,)
+mtcars %>% lm(mpg~., data = .,)
+
 mtcars %>% head %>% rbind(., tail(mtcars))
 
 ##################################
@@ -254,3 +258,49 @@ laryngectomy %>%
   summarize(theMinFU = min(length_fu),
             theMeanFU = mean(length_fu),
             theMaxFU = max(length_fu))
+
+
+#############################################################
+#                              {base} R user
+#############################################################
+###################### slide 35
+education <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/robustbase/education.csv")
+head(education)
+colnames(education)  <-  c("X",
+                           "State",
+                           "Region",
+                           "Urban.Population",
+                           "Per.Capita.Income",
+                           "Minor.Population",
+                           "Education.Expenditures")
+head(education)
+###################### slide 36
+region <- education$Region
+ed_exp0 <- education[, c("State","Region","Urban.Population")]
+ed_exp1 <- education[c(10:21),c(2,6:7)]
+ed_exp2 <- education[-c(1:9,22:50),-c(1,3:5)]
+
+###################### slide 37
+ed_exp3 <- education[which(education$Region == 2), 
+                     names(education) %in% c("State","Minor.Population","Education.Expenditures")]
+
+ed_exp3 <- education[which(education$Region == 2), 
+                     match(c("State","Minor.Population","Education.Expenditures"), 
+                           names(education))]
+
+
+
+ed_exp4 <- subset(education, Region == 2, 
+                  select = c("State","Minor.Population","Education.Expenditures"))
+
+## you can also do
+
+education[education$Region == 2, 
+          c("State","Minor.Population","Education.Expenditures")]
+
+
+
+education[(education$Region == 2)&(education$Minor.Population>320), 
+          c("State","Minor.Population","Education.Expenditures")]
+
+
