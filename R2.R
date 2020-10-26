@@ -67,6 +67,9 @@ is.factor(esoph$agegp)
 x <- c(1, 2, "Tom", FALSE) ## atomic
 age <- c(26, 23, 38, 40) 
 mtrx <- matrix(age, nrow = 2, ncol = 3)
+mtrx[2, 2]
+mtrx[, 2]
+
 class(mtrx)
 as.matrix(x)
 
@@ -105,6 +108,9 @@ plot(cars$dist~cars$speed,
      ylab = "Distance travelled (miles)",
      col = "red",
      pch = 19)
+
+age <- c(10, 12, 25, 50, 55, 80)
+systolic <- c(120, 118, 122, 160, 149, 140)
 
 par(mfrow = c(1, 2))
 plot(age, systolic)
