@@ -120,3 +120,6 @@ colnames(withoutComplicationVars)
 ######################## slide 22
 laryngectomy %>%
   select(ends_with("_fu"))
+
+###############################################10/26/2020
+laryngectomy <- read_excel("laryngectomy.xls")
