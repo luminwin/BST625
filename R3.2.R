@@ -9,3 +9,13 @@ dat[dat == 999] <- NA
 
 write_csv(x = dat, file = "score_data.csv")
 write.csv(dat, file = "score_data.csv", row.names = FALSE)
+
+
+install.packages("xlsx")
+library("xlsx")
+# Write the first data set in a new workbook
+write.xlsx(dat, file = "myworkbook.xlsx",
+           sheetName = "SCOREDATA", append = FALSE)
+# Add a second data set in a new worksheet
+write.xlsx(mtcars, file = "myworkbook.xlsx", 
+           sheetName="MTCARS", append=TRUE)
