@@ -5,7 +5,7 @@ dat <- read_csv("score_data999.csv",
                                  score2 = col_integer(), score3 = col_integer(), 
                                  gender = col_factor(levels = c("m", "f"))))
 
-dat[dat == 999] <- NA
+dat[dat == 999] <- NA  
 
 write_csv(x = dat, path = "score_data.csv")
 write.csv(dat, file = "score_data.csv", row.names = FALSE)
