@@ -20,3 +20,21 @@ write.xlsx(dat, file = "myworkbook.xlsx",
 # Add a second data set in a new worksheet
 write.xlsx(mtcars, file = "myworkbook.xlsx", 
            sheetName="MTCARS", append=TRUE)
+
+#######################################################
+library(tidyr)
+# The arguments to gather():
+# - data: Data object
+# - key: Name of new key column (made from names of data columns)
+# - value: Name of new value column
+# - ...: Names of source columns that contain values
+# - factor_key: Treat the new key column as a factor (instead of character vector)
+data_long <- gather(dat, key = time, value = score, score1:score3, factor_key=TRUE)
+# The arguments to spread():
+# - data: Data object
+# - key: Name of column containing the new column names
+# - value: Name of column containing values
+data_wide <- spread(data_long, key = time, value = score)
+
+
+
