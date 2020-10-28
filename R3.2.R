@@ -71,11 +71,26 @@ dat_long <- reshape(dat, idvar = "name",
                     varying = paste("score", 1:3, sep = ""), 
                     # or you can specify varying = list(2:4) to refer the 2nd to the 4th columns
                     v.names = "score", direction = "long")
+data_long
+head(dat_long)
+data_long$time
+dat_long$time
 dat_wide <- reshape(dat_long, v.names = "score", idvar = "name",
                     # sep = "_",  # you can use this to customerize your names
                     # instead of score.1, you have score_1
                     # you can write sep = "",
                     timevar = "time", direction = "wide")
+
+######################## slide 14
+## merge in rows
+############ I fake two data sets to merge
+dat_top <- head(dat)
+dat_bot <- tail(dat)
+rbind(dat_top, dat_bot)
+## r is very smart, even the names ordered differently
+dat_bot <- dat_bot[, 5:1]
+rbind(dat_top, dat_bot)
+
 
 
 
