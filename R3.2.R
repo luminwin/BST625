@@ -21,8 +21,16 @@ write.xlsx(dat, file = "myworkbook.xlsx",
 write.xlsx(mtcars, file = "myworkbook.xlsx", 
            sheetName="MTCARS", append=TRUE)
 
-#######################################################
+####################################################### ####### New 
 library(tidyr)
+library(tidyverse)
+library(tidyverse)
+dat <- read_csv("score_data999.csv", 
+                col_types = cols(score1 = col_integer(), 
+                                 score2 = col_integer(), score3 = col_integer(), 
+                                 gender = col_factor(levels = c("m", "f"))))
+
+dat[dat == 999] <- NA 
 # The arguments to gather():
 # - data: Data object
 # - key: Name of new key column (made from names of data columns)
@@ -30,6 +38,8 @@ library(tidyr)
 # - ...: Names of source columns that contain values
 # - factor_key: Treat the new key column as a factor (instead of character vector)
 data_long <- gather(dat, key = time, value = score, score1:score3, factor_key=TRUE)
+
+???????? (1) %>%   (2) factor_key = FALSE for line 33
 # The arguments to spread():
 # - data: Data object
 # - key: Name of column containing the new column names
