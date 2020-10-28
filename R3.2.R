@@ -7,5 +7,5 @@ dat <- read_csv("score_data999.csv",
 
 dat[dat == 999] <- NA  
 
-write_csv(x = dat, path = "score_data.csv")
+write_csv(x = dat, file = "score_data.csv")
 write.csv(dat, file = "score_data.csv", row.names = FALSE)
