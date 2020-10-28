@@ -41,14 +41,28 @@ data_long <- gather(dat, key = time, value = score, score1:score3, factor_key=TR
 data_long_2 <- dat %>% 
         gather(key = time, value = score, score1:score3, factor_key = FALSE)
 
-
-
-???????? (1) %>%   (2) factor_key = FALSE for line 33
 # The arguments to spread():
 # - data: Data object
 # - key: Name of column containing the new column names
 # - value: Name of column containing values
 data_wide <- spread(data_long, key = time, value = score)
 
+################################
+# merge two datasets
+################################
+######################## slide 12
+a <- tibble(X1 = LETTERS[1:3],
+            X2 = 1:3)
+b <- tibble(X1 = c("A", "B", "D"),
+            X3 = c("T", "F", "T"))
+
+left_join(a, b, by = "X1")
+a %>% left_join(b, by = "X1")
+
+right_join(a, b, by = "X1")
+
+inner_join(a, b, by = "X1")
+
+full_join(a, b, by = "X1")
 
 
