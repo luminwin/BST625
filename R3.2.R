@@ -11,7 +11,8 @@ write_csv(x = dat, file = "score_data.csv")
 write.csv(dat, file = "score_data.csv", row.names = FALSE)
 
 
-install.packages("xlsx")
+remove.packages("xlsx")
+#install.packages("xlsx")
 library("xlsx")
 # Write the first data set in a new workbook
 write.xlsx(dat, file = "myworkbook.xlsx",
