@@ -1,4 +1,5 @@
 ########################################################
+library(tidyverse)
 library(readr)
 dat <- read_csv("score_data999.csv", 
                 col_types = cols(score1 = col_integer(), 
@@ -6,3 +7,4 @@ dat <- read_csv("score_data999.csv",
                                  gender = col_factor(levels = c("m", "f"))))
 
 dat[dat == 999] <- NA
+write_csv(x = dat, path = "score_data.csv")
