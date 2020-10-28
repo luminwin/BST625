@@ -38,6 +38,10 @@ dat[dat == 999] <- NA
 # - ...: Names of source columns that contain values
 # - factor_key: Treat the new key column as a factor (instead of character vector)
 data_long <- gather(dat, key = time, value = score, score1:score3, factor_key=TRUE)
+data_long_2 <- dat %>% 
+        gather(key = time, value = score, score1:score3, factor_key = FALSE)
+
+
 
 ???????? (1) %>%   (2) factor_key = FALSE for line 33
 # The arguments to spread():
