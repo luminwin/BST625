@@ -51,6 +51,7 @@ data_wide <- spread(data_long, key = time, value = score)
 # merge two datasets
 ################################
 ######################## slide 12
+library(tidyverse)
 a <- tibble(X1 = LETTERS[1:3],
             X2 = 1:3)
 b <- tibble(X1 = c("A", "B", "D"),
@@ -64,5 +65,17 @@ right_join(a, b, by = "X1")
 inner_join(a, b, by = "X1")
 
 full_join(a, b, by = "X1")
+
+dat <- as.data.frame(dat)
+dat_long <- reshape(dat, idvar = "name", 
+                    varying = paste("score", 1:3, sep = ""), 
+                    # or you can specify varying = list(2:4) to refer the 2nd to the 4th columns
+                    v.names = "score", direction = "long")
+dat_wide <- reshape(dat_long, v.names = "score", idvar = "name",
+                    # sep = "_",  # you can use this to customerize your names
+                    # instead of score.1, you have score_1
+                    # you can write sep = "",
+                    timevar = "time", direction = "wide")
+
 
 
