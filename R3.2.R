@@ -86,11 +86,15 @@ dat_wide <- reshape(dat_long, v.names = "score", idvar = "name",
 ############ I fake two data sets to merge
 dat_top <- head(dat)
 dat_bot <- tail(dat)
+
+
 rbind(dat_top, dat_bot)
+
 ## r is very smart, even the names ordered differently
 dat_bot <- dat_bot[, 5:1]
 rbind(dat_top, dat_bot)
 
+cbind(dat_top[,1:2], dat_top[,3:5])
 
 
 
