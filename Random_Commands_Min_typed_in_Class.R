@@ -51,5 +51,5 @@ dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 ### don't name your data "data" because data is a function
 data <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 
-data(mtcars)
+data(mtcars)  
 mtcars <- mtcars
