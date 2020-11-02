@@ -14,6 +14,8 @@ colnames(dat) <- toupper(c("id",   "trt",  "sex",  "age",  "pain", "time"))
 Pain_long
 as.matrix(Pain_long)
 
+mean(Pain_long[dat$sex==1])
+
 mean(Pain_long[which(dat$sex==1)]) 
 ############################################################
 dat <- read.csv("~/Dropbox/R book/GitR/BST625/score_data.csv")
