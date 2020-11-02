@@ -36,3 +36,18 @@ head(dat)
 dat$Total_Score <- rowSums(dat[,c("score1", "score2", "score3")], na.rm = TRUE)
 dat$Avg_Score <- rowMeans(dat[,c("score1", "score2", "score3")], na.rm = TRUE) 
 
+dat[,c("score1", "score2", "score3")]
+dat[,2:4]
+
+temp <- dat$Avg_Score
+dat$grade <- "A"
+dat$grade[(temp >= 80) & (temp < 90)] <- "B"
+dat$grade[(temp >= 70) & (temp < 80)] <- "C"
+dat$grade[(temp >= 60) & (temp < 70)] <- "D"
+dat$grade[(temp <60)] <- "F"
+
+## bonus: create ordered factor
+dat$grade <- factor(dat$grade, levels = c("F", LETTERS[4:1]), 
+                    ordered = TRUE)
+dat$pass <- ifelse(dat$grade == "F", "Fail", "Pass")
+
