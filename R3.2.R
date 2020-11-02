@@ -22,9 +22,8 @@ write.xlsx(mtcars, file = "myworkbook.xlsx",
            sheetName="MTCARS", append=TRUE)
 
 ####################################################### ####### New 
-library(tidyr)
 library(tidyverse)
-library(tidyverse)
+# library(tidyr)
 dat <- read_csv("score_data999.csv", 
                 col_types = cols(score1 = col_integer(), 
                                  score2 = col_integer(), score3 = col_integer(), 
