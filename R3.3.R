@@ -11,15 +11,10 @@ head(dat)
 
 colnames(dat) <- toupper(c("id",   "trt",  "sex",  "age",  "pain", "time"))
 
+Pain_long
+as.matrix(Pain_long)
 
-
-names <- c("Raymond", "Lori", "Mary", "Andrew")
-heightInInches <- c(67, 62, 60.01)
-isFemale <- c(FALSE, TRUE, TRUE, FALSE) 
-baliseList <- list(names, heightInInches, isFemale, y = 5)
-
-baliseList[[10]] <- 1:10
-
+mean(Pain_long[which(dat$sex==1)]) 
 ############################################################
 dat <- read.csv("~/Dropbox/R book/GitR/BST625/score_data.csv")
 head(dat)
