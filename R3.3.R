@@ -18,6 +18,7 @@ mean(Pain_long[dat$sex==1])
 
 mean(Pain_long[which(dat$sex==1)]) 
 ############################################################
+setwd("~/Dropbox/R book/GitR/BST625")
 dat <- read.csv("~/Dropbox/R book/GitR/BST625/score_data.csv")
 head(dat)
 ##  (Total_Score) Total score as the sum of score 1 to 3
@@ -32,3 +33,6 @@ head(dat)
 ##  create a .csv file in your local machine that contains (name, gender and the above 4 new variables)
 ##  Data Q1.Score_m contains male students and the students have an average score sorted from low to high.
 ##  Data Q1.Score_f contains female students and the students have an average score sorted score from high to low.
+dat$Total_Score <- rowSums(dat[,c("score1", "score2", "score3")], na.rm = TRUE)
+dat$Avg_Score <- rowMeans(dat[,c("score1", "score2", "score3")], na.rm = TRUE) 
+
