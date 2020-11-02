@@ -1,3 +1,12 @@
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+Pain_long <- dat$pain
+nrow(dat)
+rownames(dat)
+
+
+
+
+############################################################
 dat <- read.csv("~/Dropbox/R book/GitR/BST625/score_data.csv")
 head(dat)
 ##  (Total_Score) Total score as the sum of score 1 to 3
