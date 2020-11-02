@@ -5,7 +5,20 @@ rownames(dat) ## checking
 
 rownames(dat) <- paste("row", 1:246)
 
+rownames(dat) <- 1:246
 
+head(dat)
+
+colnames(dat) <- toupper(c("id",   "trt",  "sex",  "age",  "pain", "time"))
+
+
+
+names <- c("Raymond", "Lori", "Mary", "Andrew")
+heightInInches <- c(67, 62, 60.01)
+isFemale <- c(FALSE, TRUE, TRUE, FALSE) 
+baliseList <- list(names, heightInInches, isFemale, y = 5)
+
+baliseList[[10]] <- 1:10
 
 ############################################################
 dat <- read.csv("~/Dropbox/R book/GitR/BST625/score_data.csv")
