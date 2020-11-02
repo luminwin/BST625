@@ -36,8 +36,8 @@ head(dat)
 dat$Total_Score <- rowSums(dat[,c("score1", "score2", "score3")], na.rm = TRUE)
 dat$Avg_Score <- rowMeans(dat[,c("score1", "score2", "score3")], na.rm = TRUE) 
 
-dat[,c("score1", "score2", "score3")]
-dat[,2:4]
+# dat[,c("score1", "score2", "score3")]
+# dat[,2:4]
 
 temp <- dat$Avg_Score
 dat$grade <- "A"
@@ -50,16 +50,32 @@ dat$grade[(temp < 60)] <- "F"
 dat$grade <- factor(dat$grade, levels = c("F", LETTERS[4:1]),  
                     ordered = TRUE)
 
-factor(c(1,2,2,1,2), levels = c(1, 2), labels = c("treat", "control"))
+# factor(c(1,2,2,1,2), levels = c(1, 2), labels = c("treat", "control"))
 
 dat$pass <- ifelse(dat$grade == "F", "Fail", "Pass")
 
 temp <- c("name", "gender", "Total_Score", "Avg_Score", "grade", "pass")
+#  Pain_long[which(dat$gender == "m")]
 x <- dat[which(dat$gender == "m"), ]
+# sort(x$Avg_Score)
 x <- x[order(x$Avg_Score), ]
 write.csv(x[ ,temp], file = "Q1.Score_m.csv")
 
 x <- dat[which(dat$gender == "f"), ]
 x <- x[order(x$Avg_Score, decreasing = TRUE), ]
 write.csv(x[ ,temp], file = "Q1.Score_f.csv")
+
 rm(temp, x)
+######################
+# Another way to do it
+######################
+dat <- read.csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/score_data.csv")
+dat$Total_Score <- rowSums(dat[,c("score1", "score2", "score3")], na.rm = TRUE)
+dat$Avg_Score <- rowMeans(dat[,c("score1", "score2", "score3")], na.rm = TRUE) 
+## be careful about the edge!
+dat$grade <- cut(dat$Avg_Score, breaks = 10*5:10,
+                 labels = c("F", LETTERS[4:1]), # comment this line to check if you are right
+                 right = FALSE,
+                 ordered_result = TRUE)
+table(dat$grade)
+
