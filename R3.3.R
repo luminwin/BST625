@@ -1,8 +1,9 @@
 dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 Pain_long <- dat$pain
 nrow(dat)
-rownames(dat)
+rownames(dat) ## checking
 
+rownames(dat) <- paste("row", 1:246)
 
 
 
