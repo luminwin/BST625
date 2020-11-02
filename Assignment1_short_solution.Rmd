@@ -1,0 +1,64 @@
+---
+title: 'BST 625: Assignment 1 (R portion, 5 points in total)'
+author: "Your Name"
+date: "Due date 10/21/2020"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+# Question 1 (1 point)
+
+First I wrote down 
+
+```{r}
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+```
+
+then there is an object created in my environment. Can you guess what I am doing? (1 point) If your answer is no, you will still get your point since we have not covered this yet.
+
+```{r}
+## write down your answer after "## ---|" in the next line. Provide code as you will
+## ----| You are creating a data.frame by reading in a CSV file. (Now we have learnt that if read_csv() is used from {tidyverse}, it will be a tibble)
+head(dat)
+```
+# Question 2 (2 points)
+
+Then I wrote
+
+```{r}
+Pain_long <- dat$pain
+```
+
+What is *Pain_long*? (2 points)
+
+```{r echo = TRUE}
+## write down your answer after "## ---| in the next line". Provide code as you will
+## ----| Pain_long is a vector extracted from the column labeled "pain" in the data.frame dat
+head(Pain_long)
+```
+# Question 3 (2 points)
+
+Conduct some operation on *Pain_long*. In other words, provide any function using *Pain_long* as an input (1 point). Hint: a function is in the format of *functionname()*. Describe your operation in English  (1 point) 
+
+```{r}
+## Tell R what you want to do in the next line
+head(Pain_long, 10)
+## write down your answer after "## ---|" in the next line. Provide code as you will
+## ----| This function just prints out the first 10 rows of data
+```
+# Bonus 
+
+Share something with me about what you have learned by yourself **beyond** what we have covered so far (1 point)
+
+```{r}
+## Tell R your command in the next line
+mean(Pain_long[which(dat$sex==1)])
+mean(Pain_long[which(dat$sex==2)])
+## write down the purpose of the above command
+## ----| to calculate conditional mean of Pain_long according to different gender. The which function will return the position of the elements in a logical vector where it only selects what is TRUE. Therefore the first statement will only select males because it is true when they are equal to 1.
+```
