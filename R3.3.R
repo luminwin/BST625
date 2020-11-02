@@ -41,13 +41,25 @@ dat[,2:4]
 
 temp <- dat$Avg_Score
 dat$grade <- "A"
-dat$grade[(temp >= 80) & (temp < 90)] <- "B"
+dat$grade[(temp >= 80) & (temp < 90)] <- "B"   ### & and; | or
 dat$grade[(temp >= 70) & (temp < 80)] <- "C"
 dat$grade[(temp >= 60) & (temp < 70)] <- "D"
-dat$grade[(temp <60)] <- "F"
+dat$grade[(temp < 60)] <- "F"
 
 ## bonus: create ordered factor
-dat$grade <- factor(dat$grade, levels = c("F", LETTERS[4:1]), 
+dat$grade <- factor(dat$grade, levels = c("F", LETTERS[4:1]),  
                     ordered = TRUE)
+
+factor(c(1,2,2,1,2), levels = c(1, 2), labels = c("treat", "control"))
+
 dat$pass <- ifelse(dat$grade == "F", "Fail", "Pass")
 
+temp <- c("name", "gender", "Total_Score", "Avg_Score", "grade", "pass")
+x <- dat[which(dat$gender == "m"), ]
+x <- x[order(x$Avg_Score), ]
+write.csv(x[ ,temp], file = "Q1.Score_m.csv")
+
+x <- dat[which(dat$gender == "f"), ]
+x <- x[order(x$Avg_Score, decreasing = TRUE), ]
+write.csv(x[ ,temp], file = "Q1.Score_f.csv")
+rm(temp, x)
