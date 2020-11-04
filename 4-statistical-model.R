@@ -24,6 +24,23 @@
 ###
 ###################################################################
 
+#################### slide 6
+dat <- read.csv("~/Dropbox/R book/GitR/BST625/score_data.csv")
+nrow(dat)
+rownames(dat)
+rowSums(dat[,2:4])
+rowMeans(dat[,2:4])
+dat1 <- head(dat)
+dat2 <- tail(dat)
+rbind(dat1,dat2)
+
+ncol(dat)
+colnames(dat)
+colSums(dat[,2:4])
+colMeans(dat[,2:4])
+dat1 <- dat[,1:3]
+dat2 <- dat[,4:5]
+cbind(dat1,dat2)
 ##############################################################
 ###    An example for extending R with add‐on packages    ####
 ##############################################################
