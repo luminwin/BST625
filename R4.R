@@ -82,3 +82,37 @@ Y <- BostonHousing[, "medv"]
 X <- cbind(1,BostonHousing[, c("rm", "crim", "zn","tax")])
 Y <- as.matrix(Y)
 X <- as.matrix(X)
+
+dat <- BostonHousing
+dat$rm <- BostonHousing$rm - mean(BostonHousing$rm )
+
+solve(t(X)%*%X)%*%t(X)%*%Y
+
+####################################
+
+################### slide 15
+################################# R is consistent in terms of model usage
+################################# Now I only change my outcome from continuous outcome medv 
+################################# to binary outcome chas and change "lm" to "glm"
+obj2 <- glm(chas ~ rm + crim + zn + tax, data = BostonHousing, family = binomial())
+summary(obj2)
+
+mytable2 <- summary(obj2)$coefficients
+rownames(mytable2) <- c("Intercept","Room number","Crime rate","Residential land","Property tax")
+mytable2[,1:3] <- round(mytable2[,1:3],2)
+mytable2[,4] <- round(mytable2[,4],3)
+mytable2
+
+write.csv(mytable2,"BostonHousingResult_chas.csv")
+#plot(obj2)
+
+##################### an advanced model does not mean fancy lines of code in terms of function usage
+# install.packages("randomForestSRC")
+library("randomForestSRC")
+obj.rf <- rfsrc(medv ~ rm + crim + zn + tax, data = train.dat, importance = TRUE)
+yhat.rf <- predict(obj.rf, newdata = test.dat)$predicted
+
+mean((y-yhat.rf)^2)
+plot(y, yhat.rf)
+abline(0,1)
+plot(obj.rf)
