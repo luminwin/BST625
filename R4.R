@@ -1,12 +1,16 @@
-## https://tidyr.tidyverse.org/news/index.html
-library(tidyverse)
-relig_income
-relig_income %>%
-  pivot_longer(-religion, names_to = "income", values_to = "count")
-## or
-relig_income %>%
-  pivot_longer(!religion, names_to = "income", values_to = "count")
+################### slide 12
+age <- c(10, 12, 25, 50, 55, 80)
+attributes(age)
+attributes(age) <- list(collectDate = "20200101", Collectedby = "Tom Hanks")
+attributes(age) 
+class(age)
 
-fish_encounters
-fish_encounters %>%
-  pivot_wider(names_from = station, values_from = seen)
+x <- data.frame(a = 1:3, pi = pi) # data frame with dimnames
+attributes(x)
+
+rownames(x) <- paste("row", 1:3, sep = ".")
+attributes(x)
+x$pi
+
+x <- list(a = 1:3, pi = pi)
+x$pi
