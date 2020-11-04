@@ -97,7 +97,7 @@ search()
 # Another way to do it dplyr
 ######################
 library(tidyverse)
-dat <- read_csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/score_data.csv")
+dat <- read_csv("~/Dropbox/R book/GitR/BST625/score_data.csv")
 ### this will have missing values
 dat <- dat %>%
   mutate(
@@ -108,4 +108,14 @@ dat <- dat %>%
                 right = FALSE,
                 ordered_result = TRUE),
     pass = ifelse(grade == "F", "Fail", "Pass")
+  )
+### to remove NA
+dat %>% 
+  mutate(Total_Score = rowSums(select(., score1, score2, score3), na.rm = TRUE), #sum(score1, score2, score3, na.rm= TRUE ),
+         Avg_Score = rowMeans(select(.,score1, score2, score3), na.rm = TRUE),
+         grade = cut(Avg_Score, breaks = 10*5:10,
+                     labels = c("F", LETTERS[4:1]), # comment this line to check if you are right
+                     right = FALSE,
+                     ordered_result = TRUE),
+         pass = ifelse(grade == "F", "Fail", "Pass")
   )
