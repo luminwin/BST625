@@ -36,10 +36,35 @@ library(tidyverse)
 ######################## slide 10
 dat <- read.csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/score_data999.csv")
 dat[dat == 999] <- NA
+write_csv(x = dat, path = "score_data.csv")
+write.csv(dat, file = "score_data.csv", row.names = FALSE)
+
+install.packages("xlsx")
+library("xlsx")
+# Write the first data set in a new workbook
+write.xlsx(dat, file = "myworkbook.xlsx",
+           sheetName = "SCOREDATA", append = FALSE)
+# Add a second data set in a new worksheet
+write.xlsx(mtcars, file = "myworkbook.xlsx", 
+           sheetName="MTCARS", append=TRUE)
+
 
 data_long <- gather(dat, key = time, value = score, score1:score3, factor_key=TRUE)
 data_wide <- spread(data_long, key = time, value = score)
 
+
+## https://tidyr.tidyverse.org/news/index.html
+library(tidyverse)
+relig_income
+relig_income %>%
+  pivot_longer(-religion, names_to = "income", values_to = "count")
+## or
+relig_income %>%
+  pivot_longer(!religion, names_to = "income", values_to = "count")
+
+fish_encounters
+fish_encounters %>%
+  pivot_wider(names_from = station, values_from = seen)
 ################################
 # merge two datasets
 ################################
@@ -74,6 +99,7 @@ sapply(paste('package:',names(sessionInfo()$otherPkgs),sep=""),
 dat <- read.csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/score_data999.csv")
 dat[dat == 999] <- NA
 
+dat <- as.data.frame(dat)
 dat_long <- reshape(dat, idvar = "name", 
                     varying = paste("score", 1:3, sep = ""), 
                     # or you can specify varying = list(2:4) to refer the 2nd to the 4th columns
