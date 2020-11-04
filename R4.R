@@ -19,7 +19,7 @@ res <- binom.test(x = 2, n = 25, conf.level = .95)
 res
 ## Exact Confidence Intervals
 res$conf.int
-
+names(res)
 
 cat( "From", res$parameter, "tosses, we estimated that the probability of tossing heads is",
      res$estimate,"(95% CI",round(res$conf.int[1], 3),"-", round(res$conf.int[2], 3),").",  
@@ -42,3 +42,36 @@ abline(v = res$conf.int[1], col= "blue3")
 abline(v = res$conf.int[2], col= "blue3")
 text(mean(res$conf.int),55,"95% CI", col= "blue3")
 
+################### slide 14
+# install.packages("mlbench")
+library(mlbench)
+data(BostonHousing) ## bring dataset BostonHousing into Global Environment ".GlobalEnv"
+help(BostonHousing)
+summary(BostonHousing)
+head(BostonHousing)
+
+obj <- lm(medv ~ rm + crim + zn + tax, data = BostonHousing)
+summary(obj)
+
+mytable <- summary(obj)$coefficients
+rownames(mytable) <- c("Intercept","Room number","Crime rate","Residential land","Property tax")
+mytable[,1:3] <- round(mytable[,1:3],2)
+mytable[,4] <- round(mytable[,4],3)
+mytable
+
+write.csv(mytable,"BostonHousingResult_medv.csv")
+#plot(obj)
+
+##################### train and test dataset
+trn.id <- 1:400
+tst.id <- 401:nrow(BostonHousing)
+train.dat <- BostonHousing[trn.id, ]
+test.dat <- BostonHousing[tst.id, ]
+##################### fit your model using training data
+obj <- lm(medv ~ rm + crim + zn + tax, data = train.dat)
+
+##################### predict your outcome using test data
+y <- test.dat$medv
+yhat <- predict(obj, newdata = test.dat)
+
+mean((y-yhat)^2)
