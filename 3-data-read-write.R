@@ -1,3 +1,4 @@
+library(tidyverse)
 dat <- read_csv("~/Dropbox/R book/GitR/BST625/score_data.csv", 
            col_types = cols(score1 = col_integer(), 
                             score2 = col_integer(), score3 = col_integer(), 
