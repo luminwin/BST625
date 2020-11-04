@@ -82,7 +82,30 @@ table(dat$grade)
 #################################
 # Another way to repeat the above
 #################################
+dat$Avg_Score
+Avg_Score
 attach(dat)
-# run the above code without dat$ for dat$Avg_Score
+dat$grade <- cut(Avg_Score, breaks = 10*5:10,
+                 labels = c("F", LETTERS[4:1]), # comment this line to check if you are right
+                 right = FALSE,
+                 ordered_result = TRUE)
+table(grade)
 detach(dat)
-
+search()
+#################################
+######################
+# Another way to do it dplyr
+######################
+library(tidyverse)
+dat <- read_csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/score_data.csv")
+### this will have missing values
+dat <- dat %>%
+  mutate(
+    Total_Score = score1 + score2 + score3,
+    Avg_Score = Total_Score/3,
+    grade = cut(Avg_Score, breaks = 10*5:10,
+                labels = c("F", LETTERS[4:1]), # comment this line to check if you are right
+                right = FALSE,
+                ordered_result = TRUE),
+    pass = ifelse(grade == "F", "Fail", "Pass")
+  )
