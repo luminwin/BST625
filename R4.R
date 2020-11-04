@@ -74,4 +74,11 @@ obj <- lm(medv ~ rm + crim + zn + tax, data = train.dat)
 y <- test.dat$medv
 yhat <- predict(obj, newdata = test.dat)
 
-mean((y-yhat)^2)
+mean((y-yhat)^2) # mean squared error
+
+
+
+Y <- BostonHousing[, "medv"]
+X <- cbind(1,BostonHousing[, c("rm", "crim", "zn","tax")])
+Y <- as.matrix(Y)
+X <- as.matrix(X)
