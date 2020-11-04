@@ -69,7 +69,7 @@ rm(temp, x)
 ######################
 # Another way to do it
 ######################
-dat <- read.csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/score_data.csv")
+dat <- read.csv("~/Dropbox/R book/GitR/BST625/score_data.csv")
 dat$Total_Score <- rowSums(dat[,c("score1", "score2", "score3")], na.rm = TRUE)
 dat$Avg_Score <- rowMeans(dat[,c("score1", "score2", "score3")], na.rm = TRUE) 
 ## be careful about the edge!
@@ -78,4 +78,11 @@ dat$grade <- cut(dat$Avg_Score, breaks = 10*5:10,
                  right = FALSE,
                  ordered_result = TRUE)
 table(dat$grade)
+
+#################################
+# Another way to repeat the above
+#################################
+attach(dat)
+# run the above code without dat$ for dat$Avg_Score
+detach(dat)
 
