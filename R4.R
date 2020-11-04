@@ -14,3 +14,31 @@ x$pi
 
 x <- list(a = 1:3, pi = pi)
 x$pi
+################### slide 13
+res <- binom.test(x = 2, n = 25, conf.level = .95)
+res
+## Exact Confidence Intervals
+res$conf.int
+
+
+cat( "From", res$parameter, "tosses, we estimated that the probability of tossing heads is",
+     res$estimate,"(95% CI",round(res$conf.int[1], 3),"-", round(res$conf.int[2], 3),").",  
+     "The confidence interval gives information on a range for the probability of tossing 
+heads that may be useful in hypothesis testing situations. For example, a test of 
+H0: pi = 0.5 vs. Ha : pi!= 0.5 would reject H0 because 0.5 is not within this range.
+If the test was instead H0 : pi = 0.1 vs. Ha : pi != 0.1, there is no evidence to reject
+the null hypothesis. Other ways to perform these tests with a test statistic and a p-value will be discussed in your other classes. (Bilder and Loughin, Analysis of Categorical Data with R, page 11)"
+)
+p <- res$estimate
+y <- c()
+for (i in 1:200){
+  x <- mean(rbinom(n = 25, size = 1, prob = p))
+  y <- c(y,x)
+  Sys.sleep(0.1)
+  plot(table(y), type = "h", xlim = c(0,1), ylim = c(0,60))
+  cat("\r","finish experiment",i)
+}
+abline(v = res$conf.int[1], col= "blue3")
+abline(v = res$conf.int[2], col= "blue3")
+text(mean(res$conf.int),55,"95% CI", col= "blue3")
+
