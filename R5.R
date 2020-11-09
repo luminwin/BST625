@@ -49,7 +49,7 @@ dat <- dat %>%  rowwise() %>%  #rowwise will make sure the sum operation occurs 
 ############################# slide 8
 dat %>% 
   select(score1:score3) %>%
-  summary()
+  summary
 
 ############################# slide 9
 
@@ -58,3 +58,15 @@ dat %>%
   summarise(n(),
             mean(Avg_Score))
 
+############################# slide 10
+
+dat %>% 
+  select(gender) %>% 
+  table()
+
+############################# slide 11
+dat %>% 
+  count(gender)
+
+dat %>% 
+  distinct(grade)
