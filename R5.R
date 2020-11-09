@@ -107,3 +107,17 @@ dat %>%
 dat %>% 
   count(gender, grade, pass) %>%
   spread(grade, n)
+
+############################# slide 18
+normalize <- function(x){ 
+  # step 1: create the nominator 
+  nominator <- x-min(x , na.rm = TRUE) 
+  # step 2: create the denominator 
+  denominator <- max(x , na.rm = TRUE)-min(x , na.rm = TRUE) 
+  # step 3: divide nominator by denominator 
+  normalize <- nominator/denominator 
+  # return the value 
+  return(normalize)
+} 
+
+
