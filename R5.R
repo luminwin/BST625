@@ -121,3 +121,14 @@ normalize <- function(x){
 } 
 
 
+############################# slide 18
+
+dat %>%
+  select(score1:score3) %>%
+  map(normalize)
+
+dat %>%
+  select(score1:score3) %>%
+  map(normalize) %>%
+  as_tibble
+
