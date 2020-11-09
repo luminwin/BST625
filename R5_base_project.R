@@ -47,7 +47,7 @@ all.data <- list(); all.pop <- c()
 Time <- dta.state[dta.state$state == "Washington", "date"]
 idx <- 1:length(Time)
 
-j = 1
+for ( j in 1:N){
 all.data[[j]] <- dta.state[which(dta.state$fips == all.fip[j]),]
 all.pop[j] <- statepop[which(statepop$fips == all.fip[j]),]$pop_2015
 
@@ -55,5 +55,9 @@ all.data[[j]]$daily.cases.prc <- 100*diffx(all.data[[j]]$cases)/all.pop[j]
 all.data[[j]]$daily.deaths.prc <- 100*diffx(all.data[[j]]$deaths)/all.pop[j]
 
 all.data[[j]]$idx <- idx[Time %in% all.data[[j]]$date]
+}
 
+
+idx[1:6]
+idx[1:6][c(2, 5, 40, 8, 90, 11) %in% c(40, 8, 90, 11)]
 head(all.data[[j]])
