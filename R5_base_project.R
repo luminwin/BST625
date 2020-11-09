@@ -13,3 +13,7 @@ dta.FL <- dta.state[dta.state$state == "Florida",]
 diff(dta.FL$cases)
 ## then
 dta.FL$daily.cases <- c(0, diff(dta.FL$cases))
+
+## but I don't want to type in c(0, diff(dta.FL$XXXX)) again and again
+## so I create my own function
+diffx <- function(x) c(0,diff(x))
