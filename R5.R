@@ -17,3 +17,14 @@
 library(tidyverse)
 dat <- read_csv("~/Dropbox/R book/GitR/BST625/score_data999.csv") 
 dat[dat == 999] <- NA
+
+dat %>%  rowwise() %>%  #rowwise will make sure the sum operation occurs on each row
+  mutate(Total_Score = sum(c(score1, score2, score3), na.rm= TRUE ),
+         Avg_Score = mean(c(score1, score2, score3), na.rm= TRUE ),
+         grade = case_when( Avg_Score < 60 ~ "F", 
+                            (60 <= Avg_Score)&(Avg_Score < 70) ~ "D", 
+                            (70 <= Avg_Score)&(Avg_Score < 80) ~ "C", 
+                            (80 <= Avg_Score)&(Avg_Score < 90) ~ "B", 
+                            Avg_Score >= 90 ~ "A" ),
+         pass = ifelse(grade == "F", "Fail", "Pass")
+  )
