@@ -62,7 +62,7 @@ dat %>%
 
 dat %>% 
   select(gender) %>% 
-  table()
+  table
 
 ############################# slide 11
 dat %>% 
@@ -70,3 +70,7 @@ dat %>%
 
 dat %>% 
   distinct(grade)
+
+############################# slide 12
+
+rbind(dat,dat) %>% distinct()
