@@ -46,4 +46,15 @@ dat <- dat %>%  rowwise() %>%  #rowwise will make sure the sum operation occurs 
          pass = ifelse(grade == "F", "Fail", "Pass")
   ) 
 
+############################# slide 8
+dat %>% 
+  select(score1:score3) %>%
+  summary()
+
+############################# slide 9
+
+dat %>% 
+  group_by(gender) %>%
+  summarise(n(),
+            mean(Avg_Score))
 
