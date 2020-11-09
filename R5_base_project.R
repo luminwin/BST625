@@ -6,3 +6,10 @@ tail(dta.state)
 ###############################################
 dta.FL <- dta.state[dta.state$state == "Florida",]
 ########### Now I want to calculate daily cases and deaths
+
+########### Now I want to calculate daily cases and deaths
+
+## I can do something like
+diff(dta.FL$cases)
+## then
+dta.FL$daily.cases <- c(0, diff(dta.FL$cases))
