@@ -27,4 +27,8 @@ dat %>%  rowwise() %>%  #rowwise will make sure the sum operation occurs on each
                             (80 <= Avg_Score)&(Avg_Score < 90) ~ "B", 
                             Avg_Score >= 90 ~ "A" ),
          pass = ifelse(grade == "F", "Fail", "Pass")
-  )
+  ) %>% 
+  select(name, gender, Total_Score, Avg_Score, grade, pass) %>% 
+  filter(gender == "m") %>% 
+  arrange(Avg_Score) %>% 
+  write_csv("Q1.Score_m.csv")
