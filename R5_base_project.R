@@ -44,3 +44,10 @@ for ( j in 1:N){
 }
 
 names(all.data) <- unique(dta.state$state)
+
+plot(x = all.data$Washington$idx,
+     y = all.data$Washington$daily.cases.prc, type = "l")
+lines(x = all.data$Florida$idx,
+      y = all.data$Florida$daily.cases.prc, type = "l", col = "red")
+
+
