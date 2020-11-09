@@ -74,3 +74,15 @@ dat %>%
 ############################# slide 12
 
 rbind(dat,dat) %>% distinct()
+
+############################# slide 13
+
+dat %>%
+  mutate(score1 = replace(score1, is.na(score1),
+                          mean(score1, na.rm = TRUE)))
+
+
+dat %>%
+  drop_na()
+
+
