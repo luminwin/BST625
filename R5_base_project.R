@@ -36,4 +36,9 @@ statepop[52:55,2] <- c("G","NMI","PR","VI")
 statepop[52:55,3] <- c("Guam","Northern Mariana Islands","Puerto Rico","Virgin Islands")
 statepop[52:55,4] <- c(161853,55780,3.473*10^6,107710)
 
-
+##########################
+#  create state level data
+##########################
+all.fip <- unique(dta.state$fips)
+N <- length(all.fip)
+all.data <- list(); all.pop <- c()
