@@ -147,3 +147,23 @@ dat %>%
   map(normalize) %>%
   as_tibble %>%
   rename_with(~gsub("score","score_norm", . ))
+
+
+
+############################# slide 21
+mySummary <- function(x){
+  
+  if (is.character(x)){
+    
+    table(x) %>% 
+      sort(decreasing = TRUE) %>%
+      head()
+    
+  } else {
+    summary(x)
+  }
+  
+}
+############################# slide 22
+map(dat, mySummary) 
+
