@@ -85,4 +85,13 @@ dat %>%
 dat %>%
   drop_na()
 
+############################# slide 14
 
+dat %>% 
+  group_by(gender, grade) %>%
+  summarise(n = n())
+
+dat %>% 
+  group_by(gender, grade) %>%
+  summarise(n = n()) %>%
+  spread(grade, n)
