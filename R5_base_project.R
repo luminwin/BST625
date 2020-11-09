@@ -23,6 +23,13 @@ diffx <- function(x) c(0,diff(x))
 ########################
 # install.packages("usmap")
 library(usmap) ## get state population of US
+head(statepop)
+
+nrow(statepop)
+length(unique(dta.state$fips))
+
+unique(dta.state$state)
+
 statepop$fips <- as.numeric(statepop$fips) ## fips in dta.state is numeric so I want to match that
 statepop[52:55,1] <- c(66,69,72,78)
 statepop[52:55,2] <- c("G","NMI","PR","VI")
