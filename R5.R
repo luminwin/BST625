@@ -95,3 +95,15 @@ dat %>%
   group_by(gender, grade) %>%
   summarise(n = n()) %>%
   spread(grade, n)
+
+############################# slide 15
+dat %>% 
+  count(gender, grade)
+
+dat %>% 
+  count(gender, grade) %>%
+  spread(grade, n)
+
+dat %>% 
+  count(gender, grade, pass) %>%
+  spread(grade, n)
