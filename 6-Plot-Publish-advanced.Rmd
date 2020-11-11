@@ -1,0 +1,60 @@
+---
+title: "Tiny Project for BST 625"
+author: "First Name Last name (XXXX@umiami.edu)"
+date: "11/11/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+## MTcars data
+This dataset contains a subset of the fuel economy data that the EPA makes available on http://fueleconomy.gov. It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car.
+
+The variables are
+
+Variable | Content
+----------|---------
+displ| engine displacement, in litres
+cyl (grid)| number of cylinders
+trans| type of transmission
+drv (grid) | the type of drive train, where f = front-wheel drive, r = rear wheel drive, 4 = 4wd
+cty | city miles per gallon
+hwy | highway miles per gallon
+class | "type" of car
+
+```{r}
+#mfrow(c(1,2))
+library(ggplot2) 
+ggplot(data = mpg) +
+  aes(x = displ, y = cty, colour = class) + 
+  geom_point() +
+  facet_grid(drv ~ cyl) +
+  ggtitle("Plot of mpg data \n using ggplot2") +
+  xlab("Engine displacement, in litres") + ylab("City miles per gallon") +
+  theme(axis.text = element_text(size = 9),
+               axis.title = element_text(size = 14, face = "bold"),
+               plot.title = element_text(size = rel(2)),
+               legend.title = element_text(face = "bold"),
+               panel.background = element_rect(fill = "white", colour = "grey50"))  
+
+```
+
+    
+```{r cars,fig.width = 6,fig.height = 4}
+ggplot(data = mpg) +
+  aes(x = displ, y = hwy) + 
+  geom_point(aes(colour = cyl)) + 
+  # Default smoother is LOESS
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red") +
+  xlab("Engine displacement, in litres") + ylab("highway miles per gallon") +
+  theme(axis.text = element_text(size = 9),
+               axis.title = element_text(size = 14, face = "bold"),
+               plot.title = element_text(size = rel(2)),
+               legend.title = element_text(face = "bold"))  
+```
+
+
+
