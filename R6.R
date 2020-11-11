@@ -7,4 +7,6 @@ ggplot(data = mpg) +
   aes(x = displ, y = hwy) + 
   geom_point(aes(colour = cyl)) + 
   geom_smooth(method = "lm", colour = "red")
-
+  geom_smooth(method = "lm", colour = "red") +
+  ggsave(height = 4, width = 4*1.9,
+         file = "scatterexample.jpg")
