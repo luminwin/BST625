@@ -1,7 +1,7 @@
 ---
 title: "Tiny Project for BST 625"
-author: "Min Lu (m.lu6@umiami.edu)"
-date: "11/10/2020"
+author: "First Name Last name (XXXX@umiami.edu)"
+date: "11/11/2020"
 output: html_document
 ---
 
@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ## MTcars data
 This dataset contains a subset of the fuel economy data that the EPA makes available on http://fueleconomy.gov. It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car.
 
-```{r cars}
+```{r}
 library(ggplot2) 
 ggplot(data = mpg) +
   aes(x = displ, y = cty, colour = class) + 
@@ -24,8 +24,19 @@ ggplot(data = mpg) +
                axis.title = element_text(size = 14, face = "bold"),
                plot.title = element_text(size = rel(2)),
                legend.title = element_text(face = "bold"),
-               panel.background = element_rect(fill = "white", colour = "grey50"))
+               panel.background = element_rect(fill = "white", colour = "grey50"))  
 
 ```
+
+    
+```{r cars}
+ggplot(data = mpg) +
+  aes(x = displ, y = hwy) + 
+  geom_point(aes(colour = cyl)) + 
+  # Default smoother is LOESS
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red")
+```
+
 
 

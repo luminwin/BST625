@@ -1,0 +1,319 @@
+---
+title: 'BST 625: Assignment 3 (R portion, 15 points in total)'
+author: "Your Name"
+date: "Due date 11/23/2020"
+output:
+  word_document: default
+  pdf_document: default
+---
+Use this .Rmd R markdown file to generate a pdf or word document to submit through blackboard
+
+# Our goal is to conduct a case study and you do not have to do the {base} user part at all. If you do the {base} user part, there won't be any extra points earned but I can provide feedback to you if any. 
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, warning = FALSE, message = FALSE)
+library(tidyverse)
+```
+
+
+# Import and reshape data (long to wide)
+```{r}
+dat <- read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+dat
+```
+In laparoscopic gallbladder surgery, carbon dioxide gas is forced into the 
+abdomen to separate the organs and improve visibility and access to the 
+gallbladder.  One side-effect of this is to separate the liver from the 
+diaphragm, where it is usually supported in part by surface tension.  The 
+resulting strain on the tissues attaching the two causes pain that is felt 
+in the shoulder (`referred pain').  This can be more severe than the 
+pain from the (relatively minor) surgical incisions.
+
+A randomised trial explored using suction to drain out the carbon dioxide 
+gas.  Pain in the shoulder, at the incision, and over the abdomen was 
+assessed twice daily for three days by a questionnaire.  There was no sign 
+of any difference in wound or abdominal pain.  You have data on shoulder 
+pain, which has been recoded to a 0-4 scale, where 0 is no pain, and 4 is 
+the most severe category reported.  The goal is to assess the 
+effectiveness of this intervention.
+
+The variables are
+
+Variable | Content
+----------|---------
+id|  a patient identifier
+trt|  1 is control, 2 is post-operative suction (treatment)
+sex| 1 is male, 2 is female
+age| in years
+pain| 0-4 scale
+time| 1 is the first, 6 is the last measurement on each person
+
+
+Now let me reshape the data. Note that both *pivot_wider()* and *spread()* are from *{tidyverse}*: 
+*pivot_wider()* is a new version of *spread()*.
+```{r}
+dat <- dat %>% 
+  pivot_wider(names_from = time, 
+              values_from = pain, 
+              names_prefix = "pain")
+dat
+```
+# Question 1: create a new variable *Avg_Pain* (1 point)
+**Create a new variable Avg_pain in dat as the mean of pain1 to pain6**. The target columns are *pain1* to *pain6*. (Hint: find the functions that you like in "R5_SAS_project 2_3_in_R.ppt". For {tidyverse} user, you can use *mutate* and *rowMeans(select(.,pain1:pain6)*, instead of inputing *pain1, pain2, pain3, pain4, pain5 and pain6* one by one. For {base} user, *rowMeans(dat[,XXXX])* is also used: you can use *paste("pain", 1:6, sep = "")* to replace *c("pain1", "pain2", "pain3", "pain4", "pain5", "pain6")*). DON'T FORGET THE ASSIGNMENT SIGN *<-*.
+```{r}
+## Tell R your command in the next line
+
+
+
+
+```
+
+```{r}
+## If you want to try {base}, tell R your command in the next line
+dat$Avg_Pain <- rowMeans(dat[,paste("pain", 1:6, sep = "")], na.rm = TRUE)
+```
+
+# Question 2: subset your dataset and write out a .csv file (4 points)
+**Create a file, Q1.pain_m.csv (1 point but you don't have to upload this .csv file), where there are 4 variables only --- {id, trt, age, Avg_Pain} (1 point). This file contians male patients only (1 point) and Avg_Pain is sorted from high to low (1 point).** The target columns for column selection are *id, trt, age* and *Avg_pain*  and the target columns for row manipulation are *sex* and *Avg_Pain*. (Hint: find the functions in "R5_SAS_project 2_3_in_R.ppt". For {base} user, you can use *x <- dat[which(dat$sex == 1), c("id", "trt", "age", "Avg_Pain")]* and *write.csv(x[order(x$Avg_Pain, decreasing = TRUE),], file = "Q1.pain_m.csv", row.names = FALSE)*).
+```{r}
+## Tell R your {tidyverse} command in the next line
+
+
+
+
+
+
+```
+
+```{r}
+## If you want to try {base}, tell R your command in the next line
+
+```
+# Question 3: summarize your dataset by group (1 point)
+I wrote the following command in both {tidyverse} and {base} format.
+```{r}
+## Tell R your {tidyverse} command in the next line
+  dat %>% 
+  group_by(sex,trt) %>% 
+  count(pain6) %>%
+  spread(pain6,n) 
+```
+
+```{r}
+## Tell R your {base} command in the next line
+ftable(dat[, c("sex", "trt", "pain6")])
+```
+**What I am inspecting?(0.5 point)** 
+```{r}
+## write down the purpose of the above command
+## ----|
+```
+**Can you modify the above command to inspect treatment and Avg_pain?(0.5 points)** The target columns are *trt* and *Avg_pain* and you have to round *Avg_pain* to integers to create tables. (Hint: for {tidyverse} user, instead of using *group_by(sex,trt)*, you should use *group_by(trt)*; instead of using *count(XXXX)*, you should use *count(round(XXXX))*. For {base} user, I suggest you use *table()* instead of *ftable()* since *ftable()* is more useful for more than 2 columns: here we only summarize two columns so you can use *table(dat$XXXX, round(dat$XXXX))*).
+```{r}
+## Tell R what you want to do in the next line
+
+
+
+
+
+```
+
+
+
+```{r}
+## If you want to try {base}, tell R your command in the next line
+
+
+```
+# Question 4: function usage (1 point)
+Let me fake a categorical variable of bladder type and fake a datset with missing values using {base} and rearange my columns of this new dataset using {tidyverse} for our task later.
+```{r}
+## Min's job
+dat$bladder_type <- sample(c("A", "B", "C"), nrow(dat), replace = TRUE)
+dat_miss <- dat
+dat_miss[c(1,3,5), c("Avg_Pain", "bladder_type")] <- NA
+dat_miss <- dat_miss %>% 
+                  select(sex, age, Avg_Pain, bladder_type, pain1:pain3)
+dat_miss
+```
+Now I create a function that when the missingness occurs in numeric columns, I will impute the mean of corresponding column and when the missingness occurs in categorical columns, I will impute the category that has the largest frequency. Again, learning {base} is very useful for creating your own function.
+```{r}
+## Min's job
+na.imp <- function(x){
+  if (is.numeric(x)){
+  x[is.na(x)] <- mean(x, na.rm = TRUE)
+  } else {
+  tb <- table(x)
+  x[is.na(x)] <-  names(tb)[which.max(tb)[1]] ##  [1] is to choose the first one for ties
+  }
+  x
+}
+```
+
+**Can you use map() and the function above function na.imp() to impute the missingness in all the columns in dat_miss?(1 point)**  Target slide is *R5_Explor_data_analy_Own_func.ppt # 18*.  (Hint: you have use *as_tibble* at the end of your pipeline to convert the returned list from *map()* to tibble. For {base} user, you can use *as.data.frame(lapply(dat_miss, na.imp))*.)
+```{r}
+## Tell R what you want to do in the next line
+
+
+
+
+
+```
+
+
+```{r}
+## If you want to try {base}, tell R your command in the next line
+
+
+```
+
+
+# Question 5: data visulization (7 points)
+## 5.0 data preparation (1 point)
+**Use the solution of HW5 bonus part and create two new columns in dat with grouped age and recoded treatment group** Hint: the target slide is *R5_SAS_project 2_3_in_R.ppt # 6*, where you do not need to put rowwise() since rowwise() for calculating sum in that slide.Your updated *dat* should look like this
+
+
+id | trt | sex | age | pain.1 | pain.2 | pain.3 | pain.4 | pain.5 | pain.6 | age_grp | ct_grp
+---|-----|-----|-----|--------|--------|--------|--------|--------|--------|--------|------
+101 |  1 |  2 | 64   |   0    |  0     | 0      |0      |0      |0|   55-64 |  control
+102 |  1 |  1 | 41   |   2    |  1     | 0      |0      |0      |0|   35-44 |  control
+103 |  1 |  2 | 77   |   2    |  1     | 1      |1      |0      |0|     75+ |  control
+104 |  1 |  2 | 54   |   0    |  0     | 0      |0      |0      |0|   45-54 |  control
+
+
+
+```{r}
+## Tell R your command in the next line
+
+
+
+
+
+
+
+
+
+
+
+```
+
+## 5.1 barplot (1.5 points)
+**Can you generate a barplot that looks like this (check out the word document)?** Hint: the target function is *ggplot(dat) + geom_bar(mapping = aes(x = XXXX)) + labs(x = "XXXX", y="XXXX")* and ususally we put whatever after *+* in the next line to make our command look neat. 
+
+```{r, fig.width = 5,fig.height = 3}
+
+
+
+```
+
+## 5.2 dotplot (1.5 points)
+**Can you generate a dot plot that looks like this (check out the word document)?** Hint: the target function is *ggplot(dat) + geom_count(mapping = aes(x = XXXX, y = XXXX)) + labs(x = "XXXX", y="XXXX")* and ususally we put whatever after *+* in the next line to make our command look neat.  
+```{r, fig.width = 5,fig.height = 3}
+## Tell R your {base} command in the next line
+
+
+
+
+```
+
+## 5.3 mapplot (1.5 points)
+**Can you generate a dot plot that looks like this (check out the word document)?**  
+Hint: the target function is *dat %>% count(XXXX, XXXX) %>% ggplot(mapping = aes(x = XXXX, y = XXXX)) + geom_tile(mapping = aes(fill = n))+ labs(x = "XXXX", y="XXXX")* and ususally we put whatever after *%>%* and *+* in the next line to make our command look neat.
+```{r, fig.width = 5,fig.height = 3}
+## Tell R your {base} command in the next line
+
+
+
+
+```
+
+
+## 5.4 scatterplot (1.5 points)
+I made the following two plots.
+```{r, fig.width=5,fig.height=3}
+## Tell R your {base} command in the next line
+ggplot(dat, aes(x=age, y=Avg_Pain)) +
+    geom_point(shape=1) +    # Use hollow circles
+    geom_smooth(method=lm)   # Add linear regression line 
+                             #  (by default includes 95% confidence region)
+```
+
+```{r, fig.width=5,fig.height=3}
+## Tell R your {base} command in the next line
+ggplot(dat, aes(x=age, y=Avg_Pain)) +
+    geom_point(shape=1) +    # Use hollow circles
+    geom_smooth()            # Add a loess smoothed fit curve with confidence region
+                             #> `geom_smooth()` using method = 'loess'
+```
+
+**What is the difference between the two plots (0.5 point)** 
+
+```{r}
+## write down your answer in the next line after ## ----|
+## ----|
+```
+
+**Can you make some modifications on the above two plots?(1 point)** (Hint: my purpose for this question is only for demonstration since I never explain confidence region at all. Teeny-tiny modification will be enough for this question.)
+```{r}
+## Tell R your commands in the next line
+
+
+```
+# Question 5: pipeline connection (1 point)
+**Can you connect your commands in Question 1, Question 5.0 and Question 5.1 using pipe operator %>%?** 
+```{r}
+## Tell R your commands in the next line
+
+
+
+
+
+
+
+
+
+
+
+```
+# Bonus (2.5 points)
+## Self-learning ability (1 point)
+Share something with me about what you have learned by yourself **beyond** what we have covered so far (1 point)
+```{r}
+## Tell R your command in the next line
+
+## write down the purpose of the above command
+## ----|
+```
+
+## {base} plot (1.5 point)
+I wrote the following command to explore the relationship among gender, treatment and my outcome.
+```{r}
+cols <- rainbow(2, s = 0.5)
+boxplot(Avg_Pain ~ trt + sex, data = dat,
+          at = c(1:2 , 4:5) , col = cols ,
+          xaxs = FALSE)
+```
+
+**Can you modify the above command to make a better plot?(1 point)** 
+
+Hint: you can change the *XXXX* part in the next block and you can go to my *Min_R_Manual.pdf #18-19* to use colors directly such as *cols <- c("chocolate1", "chartreuse4")* --- all these colors are from {base} R and you can also use numbers to make assignment for colors such as  *cols <- 1:2* for a quick plot.
+```{r}
+## Tell R your command in the next line
+cols <- rainbow(2, s = 0.5)
+boxplot(Avg_Pain ~ trt + sex, data = dat,
+          at = c(1:2 , 4:5) , col = cols ,
+          names = c("XXXXA", "XXXXB", "XXXXA", "XXXXB"),
+          xaxs = FALSE,
+        xlab = "XXXXC",
+        ylab = "XXXXD")
+legend("topleft", fill = cols ,
+          legend = c("XXXX1", "XXXX2") , horiz = T, bty = "n")
+```
+
+**What can the argument -- bty = "n" -- above do?(0.5 point)** 
+
+```{r}
+## write down the purpose of the above command
+## ----|
+```
