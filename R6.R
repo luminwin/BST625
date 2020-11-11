@@ -79,3 +79,26 @@ dat %>% mutate(
   ggplot(mapping = aes(x = grade, y = gender)) +
   geom_tile(mapping = aes(fill = n))+
   labs(x = "Grade", y="Female/Male")
+
+########################################### slide # 3 in pipline
+dat %>% mutate(
+  Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
+  Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
+  grade = case_when( 
+    Avg_Score < 60 ~ "F", 
+    (60 <= Avg_Score)&(Avg_Score < 70) ~ "D", 
+    (70 <= Avg_Score)&(Avg_Score < 80) ~ "C", 
+    (80 <= Avg_Score)&(Avg_Score < 90) ~ "B", 
+    Avg_Score >= 90 ~ "A"),
+  pass = case_when(
+    grade == "F"~"Fail", 
+    TRUE ~"Pass")) %>%
+  rename(GRE = score1,
+         GPA_stats_I = score2,
+         GPA_stats_II = score3) %>%
+  ggplot() +
+  aes(x = GRE, y = GPA_stats_II) + 
+  geom_point(aes(colour = GPA_stats_I)) + 
+  # Default smoother is LOESS
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red")
