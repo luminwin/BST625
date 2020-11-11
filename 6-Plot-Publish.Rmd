@@ -27,16 +27,3 @@ ggplot(data = mpg) +
                panel.background = element_rect(fill = "white", colour = "grey50"))  
 
 ```
-
-    
-```{r cars}
-ggplot(data = mpg) +
-  aes(x = displ, y = hwy) + 
-  geom_point(aes(colour = cyl)) + 
-  # Default smoother is LOESS
-  geom_smooth() +
-  geom_smooth(method = "lm", colour = "red")
-```
-
-
-
