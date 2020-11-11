@@ -98,7 +98,7 @@ dat %>% mutate(
          GPA_stats_II = score3) %>%
   ggplot() +
   aes(x = GRE, y = GPA_stats_II) + 
-  geom_point(aes(colour = GPA_stats_I)) + 
+  geom_point(aes(size = GPA_stats_I)) + 
   # Default smoother is LOESS
   geom_smooth() +
   geom_smooth(method = "lm", colour = "red")
