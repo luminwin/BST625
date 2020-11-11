@@ -29,7 +29,7 @@ library(tidyverse) # if you have error you have to run the following first
 # install.packages("tidyverse")
 
 
-################################
+########################################### slide # 3
 
 ?mpg # check the data
 ggplot(data = mpg) +
@@ -42,7 +42,7 @@ ggplot(data = mpg) +
                 file = "scatterexample.jpg")
 
 
-###################################################
+########################################### slide # 4
 load("score_data.RData")
 
 dat %>% mutate(
@@ -62,7 +62,7 @@ dat %>% mutate(
         labs(x = "Grade", y="Count Number")
 
 
-
+########################################### slide # 5
 dat %>% mutate(
   Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
   Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
@@ -79,7 +79,7 @@ dat %>% mutate(
      geom_count(mapping = aes(x = grade, y = gender)) +
         labs(x = "Grade", y="Female/Male")
 
-
+########################################### slide # 6
 dat %>% mutate(
   Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
   Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
@@ -98,7 +98,7 @@ dat %>% mutate(
             labs(x = "Grade", y="Female/Male")
 
 
-
+########################################### slide # 3 in pipline
 dat %>% mutate(
   Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
   Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
@@ -121,7 +121,7 @@ dat %>% mutate(
   geom_smooth() +
   geom_smooth(method = "lm", colour = "red")
 
-
+########################################### slide # 7
 dat %>% mutate(
   Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
   Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
@@ -138,8 +138,7 @@ dat %>% mutate(
         geom_boxplot()           
 
 
-
-################################
+########################################### slide # 8
 ggplot(data = mpg) +
   aes(x = displ, y = cty, colour = class) + 
   geom_point() +
@@ -152,10 +151,7 @@ ggplot(data = mpg) +
         legend.title = element_text(face = "bold"),
         panel.background = element_rect(fill = "white", colour = "grey50"))
 
-
-
-
-
+########################################### slide # 9
 dat %>% mutate(
   Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
   Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
