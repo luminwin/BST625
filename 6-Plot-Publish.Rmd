@@ -1,0 +1,31 @@
+---
+title: "Tiny Project for BST 625"
+author: "Min Lu (m.lu6@umiami.edu)"
+date: "11/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+## MTcars data
+This dataset contains a subset of the fuel economy data that the EPA makes available on http://fueleconomy.gov. It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car.
+
+```{r cars}
+library(ggplot2) 
+ggplot(data = mpg) +
+  aes(x = displ, y = cty, colour = class) + 
+  geom_point() +
+  facet_grid(drv ~ cyl) +
+  ggtitle("Plot of mpg data \n using ggplot2") +
+  xlab("Engine displacement, in litres") + ylab("City miles per gallon") +
+  theme(axis.text = element_text(size = 9),
+               axis.title = element_text(size = 14, face = "bold"),
+               plot.title = element_text(size = rel(2)),
+               legend.title = element_text(face = "bold"),
+               panel.background = element_rect(fill = "white", colour = "grey50"))
+
+```
+
+
