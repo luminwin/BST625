@@ -117,4 +117,21 @@ dat %>% mutate(
     grade == "F"~"Fail", 
     TRUE ~"Pass")) %>%
   ggplot(aes(gender, Avg_Score, fill = factor(major))) +
-  geom_boxplot()     
+  geom_boxplot() 
+
+
+
+########################################### slide # 8
+ggplot(data = mpg) +
+  aes(x = displ, y = cty, colour = class) + 
+  geom_point() +
+  facet_grid(drv ~ cyl) +
+  ggtitle("Plot of mpg data \n using ggplot2") +
+  xlab("Engine displacement, in litres") + ylab("City miles per gallon") +
+  theme(axis.text = element_text(size = 9),
+        axis.title = element_text(size = 14, face = "bold"),
+        plot.title = element_text(size = rel(2)),
+        legend.title = element_text(face = "bold"),
+        panel.background = element_rect(fill = "white", colour = "grey50"))
+
+
