@@ -15,8 +15,7 @@
 ################################################################################
 
 library(shiny)
-#library(DataExplorer)
-library(tidyverse)
+library(ggplot2)
 
 dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 type.plot <- c("Bar chart for age group", "Number of observations in treatment/age group",
