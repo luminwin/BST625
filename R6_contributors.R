@@ -184,3 +184,13 @@ points(airports$lon,
 detach("package:gmodels", unload=TRUE)
 detach("package:fortunes", unload=TRUE)
 detach("package:maps", unload=TRUE)
+
+
+
+###########################################
+# contributor: Antonela Peña {tidyverse}
+###########################################
+
+ggplot(flights[1:20,], aes(x=origin, y=dest)) +
+  geom_line(aes(group=1), colour="#000099") +
+  geom_point(size=3, colour="#CC0000")
