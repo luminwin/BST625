@@ -215,3 +215,21 @@ datw$Avg_pain <- rowMeans(datw[, paste("pain", 1:6, sep = "")])
 
 lmPainw<- lm(Avg_pain ~ sex, data = datw)
 summary(lmPainw)
+
+
+################################################
+# contributor: Victoria Pinilla {add-on package}
+#################################################
+library(lubridate) ## belongs to tidyverse but you have to library it
+# flights <- read_csv("C:/Users/mlu6/Dropbox/R book/R3/flights.csv")
+flights %>%
+  mutate(
+    date = make_date(year, month, day),
+    wday = wday(date, label = TRUE)
+  ) %>%
+  ggplot(aes(y = distance, x = wday)) +
+  geom_boxplot() +
+  labs(x = "Day of Week", y = "Average Distance")
+
+detach("package:lubridate", unload=TRUE)
+
