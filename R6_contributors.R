@@ -89,3 +89,27 @@ datf %>%
   labs(fill="")
 
 detach("package:hrbrthemes", unload=TRUE)
+
+
+##################################################
+# contributor: Jeronimo-Alexander Maradiaga {base}
+##################################################
+getmode <- function(Pain_long) {
+  uniq <- unique(Pain_long)
+  uniq[which.max(tabulate(match(Pain_long, uniq)))]
+}
+result <- getmode(Pain_long)
+print(result)
+
+################################################################
+# contributor: Min Lu {base}
+#  table() is equavelant to tabulate(match(Pain_long, uniq))
+################################################################
+
+getmode <- function(Pain_long) {
+  uniq <- unique(Pain_long)
+  uniq[which.max(table(Pain_long))]
+}
+result <- getmode(Pain_long)
+print(result)
+
