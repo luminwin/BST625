@@ -194,3 +194,24 @@ detach("package:maps", unload=TRUE)
 ggplot(flights[1:20,], aes(x=origin, y=dest)) +
   geom_line(aes(group=1), colour="#000099") +
   geom_point(size=3, colour="#CC0000")
+
+
+###########################################
+# contributor: Armando Bonheur {base}
+###########################################
+
+lmPain <- lm(pain ~ sex, data = dat)
+summary(lmPain)
+## ----| This function creates a linear regression to 
+## analyze the relationship between the pain assessment recorded 
+## by as a result of the sex of the participant. 
+
+#####################################################################
+# contributor: Min Lu {base}
+#  The data is in long format with repeated measures. The observations
+#  are therefore not independent. We should do this
+######################################################################
+datw$Avg_pain <- rowMeans(datw[, paste("pain", 1:6, sep = "")])
+
+lmPainw<- lm(Avg_pain ~ sex, data = datw)
+summary(lmPainw)
