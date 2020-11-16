@@ -113,3 +113,33 @@ getmode <- function(Pain_long) {
 result <- getmode(Pain_long)
 print(result)
 
+
+###########################################
+# contributor: Qinran Liu (HW4) {base}
+###########################################
+table(Pain_long)
+
+#########################################################
+# contributor: Karlon Johnson, Farouq Selkhi (HW4) {base}
+#########################################################
+age <- dat$age
+unique(age) ## unique() is from {base}, which is equivalent 
+## to distinct() from {tidyverse}
+
+############################################
+# contributor: Nathaniel Castor (HW4) {base}
+############################################
+
+head(dat, 20)
+
+###########################################
+# contributor: Lauren Nahodyl (HW4) {base}
+###########################################
+tail(dat, 10)
+
+###########################################
+# contributor: Antonela Peña (HW4) {base}
+###########################################
+range(Pain_long) 
+#The range is 4 since the highest pain level is 4 and 
+# the lowest pain level is 0
