@@ -287,3 +287,38 @@ summary(one.way)
 #########################################################################
 flights[flights$day==24 & flights$month==12,]
 
+
+
+#########################################################################
+# contributor: Qinran Liu {tidyverse}
+#########################################################################
+
+flights %>%
+  count(origin, dest) %>%
+  arrange(desc(n)) %>%
+  head(10)
+
+###  Min's comment: this is very useful pipeline for R Markdown when R Markdown
+###    gives you too long output in your knitted document
+
+#########################################################################
+# contributor: Karlon Johnson {base}
+#########################################################################
+f <- data.frame(x1 = c(8, 9, 2, 1),
+                x2 = c(12, 13, 6, 7),
+                x3 = c(1, 1, 8, 9))
+
+y1 <- c(5, 4, 3, 2)
+
+data.creation <- cbind(f, y1)
+
+## ----|I created a new data frame and a new vector. 
+## I use the cbind function to combine the vector and data frame by column. 
+
+#########################################################################
+# contributor: Lingwei Zhang {base}
+#########################################################################
+
+datw$age <- as.numeric(datw$age) ## coersing non-numeric vector to numeric vector
+qqnorm(datw$age, ylab = "age")
+qqline(datw$age)
