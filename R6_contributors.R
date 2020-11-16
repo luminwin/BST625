@@ -129,8 +129,7 @@ unique(age) ## unique() is from {base}, which is equivalent
 ############################################
 # contributor: Nathaniel Castor (HW4) {base}
 ############################################
-
-head(dat, 20)
+head(dat, 10)
 
 ###########################################
 # contributor: Lauren Nahodyl (HW4) {base}
@@ -141,5 +140,47 @@ tail(dat, 10)
 # contributor: Antonela Peña (HW4) {base}
 ###########################################
 range(Pain_long) 
+min(Pain_long)
+range(Pain_long)[1]
 #The range is 4 since the highest pain level is 4 and 
 # the lowest pain level is 0
+
+
+#############################################
+# contributor: Katy Haller {add-on packages}
+# P.S Katy's example is always impressive!!!
+#############################################
+
+#install.packages("gmodels") 
+library(gmodels)
+sex<-dat$sex
+CrossTable(sex, Pain_long, 
+           digits=3, 
+           prop.r=FALSE, 
+           prop.c=FALSE, 
+           prop.chisq = FALSE)  
+
+##install.packages("fortunes")
+library(fortunes)
+fortune("silly")
+
+#this command tells you a funny quote, joke or fortune.
+# if you want a result with a specific word, you can replace "silly" with 
+# another word or simply leave it empty for a random one.
+
+#install.packages("maps")
+#install.packages("nycflights13")
+library(maps)
+library(nycflights13)
+#making basemap
+map("world", regions = c("usa"), fill = T, 
+    col = "grey8", bg = "grey15", 
+    ylim = c(21.0,50.0), xlim = c(-130.0,-65.0))
+#overlaying airports
+points(airports$lon,
+       airports$lat, 
+       pch=3, cex=0.1, col="chocolate1")
+
+detach("package:gmodels", unload=TRUE)
+detach("package:fortunes", unload=TRUE)
+detach("package:maps", unload=TRUE)
