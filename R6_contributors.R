@@ -24,3 +24,17 @@ fish_encounters %>%
               values_from = seen)
 
 
+############ Practice on shoulder data
+datw <- dat %>% 
+  pivot_wider(names_from = time, 
+              values_from = pain, 
+              names_prefix = "pain")
+
+
+############ nodupkey in SAS, pretending gear is id
+mtcars %>%
+  group_by(gear) %>% 
+  slice(1)  
+
+
+
