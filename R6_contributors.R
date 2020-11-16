@@ -1,9 +1,9 @@
-install.packages("hrbrthemes") 
-install.packages("gmodels") 
-install.packages("fortunes")
-install.packages("maps")
-install.packages("nycflights13")
-install.packages("lubridate")
+#install.packages("hrbrthemes") 
+#install.packages("gmodels") 
+#install.packages("fortunes")
+#install.packages("maps")
+#install.packages("nycflights13")
+#install.packages("lubridate")
 
 
 library(nycflights13)
@@ -38,3 +38,27 @@ mtcars %>%
 
 
 
+###################################################################	
+### 
+### BST 625 Contributors' work
+###
+###################################################################
+
+##########################################################################
+# contributor: Victoria Pinilla, Chigozie Nnoruka, Brittney Peterkin {base}
+###########################################################################
+Pain_long <- dat$pain
+
+hist(Pain_long)
+barplot(Pain_long)
+
+#####################################
+# contributor: Min Lu
+#  hist() is for continuous var
+#  barplot() is for categorical var
+#  we can have this
+#####################################
+
+barplot(table(Pain_long),
+        xlab = "Pain level",
+        ylab = "Frequency")
