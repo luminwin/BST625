@@ -268,3 +268,22 @@ rnorm(n=100, mean=15, sd=2)
 one.way <- aov(dep_delay ~ arr_time, data = flights)
 summary(one.way)
 
+#########################################################################
+# contributor: Zeyu Li {tidyverse}
+#########################################################################
+## From HW5 I have learned that some of the commands' order matter. For question 5,
+## if I move "select" command before mutate command (create a new indicator) 
+## I will recieve an error message even the mutate command is next line.
+
+#########################################################################
+# contributor: Tashimaimaiti Teliman {tidyverse}
+#########################################################################
+
+## ----| R markdown is good and interesting,
+## and export Rmarkdown as word document is better than PDF file. 
+
+#########################################################################
+# contributor: Abir Abu Subeh {base}
+#########################################################################
+flights[flights$day==24 & flights$month==12,]
+
