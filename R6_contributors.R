@@ -370,3 +370,40 @@ ggplot(data=dat_cumsum,
   labs(x ="Age Group", y ="Average Pain", fill= "Group") + 
   theme_minimal()
 
+#########################################################################
+# contributor: Akina Natori {base}
+#########################################################################
+var.test(age~sex, dat)
+## 
+##  F test to compare two variances
+## 
+## data:  age by sex
+## F = 0.70596, num df = 15, denom df = 24, p-value = 0.4896
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.289633 1.906543
+## sample estimates:
+## ratio of variances 
+##          0.7059599
+males<-dat%>%filter(sex==1)
+females<-dat%>%filter(sex==2)
+shapiro.test(males$age)
+t.test(age~sex, dat)
+
+## ----|Testing null hypothesis H0; The mean of age is not different between 
+## male and female. First, I saw if assamptions are met - check equal variance and normality.
+## As the assamptions are met, I performed two sample T test.
+##############################################################################
+# contributor: Min Lu {base}
+# All you did is correct. A small thing I would like to point it out that
+# when you run any model, you'd better unload {tidyverse} and stay with {base}
+# You can use {conflicted} package or restart your R and
+##############################################################################
+
+########### run {base} 
+males <- dat[dat$sex==1, ]
+females<-dat[dat$sex==2, ]
+
+shapiro.test(males$age)
+t.test(age~sex, dat)
+
