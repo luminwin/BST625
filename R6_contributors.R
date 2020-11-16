@@ -322,3 +322,51 @@ data.creation <- cbind(f, y1)
 datw$age <- as.numeric(datw$age) ## coersing non-numeric vector to numeric vector
 qqnorm(datw$age, ylab = "age")
 qqline(datw$age)
+
+
+#########################################################################
+# contributor: Brian Zhichao She {add-on package}
+#########################################################################
+
+# install.packages("reticulate")
+# library(reticulate)
+# use_condaenv("r-reticulate")
+# 
+# ```{python}
+# import pandas
+# flights = pandas.read_csv("flights.csv")
+## write down the purpose of the above command
+
+## ----|This package can embed Python code in R code and support Python block
+## execution by using mesh engine. For example,we use can use "pandas" for 
+## some data manipulation.
+
+#########################################################################
+# contributor: Wayne DeFreitas {tidyverse}
+#########################################################################
+
+library(plyr) 
+dat <- read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+dat %>% pivot_wider(names_from = time, 
+                    values_from = pain, 
+                    names_prefix = "pain") %>% 
+  mutate( 
+    Avg_Pain = rowMeans(select(.,pain1:pain6)), 
+    age_grp = case_when( age < 25 ~ "<25", 
+                         (25 <= age)&(age<35) ~ "25-34", 
+                         (35 <= age)&(age<45) ~ "35-44", 
+                         (45 <= age)&(age<55) ~ "45-54",
+                         (55 <= age)&(age<65) ~ "55-64", 
+                         (65 <= age)&(age<75) ~ "65-74", TRUE ~ "75+"), 
+    ct_grp = case_when( trt == 1 ~ "Control", 
+                        trt == 2 ~ "Treatment")) -> dat
+
+dat_sorted <- arrange(dat, age_grp, round(Avg_Pain, digits=0)) 
+dat_cumsum <- ddply(dat_sorted, "age_grp", transform, label_ypos=cumsum(round(Avg_Pain, digits=0))) 
+ggplot(data=dat_cumsum, 
+       aes(x=age_grp, y=round(Avg_Pain, digits=0), fill=ct_grp)) + 
+  geom_bar(stat="identity") + 
+  scale_fill_brewer(palette="Paired") + 
+  labs(x ="Age Group", y ="Average Pain", fill= "Group") + 
+  theme_minimal()
+
