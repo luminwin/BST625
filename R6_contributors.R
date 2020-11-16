@@ -251,3 +251,20 @@ ggplot(flights, aes(fill = carrier,
                     x = origin)) + 
   geom_bar(position = "dodge", stat = "identity")
 
+
+#########################################################################
+# contributor: Weiliang Wang {base}
+#########################################################################
+
+rnorm(n=100, mean=15, sd=2)
+
+# random generation from the normal distribution with mean equals to 15 and
+##standard deviation equals to 2.
+
+#########################################################################
+# contributor: Niara Williams {base}
+#########################################################################
+
+one.way <- aov(dep_delay ~ arr_time, data = flights)
+summary(one.way)
+
