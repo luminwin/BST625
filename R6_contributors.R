@@ -233,3 +233,21 @@ flights %>%
 
 detach("package:lubridate", unload=TRUE)
 
+
+###########################################
+# contributor: Akina_Natori {tidyverse}
+###########################################
+
+ggplot(flights, aes(fill=flights$carrier, y=flights$dep_delay, x=flights$origin)) + 
+  geom_bar(position="dodge", stat="identity")
+
+#########################################################################
+# contributor: Min Lu
+#  You can but you don't have to use $ for {tidyverse} command, we can do
+#########################################################################
+
+ggplot(flights, aes(fill = carrier, 
+                    y = dep_delay, 
+                    x = origin)) + 
+  geom_bar(position = "dodge", stat = "identity")
+
