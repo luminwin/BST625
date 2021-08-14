@@ -29,6 +29,7 @@ y <- mean(c("1", "3"))
 
 debugonce(mean)
 mean(c("1", "3"))
+
 ########## R1_Intro.ppt Slides 1 to 6 ## familiar with R studio
 age <- c(10, 12, 25, 50, 55, 80)       # initialize a vector
 systolic <- c(120, 118, 122, 160, 149, 140)
