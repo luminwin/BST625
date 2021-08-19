@@ -12,7 +12,7 @@
 Fast OpenMP parallel computing of Breiman's random forests for univariate, multivariate, unsupervised, survival, competing risks, class imbalanced classification and quantile regression. Extreme random forests and randomized splitting. Suite of imputation methods for missing data. Fast random forests using subsampling. Confidence regions and standard errors for variable importance. New improved holdout importance. Case-specific importance.  Minimal depth variable importance. Visualize trees on your Safari or Google Chrome browser. Anonymous random forests for data privacy. 
 
 <br>
-<a href="https://luminwin.github.io/randomForestSRC/"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  width="220pt" height="140pt" viewBox="0 0 1350 675.000002" version="1.2">
+<a href="https://luminwin.github.io/randomForestSRC/articles/getstarted.html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  width="220pt" height="140pt" viewBox="0 0 1350 675.000002" version="1.2">
 <defs>
 <g>
 <symbol overflow="visible" id="glyph1-0">
