@@ -4,7 +4,6 @@
 #install.packages("maps")
 #install.packages("nycflights13")
 #install.packages("lubridate")
-# Surface computer
 
 
 library(nycflights13)
