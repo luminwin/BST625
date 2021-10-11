@@ -7,13 +7,25 @@
 age <- c(5, 6, 7, 8, 9, 10)          # initialize a vector
 height <- c(103, 108, 112, 122, 129, 140)
 
-
-
 plot(age, height) # make a plot
 
 
 pdf("example.pdf", width = 5, height = 5)
 plot(age, height)
 dev.off()
+
+plot(mtcars$mpg, mtcars$cyl)
+
+search() # display all enviornments in your RAM
+
+ls()  # print all the objects created by you
+
+## windows users should install Rtools at
+## https://cran.rstudio.com/bin/windows/Rtools/
+
+#install.packages("metavcov")  # install a package
+#library("metavcov")           # load a package
+#require("metavcov")           # load a package
+
 
 
