@@ -31,6 +31,9 @@ age <- 5:10
 mean(age) # calculate the average/mean
 mean(x = age, trim = 0.2, na.rm = TRUE) # trimmed mean
 
+help(mean)
+?mean
+
 mean(c(22, 15, 90, 55))
 
 mean(age, 0.2, TRUE)  # the same as mean(x = age, trim = 0.2, na.rm = TRUE)
