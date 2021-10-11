@@ -27,17 +27,29 @@ install.packages("metavcov")  # install a package
 library("metavcov")           # load a package
 require("metavcov")           # load a package
 
-age <- 5:10
+age <- c(5:10, NA)
+
 mean(age) # calculate the average/mean
 mean(x = age, trim = 0.2, na.rm = TRUE) # trimmed mean
 
 help(mean)
 ?mean
 
-mean(c(22, 15, 90, 55))
+mean(c(22, 15, 90, 55)) 
 
 mean(age, 0.2, TRUE)  # the same as mean(x = age, trim = 0.2, na.rm = TRUE)
 mean(age, 0.2)        # the same as mean(x = age, trim = 0.2, na.rm = FALSE)
 
+lgl_var <- c(TRUE, FALSE) # logical
+int_var <- c(1L, 6L, 10L) # integer
+dbl_var <- c(1, 2.5, 4.5) # double
+chr_var <- c("Everyone can be", "contributer for R") # "character"
 
+typeof(lgl_var) 
+
+typeof(int_var) 
+
+typeof(dbl_var) 
+
+typeof(chr_var) 
 
