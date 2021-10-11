@@ -59,4 +59,11 @@ isMale <- c(FALSE, TRUE, FALSE, TRUE)
 
 mylist <- list(names, heightInCM, isMale) ## initialize a list
 mylist
-mylist[[1]]
+mylist[[3]]
+
+myNamedList <- list(Names = names, Height = heightInCM, IsMale = isMale)
+
+myNamedList <- list(Names = c("Min", "Robert", "Mary", "Hemant"), 
+                    Height = c(165, 185, 170, 180), 
+                    IsMale = c(FALSE, TRUE, FALSE, TRUE))
+myNamedList
