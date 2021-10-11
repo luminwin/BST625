@@ -53,3 +53,10 @@ typeof(dbl_var)
 
 typeof(chr_var) 
 
+names <- c("Min", "Robert", "Mary", "Hemant")
+heightInCM <- c(165, 185, 170, 180)
+isMale <- c(FALSE, TRUE, FALSE, TRUE) 
+
+mylist <- list(names, heightInCM, isMale) ## initialize a list
+mylist
+mylist[[1]]
