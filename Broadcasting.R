@@ -78,3 +78,11 @@ str(myNamedList)
 myNamedList$Names
 myNamedList$names  ## case sensitive 
 
+str(mtcars)
+########## R1_Intro.ppt Slide 32 ## Looking at An Object
+age <- c(5, 6, 7, 8, 9, 10)      
+height <- c(103, 108, 112, 122, 129, 140)
+obj <- lm(height~age)
+str(obj)
+
+summary(obj)
