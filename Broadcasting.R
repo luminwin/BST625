@@ -76,5 +76,5 @@ print(myNamedList)
 str(myNamedList)
 
 myNamedList$Names
-myNamedList$names  ## case sensitive
+myNamedList$names  ## case sensitive 
 
