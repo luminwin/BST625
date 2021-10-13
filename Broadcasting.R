@@ -4,3 +4,13 @@
 ################################################################################################################
 
 
+age <- c(11, 22, 15, 50, 30, 71)
+#debugonce(mean) 
+#mean(age)
+
+IfedisMean <- function(x) {
+  x0 <- x[-c(which.min(x), which.max(x))]
+  mean(x0)
+}
+IfedisMean(age)
+mean(age)
