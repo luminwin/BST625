@@ -27,3 +27,15 @@ indices <- 1:10  # integer, colon : generates a sequence in steps of 1 or -1
 x <- rep(0, 5) # repeat 0 5 times
 typeof(age) ## get the type of the vector
 typeof(indices)
+
+
+## convert classes
+age <- as.integer(age)  # as.numeric(), as.character(), as.logical()...
+typeof(age)
+
+## get information
+age # just type in the name to get information
+length(age) ## length of a vector
+is.numeric(age) # is it numeric or not? is.character(), is.na(), is.logical()...
+is.vector(age) # Is it a vector or not?
+summary(age)
