@@ -45,11 +45,20 @@ summary(age)
 age[5]    ## the fifth element
 age[2:7]  ## select multiple elements from the second to the 7th
 age[c(5,2:7)] ## all above
+
 age     ## display the object again
 age[-5] ## remove the fifth element
+age[-c(5,2:7)] 
+
 which.max(age) ## which element is the maximum
+
 age[which.max(age)] ## choose the maximum value
 max(age)            ## the same as above
 age[-which.max(age)] ## remove the maximum value
 mean(age[-which.max(age)]) ## similar to IfedisMean() 
+
+which(age>8) ## which elements are greater than 8?
+age[which(age>8)] ## select elements that are greater than 8
+mean(age[which(age>8)]) ## calculate the mean for elements that are greater than 8
+
 
