@@ -1,0 +1,76 @@
+---
+title: "BST 625: Assignment 4 (R portion, 5 points in total)"
+author: "Your Name, Degree & Major"
+date: "Due date 10/26/2021 11:59pm"
+output:
+  word_document: default
+---
+**You will suffer 10%-point deduction if you turn in your assignment late**
+
+Use this .Rmd R markdown file to generate a word document to submit through blackboard
+
+1.	Open the .Rmd file in your RStudio. When you opening it for the first time, RStudio will remind you to install packages that you need on the top of your file and you should click "Yes", and then your “Knit” button will turn blue. If you missed the chance of clicking “Yes”, you can close RStudio and reopen it again
+
+2.	Instead of clicking “Run”, you will click the “Knit” button to generate a word document in your working directory (how to set up working directory is in our slides “R1_Intro.ppt” page 4 where source file location means the folder where you keep your .Rmd file). There is a pointing down arrow near the “Knit” button where you can choose HTML for curiosity. If you click “Knit” for the first time and have an error, you may have to click “Knit” again
+ 
+3.	Type in R command as instructed, “Knit”, and submit the generated word document through blackboard. If you are approaching the deadline and you are unable to generate your word document, you can type in your answers in this word document and submit it
+
+
+You can find more content of R Markdown in our class slides “R1_RMarkdown.ppt”
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Question 1 (1 point)
+
+First I wrote down 
+
+```{r}
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+```
+
+then there is an object created in my environment. Can you guess what I am doing? (1 point) If your answer is no, you will still get your point since we have not covered this yet.
+
+```{r}
+## write down your answer after "## ---|" in the next line. Provide code as you will
+## ----| 
+```
+# Question 2 (2 points)
+
+Then I wrote
+
+```{r}
+Pain_long <- dat$pain
+```
+
+I can include some R analysis in this document, such as writing "the mean value for pain intensity is `r mean(Pain_long)`".
+What is *Pain_long*? (2 points; hint: the answer is in R1_Intro.ppt, page 23)
+
+```{r echo = TRUE}
+## write down your answer after "## ---| in the next line". Provide code as you will
+## ----|
+```
+# Question 3 (2 points)
+
+Conduct some operation on *Pain_long*. In other words, provide any function using *Pain_long* as an input (1 point). Don't create your own function since we are not there yet. Use some code in 1-intro-vector.R or some functions you can find from the help window or from Google. Hint: a function is in the format of *functionname()*. Describe your operation in English  (1 point).
+
+```{r}
+## Tell R what you want to do in the next line
+
+## write down your answer after "## ---|" in the next line. Provide code as you will
+## ----|
+```
+# Bonus (0.1 point)
+
+Share something with me about what you have learned by yourself **beyond** what we have covered so far. You can write down some English as "I found the R help file is great", or some R code.  
+
+```{r}
+## Tell R your command in the next line
+
+## write down the purpose of the above command
+## ----|
+
+## If you want to share something in English, write down your answer after "## ---|" in the next line.
+## ----|
+```
