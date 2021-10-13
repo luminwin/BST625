@@ -39,3 +39,17 @@ length(age) ## length of a vector
 is.numeric(age) # is it numeric or not? is.character(), is.na(), is.logical()...
 is.vector(age) # Is it a vector or not?
 summary(age)
+
+
+## select elements
+age[5]    ## the fifth element
+age[2:7]  ## select multiple elements from the second to the 7th
+age[c(5,2:7)] ## all above
+age     ## display the object again
+age[-5] ## remove the fifth element
+which.max(age) ## which element is the maximum
+age[which.max(age)] ## choose the maximum value
+max(age)            ## the same as above
+age[-which.max(age)] ## remove the maximum value
+mean(age[-which.max(age)]) ## similar to IfedisMean() 
+
