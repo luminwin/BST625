@@ -59,6 +59,7 @@ mean(age[-which.max(age)]) ## similar to IfedisMean()
 
 which(age>8) ## which elements are greater than 8?
 age[which(age>8)] ## select elements that are greater than 8
-mean(age[which(age>8)]) ## calculate the mean for elements that are greater than 8
+height <- 21:30
+mean(height[which(age>8)]) ## calculate the mean for elements that are greater than 8
 
 
