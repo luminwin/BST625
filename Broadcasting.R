@@ -33,6 +33,12 @@ mdat <- matrix(c(1,2,3, 11,12,13), nrow = 3, ncol = 2,
                dimnames = list(Subject = c("Geometry","Algebra", "Reading"),
                                Edu = c("Elementary", "Graduate")
                )) 
+
+mdat <- matrix(c(1,2,3, 11,12,13), nrow = 3, ncol = 2, 
+               dimnames = list(c("Geometry","Algebra", "Reading"),
+                               c("Elementary", "Graduate")
+               )) 
+
 mdat
 ## attributes() tells you the names and other information within an object
 attributes(mdat) 
