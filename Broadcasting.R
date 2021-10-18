@@ -23,5 +23,18 @@ height <- c(120, 118, 162, 160, 169, 170)
 cbind(age, height) # create a matrix by binding the columns
 rbind(age, height) # create a matrix by binding the rows
 # create a matrix by specifying each element
-mdat <- matrix(c(1,2,3, 11,12,13), nrow = 3, ncol = 2) 
+mdat <- matrix(c(1,2,3, 11,12,13), ncol = 2, nrow = 3) 
+
+mdat <- matrix(c(1,2,3, 11,12,13), 2, 3) 
+
 mdat[2, 1]
+
+mdat <- matrix(c(1,2,3, 11,12,13), nrow = 3, ncol = 2, 
+               dimnames = list(Subject = c("Geometry","Algebra", "Reading"),
+                               Edu = c("Elementary", "Graduate")
+               )) 
+mdat
+## attributes() tells you the names and other information within an object
+attributes(mdat) 
+## str() compactly displays the structure of an arbitrary R object
+str(mdat)
