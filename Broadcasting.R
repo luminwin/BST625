@@ -118,7 +118,12 @@ x - y
 x/y
 x*y
 ######## for single value, it repeats that value for you as a vector with the same length
-y <- 5
+y <- c(1, 5)
+x + y
+yfake <- c(1, 5, 1, 5)
+x + yfake
+
+
 x
 y
 x + y
