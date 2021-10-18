@@ -102,3 +102,33 @@ mtcars$mpg
 mtcars[2:11, 1:5]
 
 tail(mtcars, 10)
+
+
+## input each element one by one
+age <- c(10, 12, 25, 50, 55, 80) # real or decimal 
+sum(age)
+summary(age)
+
+x <- age[1:4]
+
+## operators: R conduct one to one calculation by default
+y <- 1:4
+x + y
+x - y
+x/y
+x*y
+######## for single value, it repeats that value for you as a vector with the same length
+y <- 5
+x
+y
+x + y
+x - y
+x/y
+x*y
+######## you can do something like
+(x/log(y))^2 
+
+dosageWeek1 <- c(2, 8, 9, 13, 25)
+dosageWeek2 <- c(1, 7, 6, 12, 23)
+dosage <- dosageWeek1 + dosageWeek2
+summary(dosage)
