@@ -164,9 +164,14 @@ paste("Scenario", LETTERS[1:14])
 
 ## get information
 zone # just type in the name to get information
-head(zone) ## quick check for the first 6 elements/rows from data
+head(zone,  10)## quick check for the first 6 elements/rows from data
 length(zone) ## length of a vector
 is.numeric(zone) # is it numeric or not? is.character(), is.na(), is.logical()...
 is.character(zone)
 is.vector(zone) # Is it a vector or not?
 typeof(zone)
+
+##111111111  the following functions only applies to a character vector
+toupper(zone) # to upper case
+tolower(Zone) # to lower case
+##111111111  end
