@@ -231,3 +231,19 @@ age <- c(6, 3, 8, 10, NA, NA, NA)
 age[is.na(age)] <- mean(age, na.rm = TRUE)
 
 
+############## factors 
+esoph <- esoph  ## bring the data from the "datasets" package to your environment
+head(esoph) ## show the first 6 rows of your data
+esoph$agegp
+is.factor(esoph$agegp) ## is it a factor?
+
+agegp.cat <- paste(esoph$agegp) ## create character vector
+is.factor(agegp.cat) ## is it a factor?
+agegp.fac <- as.factor(agegp.cat) ## convert a character vector to a factor
+
+levels <- c("25-34", "35-44", "45-54", "55-64", "65-74", "75+")
+levels[c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2)]
+
+table(esoph$agegp) 
+table(agegp.cat)  
+
