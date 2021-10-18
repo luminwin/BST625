@@ -23,7 +23,7 @@ height <- c(120, 118, 162, 160, 169, 170)
 cbind(age, height) # create a matrix by binding the columns
 rbind(age, height) # create a matrix by binding the rows
 # create a matrix by specifying each element
-mdat <- matrix(c(1,2,3, 11,12,13), ncol = 2, nrow = 3) 
+mdat <- matrix(c(1,2,3, 11,12,13), nrow = 3, ncol = 2) 
 
 mdat <- matrix(c(1,2,3, 11,12,13), 2, 3) 
 
@@ -67,3 +67,8 @@ Satisfaction <- array(c(1, 2, 0, 0, 3, 3, 1, 2,
                              JobSatisfaction =
                                c("V_D", "L_S", "M_S", "V_S"),
                              Gender = c("Female", "Male")))
+
+Satisfaction
+attributes(Satisfaction)
+
+Satisfaction[ , , 1] ## only display female
