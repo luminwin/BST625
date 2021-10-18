@@ -137,3 +137,19 @@ dosageWeek1 <- c(2, 8, 9, 13, 25)
 dosageWeek2 <- c(1, 7, 6, 12, 23)
 dosage <- dosageWeek1 + dosageWeek2
 summary(dosage)
+
+
+############# input a character vector
+## input each element one by one
+names <- c("Min", "Robert", "Mary", "Hemant")
+
+## use as. function
+id <- as.character(1:4)
+## use paste function
+id2 <- paste(5:9)
+id <- c(id, id2)
+label1 <- paste("Scenario", 1:4)
+label2 <- paste("Scenario", 1:4, sep = "_")
+label3 <- paste("Scenario", 1:4, collapse = "/") # we call this string
+
+
