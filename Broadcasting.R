@@ -175,3 +175,10 @@ typeof(zone)
 toupper(zone) # to upper case
 tolower(Zone) # to lower case
 ##111111111  end
+
+tolower(paste("Scenario", LETTERS[1:14]))
+
+
+dosage <- c("0-9g/day", "10-19", "20-29", "30+", "0-9g/day", "10-19", "20-29", "30+", "0-9g/day")
+summary(dosage)  # not useful since summary() is for numeric values
+table(dosage) 
