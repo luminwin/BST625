@@ -208,7 +208,26 @@ x <= y
 (x <= y)&(x == y) # & for "and"
 x == y
 
-age <- c(10, 12, 25, 50, 55, 80)
-height <- c(120, 118, 162, 160, 169, 170)
-height[which(age>20)] 
+age <- c(1, 0, 1, 0, 1, 0, 210, 300, 500)
+
+unique(age)
+
+height <- c(120, 118, 162, 160, 169, 170, 100:103)
+
+length(which( age>200  ))
+
+
+height[which( age>20  )] 
+
 height[age>20] ## the same as above
+
+############# logic vectors are useful for manipulating data
+age <- c(6, 3, 8, 10, NA, NA, NA)
+is.na(age)  # ask if each element is missing
+age[!is.na(age)] # delete missing elements
+
+age[is.na(age)] <- 999 ## missing value imputation
+age <- c(6, 3, 8, 10, NA, NA, NA)
+age[is.na(age)] <- mean(age, na.rm = TRUE)
+
+
