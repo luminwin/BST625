@@ -160,6 +160,8 @@ zone <- letters[1:14]
 Month.abb <- month.abb[1:4]
 Month <- month.name[1:4]
 
+paste("Scenario", LETTERS[1:14])
+
 ## get information
 zone # just type in the name to get information
 head(zone) ## quick check for the first 6 elements/rows from data
