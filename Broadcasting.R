@@ -71,6 +71,8 @@ Satisfaction <- array(c(1, 2, 0, 0, 3, 3, 1, 2,
 Satisfaction
 attributes(Satisfaction)
 
+head(Satisfaction)
+
 Satisfaction[ , , 1] ## only display female
 
 ############
@@ -91,5 +93,12 @@ str(myNamedList)
 as.data.frame(myNamedList)
 mtcars
 is.data.frame(mtcars)
-head(mtcars)
+is.matrix(mtcars)
+head(mtcars, 10)
 attributes(mtcars)
+
+mtcars$mpg
+
+mtcars[2:11, 1:5]
+
+tail(mtcars, 10)
