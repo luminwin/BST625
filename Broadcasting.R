@@ -182,3 +182,33 @@ tolower(paste("Scenario", LETTERS[1:14]))
 dosage <- c("0-9g/day", "10-19", "20-29", "30+", "0-9g/day", "10-19", "20-29", "30+", "0-9g/day")
 summary(dosage)  # not useful since summary() is for numeric values
 table(dosage) 
+
+
+############# input a logical vector
+condition <- c(FALSE, TRUE)
+conditionC <- !condition   ## ! for the opposite
+x <- c(0, 1:3, 0, -5, 6)
+condition <- as.logical(x) ## 0 will be FALSE, otherwise it will be true
+
+x == 1 # check if x equals to 1 through comparing each element
+x > 1  # ........... greater than .......... 
+x >= 1 # ........... greater than or equal to ..........
+x <= 1 # ........... less than or equal to .......... 
+x < 1  # ........... less than .......... 
+
+x <- c(6, 3, 8, 10)
+y <- 6:9
+
+x == y # check if x equals to y through comparing each element 
+x < y # ........... is smaller than y ...............
+x <= y # .......... is smaller than or equal to y ...............
+
+(x < y)|(x == y)  # | for "or"
+x <= y
+(x <= y)&(x == y) # & for "and"
+x == y
+
+age <- c(10, 12, 25, 50, 55, 80)
+height <- c(120, 118, 162, 160, 169, 170)
+height[which(age>20)] 
+height[age>20] ## the same as above
