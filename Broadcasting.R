@@ -241,6 +241,12 @@ agegp.cat <- paste(esoph$agegp) ## create character vector
 is.factor(agegp.cat) ## is it a factor?
 agegp.fac <- as.factor(agegp.cat) ## convert a character vector to a factor
 
+x <- c(1,2,2,1,1)
+## Map from 4 different values to only two levels:
+(xf <- factor(x, levels = 1:2,
+              labels = c("Male", "Female")))
+
+
 levels <- c("25-34", "35-44", "45-54", "55-64", "65-74", "75+")
 levels[c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2)]
 
