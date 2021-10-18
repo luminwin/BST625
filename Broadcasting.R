@@ -44,3 +44,26 @@ mdat
 attributes(mdat) 
 ## str() compactly displays the structure of an arbitrary R object
 str(mdat)
+
+mdat[, 1]
+
+############
+# array -- not required in this class
+############
+
+my.array <- array(1:24, dim=c(3,4,2))
+my.array
+attributes(my.array)
+
+Satisfaction <- array(c(1, 2, 0, 0, 3, 3, 1, 2,
+                        11, 17, 8, 4, 2, 3, 5, 2,
+                        1, 0, 0, 0, 1, 3, 0, 1,
+                        2, 5, 7, 9, 1, 1, 3, 6),
+                      dim = c(4, 4, 2),
+                      dimnames =
+                        list(Income =
+                               c("<5000", "5000-15000",
+                                 "15000-25000", ">25000"),
+                             JobSatisfaction =
+                               c("V_D", "L_S", "M_S", "V_S"),
+                             Gender = c("Female", "Male")))
