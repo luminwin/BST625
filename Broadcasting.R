@@ -72,3 +72,24 @@ Satisfaction
 attributes(Satisfaction)
 
 Satisfaction[ , , 1] ## only display female
+
+############
+# list
+############
+
+myNamedList <- list(Names = c("Min", "Robert", "Mary", "Hemant"), 
+                    Height = c(165, 185, 170, 180), 
+                    IsMale = c(FALSE, TRUE, FALSE, TRUE))
+
+myNamedList
+attributes(myNamedList)
+str(myNamedList)
+############
+# data.frame
+############
+
+as.data.frame(myNamedList)
+mtcars
+is.data.frame(mtcars)
+head(mtcars)
+attributes(mtcars)
