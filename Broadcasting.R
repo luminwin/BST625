@@ -149,7 +149,22 @@ id <- as.character(1:4)
 id2 <- paste(5:9)
 id <- c(id, id2)
 label1 <- paste("Scenario", 1:4)
-label2 <- paste("Scenario", 1:4, sep = "_")
+label2 <- paste("Scenario", 1:4, sep = "/")
 label3 <- paste("Scenario", 1:4, collapse = "/") # we call this string
 
+length(label2)
+length(label3)
 
+Zone <- LETTERS[1:14]
+zone <- letters[1:14]
+Month.abb <- month.abb[1:4]
+Month <- month.name[1:4]
+
+## get information
+zone # just type in the name to get information
+head(zone) ## quick check for the first 6 elements/rows from data
+length(zone) ## length of a vector
+is.numeric(zone) # is it numeric or not? is.character(), is.na(), is.logical()...
+is.character(zone)
+is.vector(zone) # Is it a vector or not?
+typeof(zone)
