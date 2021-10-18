@@ -24,4 +24,4 @@ cbind(age, height) # create a matrix by binding the columns
 rbind(age, height) # create a matrix by binding the rows
 # create a matrix by specifying each element
 mdat <- matrix(c(1,2,3, 11,12,13), nrow = 3, ncol = 2) 
-mdat
+mdat[2, 1]
