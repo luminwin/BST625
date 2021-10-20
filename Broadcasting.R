@@ -20,6 +20,9 @@ typeof(Cf$r3)   ## only data.frame can use $
 
 diag(Cf) ## error
 
+as.matrix(Cf)
+as.data.frame(C)
+
 ############ convert characters to dates
 dates <- c("02/27/92", "02/27/92", "01/14/92", "02/28/92")
 typeof(dates)
