@@ -47,3 +47,9 @@ height <- c(120, 118, 162, 160, 179, 190)
 
 plot(age, height)
 plot(height)
+
+obj <- lm(height~age)
+plot(obj)
+methods(plot)
+attributes(obj)
+
