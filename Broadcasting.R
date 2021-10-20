@@ -33,3 +33,10 @@ dates + 1
 dates[1] + 1:10
 summary(dates)
 
+age <- c(5, 6, 7, 8, 9, 10)      
+height <- c(103, 108, 112, 122, 129, 140)
+obj <- lm(height~age)
+attributes(obj)
+obj$coefficients
+summary(obj)
+
