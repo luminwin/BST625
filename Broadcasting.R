@@ -68,9 +68,9 @@ plot(mtcars$mpg ~ mtcars$wt,         # y ~ x
 ## https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/
 
 plot(mtcars$mpg ~ mtcars$cyl,
-  #   xlim = c(0, 6),
-   #  ylim = c(10, 40),
-     main = "Miles per Gallon and Cylinders",
+  #  xlim = c(0, 6),
+  #  ylim = c(10, 40),
+     main = "Miles per Gallon and \n Cylinders",
      xlab = "Cylinders",
      ylab = "Miles/ gallon",
      col = 4,
@@ -84,14 +84,26 @@ data(esoph) ## bring esoph data from environment "package:datasets" to environme
 pie(table(esoph$agegp), main = "Age groups of esophageal Cancer")
 
 
-par(mfrow = c(1, 2)) # display figures as 1 row 2 columns
+par(mfrow = c(2, 1)) # display figures as 1 row 2 columns
 
 ## \n to start a new line for long titles
 pie(table(esoph$agegp), main = "Age groups from Smoking, \n Alcohol and esophageal Cancer")
 
 pie(table(esoph$agegp), 
     col = c("purple", "violetred1", "green3",
-            "cornsilk", "cyan", "white"),
+            "cornsilk", "orange", "white"),
     main = "Age groups of esophageal Cancer")
 
 dev.off() 
+
+
+counts <- table(mtcars$gear)
+barplot(counts, main="Car Distribution by Gears",
+        xlab="Number of Gears", 
+        col=c("darkblue"))
+# Stacked Bar Plot with Colors and Legend
+counts <- table(mtcars$vs, mtcars$gear)
+barplot(counts, main="Car Distribution by Gears and Engine Type",
+        xlab="Number of Gears", 
+        col=c("darkblue","red"),
+        legend = c("V-shaped Engine", "Straight Engine"))
