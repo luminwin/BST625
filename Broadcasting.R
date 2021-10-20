@@ -151,7 +151,7 @@ ggplot(data = mpg) +
 
 
 #install.packages("waffle") 
-
+if("waffle" %in% rownames(installed.packages()) == FALSE) {install.packages("waffle")}
 library("waffle")
 parts <- c(`Un-breached\nUS Population` = (318 - 11 - 79), `Premera` = 11, `Anthem` = 79)
 
