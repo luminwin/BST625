@@ -14,3 +14,13 @@ typeof(r3)
 Cf <- data.frame(r1, r2, r3)
 typeof(Cf$r3)   ## only data.frame can use $
 
+############ convert characters to dates
+dates <- c("02/27/92", "02/27/92", "01/14/92", "02/28/92")
+typeof(dates)
+dates <- as.Date(dates, "%m/%d/%y")
+dates
+typeof(dates)
+dates + 1
+dates[1] + 1:10
+summary(dates)
+
