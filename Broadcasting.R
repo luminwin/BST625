@@ -136,6 +136,10 @@ if("ggplot2" %in% rownames(installed.packages()) == FALSE) {install.packages("gg
 library(ggplot2) # Remember that we have to run the following first
 # install.packages("ggplot2") # or
 # install.packages("tidyverse") 
+
+if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
+library(tidyverse)
+
 ?mpg # check the data
 mpg <- ggplot2::mpg
 ggplot(data = mpg) +    
