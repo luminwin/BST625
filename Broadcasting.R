@@ -70,8 +70,16 @@ plot(mtcars$mpg ~ mtcars$wt,         # y ~ x
 plot(mtcars$mpg ~ mtcars$cyl,
   #   xlim = c(0, 6),
    #  ylim = c(10, 40),
-     main = "Miles per Gallon and Weight",
-     xlab = "Weight (1000 lbs)",
+     main = "Miles per Gallon and Cylinders",
+     xlab = "Cylinders",
      ylab = "Miles/ gallon",
-     col = "chartreuse4",
-     pch = 19)
+     col = 4,
+     pch = 17)
+
+
+# pie chart
+data(esoph) ## bring esoph data from environment "package:datasets" to environment ".GlobalEnv"
+## esoph <- esoph # the same as above
+
+pie(table(esoph$agegp), main = "Age groups of esophageal Cancer")
+
