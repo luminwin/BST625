@@ -150,3 +150,15 @@ ggplot(data = mpg) +
   geom_smooth(method = "lm", colour = "red")
 
 
+#install.packages("waffle") 
+
+library("waffle")
+parts <- c(`Un-breached\nUS Population` = (318 - 11 - 79), `Premera` = 11, `Anthem` = 79)
+
+waffle(
+  parts, rows = 8, size = 1, 
+  colors = c("#969696", "#1879bf", "#009bda"), 
+  legend_pos = "bottom",
+  title = "Health records breaches as fraction of US Population",
+  xlab = "One square == 10m ppl"
+)
