@@ -67,11 +67,11 @@ plot(mtcars$mpg ~ mtcars$wt,         # y ~ x
 ## find colors in the following link
 ## https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/
 
-plot(mtcars$mpg ~ mtcars$wt,
-     xlim = c(0, 6),
-     ylim = c(10, 40),
+plot(mtcars$mpg ~ mtcars$cyl,
+  #   xlim = c(0, 6),
+   #  ylim = c(10, 40),
      main = "Miles per Gallon and Weight",
      xlab = "Weight (1000 lbs)",
      ylab = "Miles/ gallon",
-     col = "red",
+     col = "chartreuse4",
      pch = 19)
