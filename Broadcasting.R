@@ -112,7 +112,7 @@ barplot(counts, main="Car Distribution by Gears and Engine Type",
 mtcars <- mtcars ## bring data from environment "package:datasets" to environment ".GlobalEnv"
 attach(mtcars) ## elevate the data to the top environment to save your typing of $
 head(mtcars)
-#pdf("Scatter.pdf", width = 5, height = 5)
+pdf("Scatter.pdf", width = 6, height = 5)
 plot(wt, mpg, main = "Scatterplot Example",
      xlab = "Car Weight ", 
      ylab = "Miles Per Gallon ", 
@@ -122,8 +122,27 @@ abline(lm(mpg ~ wt), col = "red") # regression line (y~x)
 lines(lowess(wt, mpg), col = "blue") # lowess line (x,y)
 legend("topright", legend = paste("gear =", unique(gear)), 
        col = unique(gear), pch = 19, bty = "n")
+
 legend("right", legend = c("Linear regression", "Lowess"), 
        col = c("red","blue"), lty = 1, bty = "n")
-#dev.off()
+dev.off()
 
 detach(mtcars)
+
+
+
+if("ggplot2" %in% rownames(installed.packages()) == FALSE) {install.packages("ggplot2")}
+
+library(ggplot2) # Remember that we have to run the following first
+# install.packages("ggplot2") # or
+# install.packages("tidyverse") 
+?mpg # check the data
+mpg <- ggplot2::mpg
+ggplot(data = mpg) +    
+  aes(x = displ, y = hwy) +  
+  geom_point(aes(colour = cyl)) + 
+  # Default smoother is LOESS
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red")
+
+
