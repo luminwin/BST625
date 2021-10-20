@@ -55,12 +55,23 @@ attributes(obj)
 
 
 plot(mtcars$mpg ~ mtcars$wt,         # y ~ x
-     xlim = c(0, 6),       # set x axis limits from 0 to 30
-     ylim = c(10, 40),     # set y axis limits from 10 to 40
+  #   xlim = c(0, 6),       # set x axis limits from 0 to 30
+  #   ylim = c(10, 40),     # set y axis limits from 10 to 40
      main = "Miles per Gallon and Weight", # title for this plot
      xlab = "Weight (1000 lbs)",           # label for x axis
      ylab = "Miles/ gallon",               # label for y axis
      col = "red",          # color for the symbols
      pch = 19)    
 
+### Please manipulate these inputs and see the changes in the output figure
+## find colors in the following link
+## https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/
 
+plot(mtcars$mpg ~ mtcars$wt,
+     xlim = c(0, 6),
+     ylim = c(10, 40),
+     main = "Miles per Gallon and Weight",
+     xlab = "Weight (1000 lbs)",
+     ylab = "Miles/ gallon",
+     col = "red",
+     pch = 19)
