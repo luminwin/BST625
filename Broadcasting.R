@@ -125,3 +125,5 @@ legend("topright", legend = paste("gear =", unique(gear)),
 legend("right", legend = c("Linear regression", "Lowess"), 
        col = c("red","blue"), lty = 1, bty = "n")
 #dev.off()
+
+detach(mtcars)
