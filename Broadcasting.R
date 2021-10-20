@@ -155,10 +155,12 @@ if("waffle" %in% rownames(installed.packages()) == FALSE) {install.packages("waf
 library("waffle")
 parts <- c(`Un-breached\nUS Population` = (318 - 11 - 79), `Premera` = 11, `Anthem` = 79)
 
-waffle(
+p <- waffle(
   parts, rows = 8, size = 1, 
   colors = c("#969696", "#1879bf", "#009bda"), 
   legend_pos = "bottom",
   title = "Health records breaches as fraction of US Population",
   xlab = "One square == 10m ppl"
 )
+
+p + theme(legend.text = element_text(size = 12))
