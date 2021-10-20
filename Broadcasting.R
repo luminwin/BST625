@@ -83,3 +83,15 @@ data(esoph) ## bring esoph data from environment "package:datasets" to environme
 
 pie(table(esoph$agegp), main = "Age groups of esophageal Cancer")
 
+
+par(mfrow = c(1, 2)) # display figures as 1 row 2 columns
+
+## \n to start a new line for long titles
+pie(table(esoph$agegp), main = "Age groups from Smoking, \n Alcohol and esophageal Cancer")
+
+pie(table(esoph$agegp), 
+    col = c("purple", "violetred1", "green3",
+            "cornsilk", "cyan", "white"),
+    main = "Age groups of esophageal Cancer")
+
+dev.off() 
