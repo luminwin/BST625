@@ -10,6 +10,8 @@ C <- cbind(r1, r2, r3) ## r3 is coerced into character shown with quotation mark
 
 typeof(C[ , "r3"])
 
+contributors()
+
 typeof(r3)
 
 Cf <- data.frame(r1, r2, r3)
