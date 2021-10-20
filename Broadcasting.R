@@ -38,5 +38,12 @@ height <- c(103, 108, 112, 122, 129, 140)
 obj <- lm(height~age)
 attributes(obj)
 obj$coefficients
+obj$model
 summary(obj)
 
+################### R plot from R {base} packages
+age <- c(10, 12, 25, 50, 55, 80)
+height <- c(120, 118, 162, 160, 179, 190)
+
+plot(age, height)
+plot(height)
