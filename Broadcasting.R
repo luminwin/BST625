@@ -8,7 +8,8 @@ r2 <- c('what', 'a', 'day')
 r3 <- c(1,2,3)
 C <- cbind(r1, r2, r3) ## r3 is coerced into character shown with quotation marks
 
-typeof(C)
+typeof(C[ , "r3"])
+
 typeof(r3)
 
 Cf <- data.frame(r1, r2, r3)
