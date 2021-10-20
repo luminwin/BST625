@@ -8,7 +8,8 @@ r2 <- c('what', 'a', 'day')
 r3 <- c(1,2,3)
 C <- cbind(r1, r2, r3) ## r3 is coerced into character shown with quotation marks
 
-typeof(C[ , "r3"])
+typeof(C[ 1, 2])
+diag(C)
 
 contributors()
 
@@ -16,6 +17,8 @@ typeof(r3)
 
 Cf <- data.frame(r1, r2, r3)
 typeof(Cf$r3)   ## only data.frame can use $
+
+diag(Cf) ## error
 
 ############ convert characters to dates
 dates <- c("02/27/92", "02/27/92", "01/14/92", "02/28/92")
