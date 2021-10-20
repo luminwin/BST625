@@ -3,7 +3,7 @@
 # After the class, this file will be empty. You can find all the R code files for BST 625  in its Blackboard.
 ################################################################################################################
 
-r1 <- c('I', 'am', 'happy')
+r1 <- c('I', 'am', 'happy') 
 r2 <- c('what', 'a', 'day')
 r3 <- c(1,2,3)
 C <- cbind(r1, r2, r3) ## r3 is coerced into character shown with quotation marks
