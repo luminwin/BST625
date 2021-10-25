@@ -123,7 +123,10 @@ table(dat$Heightgrp)
 head(dat)
 ### create a dataset redcording (Cat_Weight_Status,  Cat_Smoking_Status, logSystolic) 
 ###       for patients whose Height > 70
-dat70 <- subset(dat, Height > 70, select = c(Cat_Weight_Status,  Cat_Smoking_Status, logSystolic))
+dat70 <- subset(dat, Height > 70, 
+                select = c(Cat_Weight_Status,  
+                           Cat_Smoking_Status, 
+                           logSystolic))
 head(dat70)
 
 ## the same as above since these three conlumns are consecutive
