@@ -101,3 +101,13 @@ dat <- transform(dat, isMale = factor(Sex,
                                       labels = c(0,1)) )
 
 
+
+x <- cut(dat$Height, breaks = 4)
+table(x)
+## cut can also create a factor
+dat <- transform(dat, Heightgrp = cut(Height, 
+                                      breaks = 4)) ## automatically create 4 groups
+
+dat$Heightgrp
+table(dat$Heightgrp)
+
