@@ -130,7 +130,8 @@ dat70 <- subset(dat, Height > 70,
 head(dat70)
 
 ## the same as above since these three conlumns are consecutive
-dat70 <- subset(dat, Height > 70, select = c(Cat_Weight_Status:logSystolic)) 
+dat70 <- subset(dat, Height > 70, select = c(Height, 
+                                             Cat_Chol_Status:Cat_Smoking_Status)) 
 head(dat70)
 
 ## the same as above
