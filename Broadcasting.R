@@ -75,7 +75,9 @@ head(education)
 hist(dat$Systolic)
 
 ## create a new column/variable called logSystolic
-dat <- transform(dat, logSystolic = log(Systolic))
+dat <- transform(dat, 
+                 logSystolic = log(Systolic),
+                 sqrtSystolic = sqrt(Systolic))
 
 hist(dat$logSystolic)
 
