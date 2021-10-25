@@ -60,10 +60,12 @@ head(education)
 
 ##########################################
 # Can you rename the columns of education as 
-c("ID",
+colnames(education) <- c("ID",
   "State",
   "Region",
   "Urban.Population",
   "Per.Capita.Income",
   "Minor.Population",
   "Education.Expenditures")
+
+head(education)
