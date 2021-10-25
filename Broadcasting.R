@@ -135,5 +135,5 @@ dat70 <- subset(dat, Height > 70, select = c(Height,
 head(dat70)
 
 ## the same as above
-dat70 <- subset(dat, Height > 70, select = Cat_Weight_Status:logSystolic)
-head(dat60)
+dat70 <- subset(dat, Sex == "Female", select = Cat_Weight_Status:logSystolic)
+head(dat70)
