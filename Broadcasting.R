@@ -137,3 +137,6 @@ head(dat70)
 ## the same as above
 dat70 <- subset(dat, Sex == "Female", select = Cat_Weight_Status:logSystolic)
 head(dat70)
+
+datnew <- subset(dat, select = - c(Height, Weight))
+head(datnew)
