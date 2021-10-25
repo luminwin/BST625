@@ -159,3 +159,32 @@ grepl("Weight", colnames(dat)) ## Pattern Matching for a character vector contai
 
 datWeight <- subset(dat, select = grepl("Weight", colnames(dat)))
 head(datWeight)
+
+if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
+library(tidyverse)
+HEART1 <- read.csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/data/HEART.csv")
+HEART2 <- read_csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/data/HEART.csv")
+
+
+myTibble <- tibble(Names = c("Min", "Robert", "Mary", "Hemant"), 
+                   Height = c(165, 185, 170, 180), 
+                   IsMale = c(FALSE, TRUE, FALSE, TRUE))
+myTibble
+
+names <- c("Min", "Robert", "Mary", "Hemant")
+heightInCM <- c(165, 185, 170, 180)
+isMale <- c(FALSE, TRUE, FALSE, TRUE)
+mylist <- list(Name = names, Height = heightInCM, IsMale = isMale)
+
+myTibble <- as_tibble(mylist)
+myTibble
+
+myTibble <- tribble(
+  ~name,    ~gender,   ~runs,
+  "Max",    "male",       10,
+  "Sandra", "female",      1,
+  "Susan",  "female",      4
+)
+myTibble
+######################## slide 21
+glimpse(myTibble) 
