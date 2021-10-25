@@ -6,3 +6,6 @@
 age <- c(11, 22, 15, 50, 30, 71) 
 order(age)
 age[order(age)]
+
+height <- c(140, 160, 156, 170, 180, 175) 
+height[order(age)]              #  display body height after sorting age in an increasing order 
