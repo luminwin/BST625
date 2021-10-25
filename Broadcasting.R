@@ -89,6 +89,8 @@ hist(dat.sortH$systolic)
 
 ######################## slide 15
 ########## transform values
+dat$Sex
+ifelse(dat$Sex == "Male", 1, 0)
 dat <- transform(dat, isMale = ifelse(Sex == "Male", 1, 0))
 
 dat <- transform(dat, isMale = ifelse(Sex == "Male", "Y", "N"))
