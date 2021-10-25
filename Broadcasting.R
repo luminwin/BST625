@@ -20,3 +20,5 @@ dat$Height ## extract column/vector/variable from a data.frame
 ## sort the data with increasing order of height
 dat.sortH <- dat[order(dat$Height), ] 
 head(dat.sortH)
+
+tail(dat.sortH)
