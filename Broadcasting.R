@@ -103,6 +103,8 @@ dat <- transform(dat, isMale = factor(Sex,
 
 
 x <- cut(dat$Height, breaks = 4)
+
+barplot(table(x))
 table(x)
 ## cut can also create a factor
 dat <- transform(dat, Heightgrp = cut(Height, 
@@ -111,3 +113,7 @@ dat <- transform(dat, Heightgrp = cut(Height,
 dat$Heightgrp
 table(dat$Heightgrp)
 
+dat$Heightgrp <- cut(dat$Height, breaks = c(0, 60, 70, 80),
+                     labels = c("59-","60-69","70+"))
+
+table(dat$Heightgrp)
