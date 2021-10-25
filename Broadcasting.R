@@ -22,3 +22,29 @@ dat.sortH <- dat[order(dat$Height), ]
 head(dat.sortH)
 
 tail(dat.sortH)
+
+###################################################
+# {base}
+# column/row name manipulation colnames()/rowname()
+####################################################
+######################## slide 13
+colnames(dat) ## display the column names like attributes()
+
+colnames(dat)[1]
+
+## rename the first column
+colnames(dat)[1] <- "Cat_Status" 
+colnames(dat)[1]
+
+## rename all the other categorical variables (character vectors)
+str(dat)
+colnames(dat)[c(2,14:17)]  <- paste("Cat",c("DeathCause",
+                                            "Chol_Status",
+                                            "BP_Status",
+                                            "Weight_Status",
+                                            "Smoking_Status"), 
+                                    sep = "_")
+
+## rename the column names to lower case
+colnames(dat.sortH) <- tolower(colnames(dat.sortH))
+colnames(dat.sortH)
