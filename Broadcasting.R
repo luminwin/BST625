@@ -140,3 +140,22 @@ head(dat70)
 
 datnew <- subset(dat, select = - c(Height, Weight))
 head(datnew)
+
+
+startsWith(colnames(dat), "Cat_")
+
+datCat <- subset(dat, select = startsWith(colnames(dat), "Cat_"))
+head(datCat)
+
+### create a dataset containing columns whose names end with "_Status"
+
+datStat <- subset(dat, select = endsWith(colnames(dat), "_Status"))
+head(datStat)
+
+
+grepl("Weight", colnames(dat)) ## Pattern Matching for a character vector containing "Weight"
+
+### create a dataset containing columns whose names contain "Weight"
+
+datWeight <- subset(dat, select = grepl("Weight", colnames(dat)))
+head(datWeight)
