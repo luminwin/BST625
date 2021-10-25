@@ -117,3 +117,19 @@ dat$Heightgrp <- cut(dat$Height, breaks = c(0, 60, 65, 70, 80),
                      labels = c("59-","60-64", "65-79","70+"))
 
 table(dat$Heightgrp)
+
+
+######################## slide 16
+head(dat)
+### create a dataset redcording (Cat_Weight_Status,  Cat_Smoking_Status, logSystolic) 
+###       for patients whose Height > 70
+dat70 <- subset(dat, Height > 70, select = c(Cat_Weight_Status,  Cat_Smoking_Status, logSystolic))
+head(dat70)
+
+## the same as above since these three conlumns are consecutive
+dat70 <- subset(dat, Height > 70, select = c(Cat_Weight_Status:logSystolic)) 
+head(dat70)
+
+## the same as above
+dat70 <- subset(dat, Height > 70, select = Cat_Weight_Status:logSystolic)
+head(dat60)
