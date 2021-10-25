@@ -69,3 +69,18 @@ colnames(education) <- c("ID",
   "Education.Expenditures")
 
 head(education)
+
+######################## slide 14
+########## transform values
+hist(dat$Systolic)
+
+## create a new column/variable called logSystolic
+dat <- transform(dat, logSystolic = log(Systolic))
+
+hist(dat$logSystolic)
+
+### we could keep the name as the same
+#### use dat.sortH as an example
+hist(dat.sortH$systolic)
+dat.sortH <- transform(dat.sortH, systolic = log(systolic))
+hist(dat.sortH$systolic)
