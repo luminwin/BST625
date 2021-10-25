@@ -9,3 +9,13 @@ age[order(age)]
 
 height <- c(140, 160, 156, 170, 180, 175) 
 height[order(age)]              #  display body height after sorting age in an increasing order 
+
+dat <- read.csv("https://luminwin.github.io/BST625/HEART.csv")
+head(dat)
+
+dat$Height ## extract column/vector/variable from a data.frame
+
+
+## sort the data with increasing order of height
+dat.sortH <- dat[order(dat$Height), ] 
+head(dat.sortH)
