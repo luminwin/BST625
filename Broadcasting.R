@@ -99,3 +99,5 @@ head(dat)
 dat <- transform(dat, isMale = factor(Sex, 
                                       levels = c("Female", "Male"),
                                       labels = c(0,1)) )
+
+
