@@ -162,8 +162,8 @@ head(datWeight)
 
 if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
 library(tidyverse)
-HEART1 <- read.csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/data/HEART.csv")
-HEART2 <- read_csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/data/HEART.csv")
+HEART1 <- read.csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/data/HEART.csv") ## data.frame
+HEART2 <- read_csv("C:/Users/mlu6/Dropbox/R book/GitR/BST625/data/HEART.csv") ## tibble
 
 
 myTibble <- tibble(Names = c("Min", "Robert", "Mary", "Hemant"), 
@@ -188,3 +188,5 @@ myTibble <- tribble(
 myTibble
 ######################## slide 21
 glimpse(myTibble) 
+
+str(myTibble)
