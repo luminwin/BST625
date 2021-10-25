@@ -114,6 +114,6 @@ dat$Heightgrp
 table(dat$Heightgrp)
 
 dat$Heightgrp <- cut(dat$Height, breaks = c(0, 60, 65, 70, 80),
-                     labels = c("59-","60-64", "65-70","70+"))
+                     labels = c("59-","60-64", "65-79","70+"))
 
 table(dat$Heightgrp)
