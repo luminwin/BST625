@@ -126,7 +126,9 @@ dat %>%
 
 
 dat %>%  
-  mutate(logHeight = log(Height) )  # add a new variable
+  mutate(logHeight = log(Height) ) %>% # add a new variable
+  select(logHeight, everything())
+
 
 dat %>%  
   select(Sex, Height) %>%
