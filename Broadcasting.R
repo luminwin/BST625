@@ -28,7 +28,7 @@ mtcars %>% head(., 3)  ## only display the first three rows
 
 mtcars %>% head(3) ## the same as above where . is not needed since it is the first argument
 
-
+## the pipe operator brings what in its left to what in its right as the first argument/input
 mtcars %>% lm(mpg~cyl, data = .,)
 
 mtcars %>% head %>% rbind(., tail(mtcars))
