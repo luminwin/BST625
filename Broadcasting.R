@@ -183,3 +183,13 @@ dat %>%
   select(Sex)  %>%
   mutate(isMale = case_when(Sex == "Male" ~ 1, 
                             Sex == "Female" ~ 0)) 
+
+##########################################
+#
+#    In-class Exercise
+#
+##########################################
+
+##### select variables Cholesterol and Chol_Status for subjects whose Status is
+## Alive and create a new variable to recode "High" Chol_Status as "off-the-chart"
+## for subjects whose Cholesterol is greater than 290
