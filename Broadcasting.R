@@ -94,3 +94,9 @@ dat %>%
 dat %>%
   select(starts_with("Age"))
 
+withoutweightVars <- dat %>%   
+  select(-c(Weight, Weight_Status))
+
+withoutweightVars <- dat %>%   
+  select(-Weight, -Weight_Status)
+
