@@ -140,3 +140,8 @@ dat %>%
   mutate(logHeight = log(Height) ,
          sqrtHeight = sqrt(Height) )
 
+dat %>%
+  select(Sex, Height)  %>%
+  mutate(logHeight = log(Height)) %>% 
+  mutate(sqrtHeight = sqrt(Height) )
+
