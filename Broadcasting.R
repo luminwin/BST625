@@ -198,3 +198,7 @@ select()
 filter()
 mutate(case_when())
 
+dat %>%
+  filter(Status == "Alive") %>%
+  select(Cholesterol, Chol_Status) %>%
+
