@@ -13,3 +13,6 @@ if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("
 library(tidyverse)
 
 myTibble <- as_tibble(mydata.frame)
+
+
+
