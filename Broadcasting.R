@@ -36,4 +36,4 @@ mtcars %>% lm(mpg~cyl, data = .,)
 
 lm(mpg~cyl, data = mtcars)
 
-mtcars %>% head %>% rbind(., tail(mtcars))
+mtcars %>% head %>% rbind( tail(mtcars))
