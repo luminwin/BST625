@@ -198,7 +198,7 @@ select()
 filter()
 mutate(case_when())
 
-as.factor(dat$Chol_Status)
+unique(dat$Chol_Status)
 
 dat %>%
   filter(Status == "Alive") %>%
