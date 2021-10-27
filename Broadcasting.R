@@ -120,4 +120,7 @@ dat %>%
 dat %>%
   rename(Gender = Sex)  # from sex to gender
 
+dat %>%
+  rename(Gender = Sex,
+         y = Status)  # from sex to gender
 
