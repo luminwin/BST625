@@ -67,8 +67,7 @@ dat %>%
   arrange(AgeAtStart, desc(Height))  # sort by ascending AgeAtStart then descending Height 
 
 
-dat$AgeCHDdiag # age at CHD diagnosis  ## base R
-dat$Sex #  sex of patient      ## base R
+
 
 subset(dat, Status == "Dead", 
             select = c(AgeCHDdiag, Sex))  ## base R
@@ -100,6 +99,8 @@ withoutweightVars <- dat %>%
 withoutweightVars <- dat %>%   
   select(-Weight, -Weight_Status)
 
+dat$AgeCHDdiag # age at CHD diagnosis  ## base R
+dat$Sex #  sex of patient      ## base R
 
 sex <- 1
 
@@ -108,4 +109,4 @@ sex <- 1
 dat %>% select(sex) ## this won't give you error
 
 dat$sex ## this gives you error, so dollar sign $ from Base R is safer
-
+dat[, "sex"]
