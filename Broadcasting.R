@@ -110,3 +110,9 @@ dat %>% select(sex) ## this won't give you error
 
 dat$sex ## this gives you error, so dollar sign $ from Base R is safer
 dat[, "sex"]
+
+dat %>%
+  select(ends_with("_Status"), 
+         starts_with("Age"), 
+         everything()) ## rearrange the column
+
