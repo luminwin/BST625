@@ -75,7 +75,7 @@ subset(dat, Status == "Dead",
 
 dat %>%
   filter(Status == "Dead") %>%
-  select(dat, AgeCHDdiag, Sex)  ## tidyverse
+  select(AgeCHDdiag, Sex)  ## tidyverse
 
 dat %>% select(AgeCHDdiag, Sex)    ## the same as above where . is not needed since it is the first argument
 
