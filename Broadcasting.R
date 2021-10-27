@@ -70,9 +70,12 @@ dat %>%
 dat$AgeCHDdiag # age at CHD diagnosis  ## base R
 dat$Sex #  sex of patient      ## base R
 
-subset(dat, select = c(AgeCHDdiag, Sex))  ## base R
+subset(dat, Status == "Dead", 
+            select = c(AgeCHDdiag, Sex))  ## base R
 
-select(dat, AgeCHDdiag, Sex)  ## tidyverse
+dat %>%
+  filter(Status == "Dead") %>%
+  select(dat, AgeCHDdiag, Sex)  ## tidyverse
 
 dat %>% select(AgeCHDdiag, Sex)    ## the same as above where . is not needed since it is the first argument
 
