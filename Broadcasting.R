@@ -116,3 +116,8 @@ dat %>%
          starts_with("Age"), 
          everything()) ## rearrange the column
 
+######################## slide 38
+dat %>%
+  rename(Gender = Sex)  # from sex to gender
+
+
