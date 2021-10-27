@@ -198,10 +198,13 @@ select()
 filter()
 mutate(case_when())
 
+as.factor(dat$Chol_Status)
+
 dat %>%
   filter(Status == "Alive") %>%
   select(Cholesterol, Chol_Status) %>%
   mutate(NewChol = case_when( 
+    Chol_Status == ""
     Cholesterol > 290 ~ "off-the-chart",
     ))
 
