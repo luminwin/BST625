@@ -82,3 +82,15 @@ dat %>% select(Sex, AgeCHDdiag)
 
 dat %>%
   select(AgeCHDdiag, everything()) 
+
+
+colnames(dat)
+dat %>%
+  select(ends_with("_Status"))
+
+dat %>%
+  select(contains("tolic"))
+
+dat %>%
+  select(starts_with("Age"))
+
