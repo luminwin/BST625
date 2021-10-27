@@ -206,6 +206,7 @@ dat %>%
   mutate(NewChol = case_when( 
     Chol_Status == "Borderline" ~ "Borderline",
     Chol_Status == "Desirable" ~ "Desirable",
-    Cholesterol > 290 ~ "off-the-chart"
+    Cholesterol > 290 ~ "off-the-chart",
+    TRUE ~ "High"
     ))
 
