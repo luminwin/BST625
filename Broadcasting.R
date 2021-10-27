@@ -122,5 +122,19 @@ dat %>%
 
 dat %>%
   rename(Gender = Sex,
-         y = Status)  # from sex to gender
+         Mortality = Status)  # from sex to gender
+
+
+dat %>%  
+  mutate(logHeight = log(Height) )  # add a new variable
+
+dat %>%  
+  select(Sex, Height) %>%
+  mutate(logHeight = log(Height) )  # add a new variable
+
+
+dat %>%
+  select(Sex, Height)  %>%
+  mutate(logHeight = log(Height) ,
+         sqrtHeight = sqrt(Height) )
 
