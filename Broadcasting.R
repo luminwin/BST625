@@ -53,6 +53,17 @@ dat %>%
 dat %>%
   filter(!is.na(AgeCHDdiag)) # people not missing AgeCHDdiag
 
-dat %>%
+datcomplete <- dat %>%
   filter(complete.cases(.)) # complete cases only
+
+
+dat %>%
+  arrange(Height)  # sort by increasing order of Height
+
+dat %>%
+  arrange(desc(Height))  # sort by decreasing order of Height
+
+dat %>%
+  arrange(AgeAtStart, desc(Height))  # sort by ascending AgeAtStart then descending Height 
+
 
