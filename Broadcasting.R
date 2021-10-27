@@ -67,3 +67,12 @@ dat %>%
   arrange(AgeAtStart, desc(Height))  # sort by ascending AgeAtStart then descending Height 
 
 
+dat$AgeCHDdiag # age at CHD diagnosis  ## base R
+dat$Sex #  sex of patient      ## base R
+
+subset(dat, select = c(AgeCHDdiag, Sex))  ## base R
+
+select(dat, AgeCHDdiag, Sex)  ## tidyverse
+
+dat %>% select(AgeCHDdiag, Sex)    ## the same as above where . is not needed since it is the first argument
+
