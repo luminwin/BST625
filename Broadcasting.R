@@ -145,3 +145,17 @@ dat %>%
   mutate(logHeight = log(Height)) %>% 
   mutate(sqrtHeight = sqrt(Height) )
 
+dat %>%
+  select(Height)  %>%
+  mutate(Heightgrp = case_when( Height < 60 ~ "59-", 
+                                (60 <= Height)&(Height < 70) ~ "60-69",
+                                TRUE ~ "70+"))
+
+
+
+
+dat %>%
+  select(Height)  %>%
+  transmute(Heightgrp = case_when( Height < 60 ~ "59-", 
+                                   (60 <= Height)&(Height < 70) ~ "60-69",
+                                   TRUE ~ "70+"))
