@@ -100,3 +100,12 @@ withoutweightVars <- dat %>%
 withoutweightVars <- dat %>%   
   select(-Weight, -Weight_Status)
 
+
+sex <- 1
+
+# the column name is upper case Sex, but you make a mistake
+# R uses the sex object outside of the tibble, so... keep your environment clean
+dat %>% select(sex) ## this won't give you error
+
+dat$sex ## this gives you error, so dollar sign $ from Base R is safer
+
