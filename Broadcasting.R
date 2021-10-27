@@ -15,4 +15,20 @@ library(tidyverse)
 myTibble <- as_tibble(mydata.frame)
 
 
+head(mtcars)
+head(mtcars, 3)
 
+mtcars %>% head(., )
+
+mtcars %>% head()  ## the same as above using %>% with . for the first argument
+
+mtcars %>% head ## the same as above where . is not needed since it is the first argument
+
+mtcars %>% head(., 3)  ## only display the first three rows
+
+mtcars %>% head(3) ## the same as above where . is not needed since it is the first argument
+
+
+mtcars %>% lm(mpg~cyl, data = .,)
+
+mtcars %>% head %>% rbind(., tail(mtcars))
