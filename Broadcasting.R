@@ -36,4 +36,14 @@ mtcars %>% lm(mpg~cyl, data = .,)
 
 lm(mpg~cyl, data = mtcars)
 
-mtcars %>% head %>% rbind( tail(mtcars))
+mtcars %>% head(20) %>% tail(3)
+
+library(tidyverse)
+dat <- read_csv("https://luminwin.github.io/BST625/HEART.csv") ## tibble   (read.csv gives data.frame)
+
+
+
+filter(dat, Status == "Dead") 
+
+dat %>%
+  filter(Status == "Dead")  # the people who died
