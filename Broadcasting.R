@@ -18,7 +18,7 @@ myTibble <- as_tibble(mydata.frame)
 head(mtcars)
 head(mtcars, 3)
 
-mtcars %>% head(., )
+as_tibble(mtcars) %>% head(., )
 
 mtcars %>% head()  ## the same as above using %>% with . for the first argument
 
@@ -47,3 +47,12 @@ filter(dat, Status == "Dead")
 
 dat %>%
   filter(Status == "Dead")  # the people who died
+
+dat %>%
+  filter(is.na(AgeCHDdiag)) # people missing AgeCHDdiag --- coronary heart disease (CHD)
+dat %>%
+  filter(!is.na(AgeCHDdiag)) # people not missing AgeCHDdiag
+
+dat %>%
+  filter(complete.cases(.)) # complete cases only
+
