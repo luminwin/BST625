@@ -159,6 +159,8 @@ dat %>%
   transmute(Heightgrp = case_when( Height < 60 ~ "59-", 
                                    (60 <= Height)&(Height < 70) ~ "60-69",
                                    TRUE ~ "70+"))
+dat %>%
+  transmute(Gender = Sex)
 
 
 dat %>%
@@ -166,3 +168,18 @@ dat %>%
   mutate(isMale = (Sex == "Male") ) %>%
   mutate(isMale = as.numeric(isMale)) %>%  
   mutate(isMale = as.character(isMale))   # convert the number to text 
+
+dat %>%
+  select(Sex)  %>%
+  mutate(isMale = factor(Sex, 
+                         levels = c("Female", "Male"),
+                         labels = c(0,1)) )   # convert the text to factor
+
+dat %>%
+  select(Sex)  %>%
+  mutate(isMale = if_else(Sex == "Male", 1, 0)) 
+
+dat %>%
+  select(Sex)  %>%
+  mutate(isMale = case_when(Sex == "Male" ~ 1, 
+                            Sex == "Female" ~ 0)) 
