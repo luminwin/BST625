@@ -159,3 +159,15 @@ relig_income %>%
 fish_encounters %>%
   pivot_wider(names_from = station, 
               values_from = seen)
+
+score <- read_csv("https://luminwin.github.io/BST625/score_data999.csv")
+
+data_long <-  score %>%
+  pivot_longer(-c(name,gender), 
+               names_to = "observation", 
+               values_to = "score")
+
+
+data_wide <-  data_long %>%
+  pivot_wider( names_from = observation, 
+               values_from = score)
