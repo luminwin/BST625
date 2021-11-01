@@ -106,8 +106,15 @@ dat %>%
 
 dat %>%
   filter(!is.na(Height)) %>%
-  summarise(min(Height),
+  summarize(min(Height),
             mean(Height),
             max(Height),
             sd(Height),
             n())
+
+dat %>%
+  filter(!is.na(Height)) %>%
+  summarise(theMinHeight = min(Height),
+            theMeanHeight = mean(Height),
+            theMaxHeight = max(Height),
+            n = n())
