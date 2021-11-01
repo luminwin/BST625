@@ -21,7 +21,7 @@ unique(mtcars$cyl)
 ############################################
 ######################## slide 9
 
-lm(mpg ~ cyl, data = mtcars)
+summary(lm(mpg ~ cyl + vs, data = mtcars))
 
 aggregate(mpg ~ cyl, data = mtcars, mean)
 aggregate(mpg ~ cyl, data = mtcars, sd)
@@ -30,6 +30,7 @@ aggregate(mpg ~ cyl, data = mtcars, max)
 aggregate(cbind(mpg, disp) ~ cyl, data = mtcars, mean)
 
 aggregate(mpg ~ cyl + vs, data = mtcars, mean)
+table(mtcars$cyl, mtcars$vs)
 
 aggregate(cbind(mpg, disp) ~ cyl + vs, data = mtcars, mean)
 
