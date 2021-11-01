@@ -37,10 +37,21 @@ aggregate(cbind(mpg, disp) ~ cyl + vs, data = mtcars, var)
 dat <- read.csv("https://luminwin.github.io/BST625/score_data999.csv")
 dat[dat == 999] <- NA
 
-dat_long <- reshape(dat, idvar = "name", 
+
+
+dat_long <- reshape(dat,  idvar = "name", 
                     varying = paste("score", 1:3, sep = ""), 
                     # or you can specify varying = list(2:4) to refer the 2nd to the 4th columns
                     v.names = "score", direction = "long")
+
+colnames(dat)[c(2:4)] <- c("scoreHW", "scoreRF", "scor123")
+reshape(dat,  idvar = "name", 
+        varying = c("scoreHW", "scoreRF", "scor123"), 
+        # or you can specify varying = list(2:4) to refer the 2nd to the 4th columns
+        v.names = "score", direction = "long")
+
+
+
 dat_wide <- reshape(dat_long, idvar = "name",
                     v.names = "score", 
                     # sep = "_",  # you can use this to customerize your names
