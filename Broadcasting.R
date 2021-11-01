@@ -186,4 +186,6 @@ billboard %>%
     values_drop_na = TRUE
   )
 ### Task: pivot_wider
+## two new columns: income and rent for "estimate"
+
 us_rent_income 
