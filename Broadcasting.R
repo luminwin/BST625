@@ -164,10 +164,24 @@ score <- read_csv("https://luminwin.github.io/BST625/score_data999.csv")
 
 data_long <-  score %>%
   pivot_longer(-c(name,gender), 
-               names_to = "observation", 
+               names_to = "time", 
+               values_to = "score")
+
+data_long <-  score %>%
+  pivot_longer(score1:score3, 
+               names_to = "time", 
                values_to = "score")
 
 
 data_wide <-  data_long %>%
-  pivot_wider( names_from = observation, 
+  pivot_wider( names_from = time, 
                values_from = score)
+
+billboard %>%
+  pivot_longer(
+    cols = starts_with("wk"),
+    names_to = "week",
+    names_prefix = "wk",
+    values_to = "rank",
+    values_drop_na = TRUE
+  )
