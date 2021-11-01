@@ -185,3 +185,5 @@ billboard %>%
     values_to = "rank",
     values_drop_na = TRUE
   )
+### Task: pivot_wider
+us_rent_income 
