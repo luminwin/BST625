@@ -128,3 +128,25 @@ dat %>%
             theMaxHeight = max(Height),
             n = n())
 
+mytable <- dat %>%
+  filter(!is.na(Height)) %>%
+  group_by(Sex) %>%
+  summarise(theMinHeight = min(Height),
+            theMeanHeight = mean(Height),
+            theMaxHeight = max(Height),
+            n = n())
+mytable
+
+mytable %>%
+  ungroup() %>%
+  summarise(N = sum(n))
+
+
+
+mytable %>%
+  ungroup() %>%
+  summarise(
+    Mean = weighted.mean(theMeanHeight,n),
+    Max = max(theMinHeight),
+    Min = min(theMinHeight),
+    N = sum(n))
