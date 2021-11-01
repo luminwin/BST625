@@ -213,3 +213,23 @@ right_join(a, b, by = "X1")
 inner_join(a, b, by = "X1")
 
 full_join(a, b, by = "X1")
+
+
+dat %>%
+  mutate( DeathCauseC = case_when(  DeathCause == "Cerebral Vascular Disease" ~ "C1",
+                                    DeathCause == "Coronary Heart Disease" ~ "C2",
+                                    DeathCause == "Cancer" ~ "C3",
+                                    DeathCause == "Other" ~ "C4",
+                                    DeathCause == "Unknown" ~ "C5"
+  )) %>%
+  select(DeathCause, DeathCauseC)
+
+dat %>%
+  mutate( DeathCauseC = fct_recode( DeathCause,
+                                    "C1" = "Cerebral Vascular Disease",
+                                    "C2" = "Coronary Heart Disease",
+                                    "C3" = "Cancer",
+                                    "C4" = "Other",
+                                    "C5" = "Unknown"
+  )) %>%
+  select(DeathCause, DeathCauseC)
