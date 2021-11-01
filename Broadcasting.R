@@ -97,3 +97,17 @@ dat %>%
 
 dat %>%
   count(Status, Sex)
+
+
+dat %>%
+  filter(!is.na(Height)) %>%
+  select(Height) %>%
+  summarise
+
+dat %>%
+  filter(!is.na(Height)) %>%
+  summarise(min(Height),
+            mean(Height),
+            max(Height),
+            sd(Height),
+            n())
