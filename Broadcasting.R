@@ -68,7 +68,7 @@ b <- data.frame(X1 = c("A", "B", "D"),
                 X3 = c("T", "F", "T"))
 
 # left_join
-merge(a,b,by = "X1", all.x = TRUE)
+merge(a, b, by = "X1", all.x = TRUE)
 
 # right_join
 merge(a,b,by = "X1", all.y = TRUE)
@@ -79,3 +79,13 @@ merge(a,b,by = "X1")   # the same as  merge(a,b,by = "X1", all.x = FALSE, all.y 
 # full_join
 merge(a,b,by = "X1", all = TRUE)
 
+
+if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
+library(tidyverse)
+
+######################## slide 17
+dat <- read_csv("https://luminwin.github.io/BST625/HEART.csv")
+
+dat %>% distinct(Status)
+
+dat %>% distinct(DeathCause)
