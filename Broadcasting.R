@@ -114,7 +114,17 @@ dat %>%
 
 dat %>%
   filter(!is.na(Height)) %>%
+  summarise(Heightwhatever = min(Height),
+            theMeanHeight = mean(Height),
+            theMaxHeight = max(Height),
+            n = n())
+
+
+dat %>%
+  filter(!is.na(Height)) %>%
+  group_by(Sex) %>%
   summarise(theMinHeight = min(Height),
             theMeanHeight = mean(Height),
             theMaxHeight = max(Height),
             n = n())
+
