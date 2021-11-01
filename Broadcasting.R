@@ -45,17 +45,37 @@ dat_long <- reshape(dat,  idvar = "name",
                     v.names = "score", direction = "long")
 
 colnames(dat)[c(2:4)] <- c("scoreHW", "scoreRF", "scor123")
+
+
 reshape(dat,  idvar = "name", 
         varying = c("scoreHW", "scoreRF", "scor123"), 
         # or you can specify varying = list(2:4) to refer the 2nd to the 4th columns
         v.names = "score", direction = "long")
 
 
-
+paste("score", 1:3, sep = "_")
 dat_wide <- reshape(dat_long, idvar = "name",
                     v.names = "score", 
-                    # sep = "_",  # you can use this to customerize your names
+                    sep = "_",  # you can use this to customerize your names
                     # instead of score.1, you have score_1
                     # you can write sep = "",
                     timevar = "time", direction = "wide")
+
+
+a <- data.frame(X1 = LETTERS[1:3],
+                X2 = 1:3)
+b <- data.frame(X1 = c("A", "B", "D"),
+                X3 = c("T", "F", "T"))
+
+# left_join
+merge(a,b,by = "X1", all.x = TRUE)
+
+# right_join
+merge(a,b,by = "X1", all.y = TRUE)
+
+# inner_join
+merge(a,b,by = "X1")   # the same as  merge(a,b,by = "X1", all.x = FALSE, all.y = FALSE)
+
+# full_join
+merge(a,b,by = "X1", all = TRUE)
 
