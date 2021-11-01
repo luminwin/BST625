@@ -188,4 +188,9 @@ billboard %>%
 ### Task: pivot_wider
 ## two new columns: income and rent for "estimate"
 
-us_rent_income 
+us_rent_income %>%
+  pivot_wider(
+    names_from = variable,
+    names_glue = "{variable}_{.value}",
+    values_from = c(estimate, moe)
+  )
