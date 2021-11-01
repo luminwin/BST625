@@ -90,4 +90,10 @@ dat %>% distinct(Status)
 
 dat %>% select(Status) %>% distinct
 
-dat %>% distinct(DeathCause)
+dat %>% distinct(AgeCHDdiag)
+
+dat %>%
+  count(Status)
+
+dat %>%
+  count(Status, Sex)
