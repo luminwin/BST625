@@ -4,8 +4,25 @@
 ################################################################################################################
 
 head(mtcars)
-summary(mtcars$drat, digits = 4)
+summary(mtcars$drat, digits = 5)
 table(mtcars$cyl)
+table(mtcars$drat)
 table(mtcars$cyl, mtcars$am)
 
+attach(mtcars)
+table(cyl,am)
+detach(mtcars)
+
 unique(mtcars$cyl)
+
+############################################
+# {base}
+# data summary aggregate() 
+############################################
+######################## slide 9
+
+aggregate(mpg ~ cyl, data = mtcars, mean)
+aggregate(mpg ~ cyl, data = mtcars, sd)
+aggregate(mpg ~ cyl, data = mtcars, max)
+
+aggregate(cbind(mpg, disp) ~ cyl, data = mtcars, mean)
