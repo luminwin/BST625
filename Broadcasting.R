@@ -150,3 +150,12 @@ mytable %>%
     Max = max(theMinHeight),
     Min = min(theMinHeight),
     N = sum(n))
+
+relig_income %>%
+  pivot_longer(-religion, 
+               names_to = "income", 
+               values_to = "count")
+
+fish_encounters %>%
+  pivot_wider(names_from = station, 
+              values_from = seen)
