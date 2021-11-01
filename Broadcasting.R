@@ -88,4 +88,6 @@ dat <- read_csv("https://luminwin.github.io/BST625/HEART.csv")
 
 dat %>% distinct(Status)
 
+dat %>% select(Status) %>% distinct
+
 dat %>% distinct(DeathCause)
