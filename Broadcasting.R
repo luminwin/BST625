@@ -32,5 +32,7 @@ aggregate(cbind(mpg, disp) ~ cyl, data = mtcars, mean)
 aggregate(mpg ~ cyl + vs, data = mtcars, mean)
 table(mtcars$cyl, mtcars$vs)
 
-aggregate(cbind(mpg, disp) ~ cyl + vs, data = mtcars, mean)
+aggregate(cbind(mpg, disp) ~ cyl + vs, data = mtcars, var)
+
+
 
