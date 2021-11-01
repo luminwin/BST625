@@ -40,7 +40,7 @@ dat[dat == 999] <- NA
 
 
 dat_long <- reshape(dat,  idvar = "name", 
-                    varying = paste("score", 1:3, sep = ""), 
+                    varying = c("score1", "score2", "score3"), 
                     # or you can specify varying = list(2:4) to refer the 2nd to the 4th columns
                     v.names = "score", direction = "long")
 
