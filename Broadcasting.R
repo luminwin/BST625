@@ -191,6 +191,25 @@ billboard %>%
 us_rent_income %>%
   pivot_wider(
     names_from = variable,
-    names_glue = "{variable}_{.value}",
+   names_glue = "{variable}_{.value}",
     values_from = c(estimate, moe)
   )
+
+################################
+# {tidyverse}
+# merge two datasets
+################################
+######################## slide 25
+a <- tibble(X1 = LETTERS[1:3],
+            X2 = 1:3)
+b <- tibble(X1 = c("A", "B", "D"),
+            X3 = c("T", "F", "T"))
+
+left_join(a, b, by = "X1")
+a %>% left_join(b, by = "X1")
+
+right_join(a, b, by = "X1")
+
+inner_join(a, b, by = "X1")
+
+full_join(a, b, by = "X1")
