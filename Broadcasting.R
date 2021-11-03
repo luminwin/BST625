@@ -154,3 +154,15 @@ yhat <- predict(obj, newdata = test.dat)
 ##################### check your prediction result
 mean((y-yhat)^2) ## we want this number as small as possible
 
+##################### an advanced model does not mean fancy lines of code in terms of function usage
+# install.packages("randomForestSRC")
+if("randomForestSRC" %in% rownames(installed.packages()) == FALSE) {install.packages("randomForestSRC")}
+library("randomForestSRC")
+## https://luminwin.github.io/randomForestSRC/articles/getstarted.html
+obj.rf <- rfsrc(medv ~ rm + crim + zn + tax, data = train.dat)
+yhat.rf <- predict(obj.rf, newdata = test.dat)$predicted
+
+##################### check your prediction result
+mean((y-yhat.rf)^2)  ## we want this number as small as possible
+
+
