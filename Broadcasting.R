@@ -101,3 +101,40 @@ mytable
 
 write.csv(mytable,"BostonHousingResult_medv.csv")
 #plot(obj)
+
+################################# to binary outcome chas and change "lm" to "glm"
+obj2 <- glm(chas ~ rm + crim + zn + tax, data = BostonHousing, family = binomial())
+summary(obj2)
+
+mytable2 <- summary(obj2)$coefficients
+rownames(mytable2) <- c("Intercept","Room number","Crime rate","Residential land","Property tax")
+mytable2[,1:3] <- round(mytable2[,1:3],2)
+mytable2[,4] <- round(mytable2[,4],3)
+mytable2
+
+write.csv(mytable2,"BostonHousingResult_chas.csv")
+#plot(obj2)
+
+################################# Your client/boss wants you to fit a fancy model...
+
+# install.packages("glmnet")
+if("glmnet" %in% rownames(installed.packages()) == FALSE) {install.packages("glmnet")}
+## https://glmnet.stanford.edu/articles/glmnet.html
+
+library(glmnet)
+x_vars <- BostonHousing[, c("rm", "crim", "zn", "tax")]
+x_vars <- as.matrix(x_vars)
+
+y_var <- BostonHousing$medv
+lambda_seq <- 10^seq(2, -2, by = -.1)
+
+cv_output <- cv.glmnet(x_vars, y_var,
+                       alpha = 1, lambda = lambda_seq, 
+                       nfolds = 5)
+# identifying best lamda
+best_lam <- cv_output$lambda.min
+
+lasso_best <- glmnet(x_vars, y_var, alpha = 1, lambda = best_lam)
+coef(lasso_best)
+
+plot(cv_output)
