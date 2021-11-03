@@ -138,3 +138,19 @@ lasso_best <- glmnet(x_vars, y_var, alpha = 1, lambda = best_lam)
 coef(lasso_best)
 
 plot(cv_output)
+
+##################### train and test dataset
+trn.id <- 1:400
+tst.id <- 401:nrow(BostonHousing)
+train.dat <- BostonHousing[trn.id, ]
+test.dat <- BostonHousing[tst.id, ]
+##################### fit your model using training data
+obj <- lm(medv ~ rm + crim + zn + tax, data = train.dat)
+
+##################### predict your outcome using test data
+y <- test.dat$medv
+yhat <- predict(obj, newdata = test.dat)
+
+##################### check your prediction result
+mean((y-yhat)^2) ## we want this number as small as possible
+
