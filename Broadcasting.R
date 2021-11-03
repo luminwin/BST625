@@ -79,3 +79,25 @@ attributes(results)
 results$"Pr(>F)"
 
 results$`Pr(>F)`[2]
+
+
+################### slide 17
+# install.packages("mlbench")
+if("mlbench" %in% rownames(installed.packages()) == FALSE) {install.packages("mlbench")}
+library(mlbench)
+data(BostonHousing) ## bring dataset BostonHousing into Global Environment ".GlobalEnv"
+help(BostonHousing)
+summary(BostonHousing)
+head(BostonHousing)
+
+obj <- lm(medv ~ rm + crim + zn + tax, data = BostonHousing)
+summary(obj)
+
+mytable <- summary(obj)$coefficients
+rownames(mytable) <- c("Intercept","Room number","Crime rate","Residential land","Property tax")
+mytable[,1:3] <- round(mytable[,1:3],2)
+mytable[,4] <- round(mytable[,4],3)
+mytable
+
+write.csv(mytable,"BostonHousingResult_medv.csv")
+#plot(obj)
