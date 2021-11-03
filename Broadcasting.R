@@ -46,3 +46,14 @@ if("glmnet" %in% rownames(installed.packages()) == FALSE) {install.packages("glm
 #install.packages("glmnet")
 
 example(lm)
+
+
+##############################################################
+###           Test and Confidence Intervals               ####
+##############################################################
+################### slide 14
+res <- binom.test(x = 2, n = 25, conf.level = .95)
+res
+attributes(res)
+## Exact Confidence Intervals
+res$conf.int
