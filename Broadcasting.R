@@ -57,3 +57,25 @@ res
 attributes(res)
 ## Exact Confidence Intervals
 res$conf.int
+
+################### slide 15
+
+obj <- lm(mpg ~ cyl + disp + hp + drat, data = mtcars)
+
+obj <- lm(mpg ~ ., data = mtcars[, 1:5]) # the same as above
+
+str(obj)
+attributes(obj)
+
+summary(obj)
+
+methods(summary)
+summary(mtcars)
+
+results <- anova(obj)
+results
+attributes(results)
+
+results$"Pr(>F)"
+
+results$`Pr(>F)`[2]
