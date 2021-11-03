@@ -43,4 +43,6 @@ if("randomForestSRC" %in% rownames(installed.packages()) == FALSE) {install.pack
 
 if("glmnet" %in% rownames(installed.packages()) == FALSE) {install.packages("glmnet")}
 
+#install.packages("glmnet")
+
 example(lm)
