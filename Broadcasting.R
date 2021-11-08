@@ -38,3 +38,11 @@ dat[dat==999] <- NA
 write.csv(dat, file = "score_data.csv")
 
 dat <- read.csv("https://luminwin.github.io/BST625/score_data.txt")
+
+load("C:/Users/mlu6/Dropbox/R book/GitR/BST625/score_data.RData")
+
+save(dat, file = "score_data.RData")
+
+save.image("my20211108.RData")
+
+
