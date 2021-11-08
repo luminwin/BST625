@@ -58,3 +58,6 @@ url <- "https://luminwin.github.io/BST625/score_data.xlsx"
 destfile <- "score_data.xlsx"
 curl::curl_download(url, destfile)
 dat <- read_excel(destfile)
+
+## dat <- read_excel("https://luminwin.github.io/BST625/score_data.xlsx") ## does not work
+
