@@ -143,10 +143,10 @@ table(dat$grade)
 x <- subset(dat, gender == "m",
             select = c("name", "gender", "Total_Score", "Avg_Score", "grade", "pass"))
 
-write.csv(x[order(x$Avg_Score), ], file = "Q1.Score_m.csv")
+write.csv(x[order(x$Avg_Score), ], file = "Q1.Score_m.csv", row.names = FALSE)
 
 x <- subset(dat, gender == "f",
             select = c("name", "gender", "Total_Score", "Avg_Score", "grade", "pass"))
 
 x <- x[order(x$Avg_Score, decreasing = TRUE), ]
-write.csv(x, file = "Q1.Score_f.csv")
+write.csv(x, file = "Q1.Score_f.csv", row.names = FALSE)
