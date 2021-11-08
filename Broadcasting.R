@@ -102,4 +102,46 @@ unique(dat)
 
 rowSums(dat[, c("score1", "score2", "score3")], na.rm = TRUE)
 
-rowSums(dat[, 2:4])
+rowSums(dat[, 2:4], na.rm = TRUE)
+
+table(dat$score1, dat$gender)
+
+dat <- read.csv("https://luminwin.github.io/BST625/score_data.csv")
+
+dat <- transform(dat,
+                 Total_Score = rowSums(dat[, paste("score", 1:3, sep = "")], na.rm = TRUE),
+                 Avg_Score = rowMeans(dat[, paste("score", 1:3, sep = "")], na.rm = TRUE))
+
+
+cut(dat$Avg_Score, breaks = c(0, 60, 70, 80, 90, 100) ) ## not correct for the edge
+cut(dat$Avg_Score, breaks = c(0, 60, 70, 80, 90, 100) , right = FALSE) ## correct
+
+cut(dat$Avg_Score, breaks = c(0, 60, 70, 80, 90, 100) , right = FALSE,
+    labels = c("F", "D", "C", "B", "A"))  
+
+dat <- transform(dat,
+                 grade = cut(Avg_Score, breaks = 10*5:10,
+                             labels = c("F", LETTERS[4:1]), # comment this line to check if you are right
+                             right = FALSE,
+                             ordered_result = TRUE))
+dat$pass <- ifelse(dat$grade == "F", "Fail", "Pass")
+
+## be careful about the edge!
+range(dat$Avg_Score)
+cut(dat$Avg_Score, breaks = 10*5:10,
+    labels = c("F", LETTERS[4:1]), # comment this line to check if you are right
+    right = FALSE,
+    ordered_result = TRUE)
+
+table(dat$grade)
+
+x <- subset(dat, gender == "m",
+            select = c("name", "gender", "Total_Score", "Avg_Score", "grade", "pass"))
+
+write.csv(x[order(x$Avg_Score), ], file = "Q1.Score_m.csv")
+
+x <- subset(dat, gender == "f",
+            select = c("name", "gender", "Total_Score", "Avg_Score", "grade", "pass"))
+
+x <- x[order(x$Avg_Score, decreasing = TRUE), ]
+write.csv(x, file = "Q1.Score_f.csv")
