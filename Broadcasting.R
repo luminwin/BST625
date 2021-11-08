@@ -151,9 +151,9 @@ x <- subset(dat, gender == "f",
 x <- x[order(x$Avg_Score, decreasing = TRUE), ]
 write.csv(x, file = "Q1.Score_f.csv", row.names = FALSE)
 
-dat[1:3,] <- dat[1,]
+#dat[1:3,] <- dat[1,]
 
-unique(dat)
+#unique(dat)
 
 table(dat$grade, dat$gender)
 
