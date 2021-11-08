@@ -64,3 +64,7 @@ dat <- read_excel(destfile)
 search()
 
 rm(score_data, score_data999)
+
+X <- mtcars[1:5, c("mpg", "cyl", "disp")]
+
+t(X)
