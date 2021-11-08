@@ -217,3 +217,7 @@ dat %>%
 
 dat %>% 
   distinct(grade)
+
+############################# slide 12
+
+rbind(dat,dat) %>% distinct()
