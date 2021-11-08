@@ -113,7 +113,11 @@ dat <- transform(dat,
 
 dat$Total_Score <- rowSums(dat[, paste("score", 1:3, sep = "")], na.rm = TRUE)
 
-
+##  (grade)         grade A: Avg_Score >= 90
+##                        B: Avg_Score [80, 90)
+##                        C: Avg_Score [70, 80)
+##                        D: Avg_Score [60, 70)
+##                        F: Avg_Score [0, 60)
 cut(dat$Avg_Score, breaks = c(0, 60, 70, 80, 90, 100) ) ## not correct for the edge
 cut(dat$Avg_Score, breaks = c(0, 60, 70, 80, 90, 100) , right = FALSE) ## correct
 
