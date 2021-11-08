@@ -61,3 +61,6 @@ dat <- read_excel(destfile)
 
 ## dat <- read_excel("https://luminwin.github.io/BST625/score_data.xlsx") ## does not work
 
+search()
+
+rm(score_data, score_data999)
