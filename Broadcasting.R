@@ -220,4 +220,26 @@ dat %>%
 
 ############################# slide 12
 
-rbind(dat,dat) %>% distinct()
+rbind(dat,dat) %>% distinct
+
+############################# slide 13
+
+dat %>%
+  mutate(score1 = replace(score1, is.na(score1),
+                          mean(score1, na.rm = TRUE))) ## replace is from {base}
+
+dat$score1 %>%
+  replace_na(999) ## replace_na is from {tidyverse}
+
+# dat$score1 %>%
+#   replace_na(mean(score1, na.rm = TRUE)) ## not working, have to use replace() from {base}
+
+dat %>% 
+  replace_na(list(score1 = 999,
+                  score2 = 9999)) ## convenient for
+
+
+dat %>%
+  drop_na()
+
+na.omit(dat) ## na.omit is from {base}
