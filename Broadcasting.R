@@ -32,3 +32,9 @@ dat <- read.csv("score_data.txt")
 dat <- read.csv("https://luminwin.github.io/BST625/HEART.csv")
 
 dat <- read.csv("https://luminwin.github.io/BST625/score_data999.csv")
+
+dat[dat==999] <- NA
+
+write.csv(dat, file = "score_data.csv")
+
+dat <- read.csv("https://luminwin.github.io/BST625/score_data.txt")
