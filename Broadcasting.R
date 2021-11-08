@@ -181,3 +181,28 @@ dat %>%  rowwise() %>%  #rowwise will make sure the sum operation occurs on each
   filter(gender == "m") %>% 
   arrange(Avg_Score) %>% 
   write_csv("Q1.Score_m.csv")
+
+############################# slide 8
+dat %>% 
+  select(score1:score3) %>%
+  summary()
+
+############################# slide 9
+
+dat %>% 
+  group_by(gender) %>%
+  summarise(n(),
+            mean(Avg_Score))
+
+############################# slide 10
+
+dat %>% 
+  select(gender) %>% 
+  table()
+
+############################# slide 11
+dat %>% 
+  count(gender)
+
+dat %>% 
+  distinct(grade)
