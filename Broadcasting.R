@@ -52,7 +52,8 @@ write_csv(dat, file = "score_data.csv")
 
 library(readxl)
 
-library(readxl)
+score_data <- read_excel("data/score_data.xlsx")
+
 url <- "https://luminwin.github.io/BST625/score_data.xlsx"
 destfile <- "score_data.xlsx"
 curl::curl_download(url, destfile)
