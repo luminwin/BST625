@@ -16,3 +16,5 @@ res <- binom.test(x = 2, n = 25, conf.level = .95)
 attriutes(res)
 ## Exact Confidence Intervals
 res$conf.int
+
+## https://luminwin.github.io/Lu/articles/BST625.html
