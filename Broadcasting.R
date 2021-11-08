@@ -11,3 +11,8 @@
 ## File score_data.xlsx 
 ## File score_data999.csv 
 ## File score_data.csv 
+
+res <- binom.test(x = 2, n = 25, conf.level = .95)
+attriutes(res)
+## Exact Confidence Intervals
+res$conf.int
