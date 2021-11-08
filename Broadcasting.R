@@ -99,3 +99,7 @@ dat[1:3,] <- dat[1,]
 
 unique(dat$gender)
 unique(dat)
+
+rowSums(dat[, c("score1", "score2", "score3")], na.rm = TRUE)
+
+rowSums(dat[, 2:4])
