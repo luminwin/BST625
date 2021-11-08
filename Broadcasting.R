@@ -18,3 +18,11 @@ attriutes(res)
 res$conf.int
 
 ## https://luminwin.github.io/Lu/articles/BST625.html
+
+setwd("C:/Users/mlu6/Dropbox/R book/GitR/BST625")
+
+dat <- read.csv("score_data999.csv")
+
+dat[dat==999] <- NA
+
+write.csv(dat, file = "score_data.csv")
