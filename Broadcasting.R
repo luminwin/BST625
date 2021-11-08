@@ -223,6 +223,9 @@ dat %>%
 rbind(dat,dat) %>% distinct
 
 ############################# slide 13
+library(tidyverse)
+dat <- read_csv("https://luminwin.github.io/BST625/score_data999.csv") 
+dat[dat == 999] <- NA
 
 dat %>%
   mutate(score1 = replace(score1, is.na(score1),
