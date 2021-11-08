@@ -96,3 +96,6 @@ t(X)
 dat <- read.csv("https://luminwin.github.io/BST625/score_data.csv")
 
 dat[1:3,] <- dat[1,]
+
+unique(dat$gender)
+unique(dat)
