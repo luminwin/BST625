@@ -10,3 +10,11 @@ summary(BostonHousing)
 
 obj <- lm(medv ~ rm + crim + zn + tax, data = BostonHousing)
 summary(obj)
+
+attributes(obj)
+
+y <- BostonHousing$medv
+yhat <- predict(obj, newdata = BostonHousing)
+yhat <- obj$fitted.values ## the same as above
+##################### check your prediction result
+mean((y-yhat)^2) ### we want this number as small as possible
