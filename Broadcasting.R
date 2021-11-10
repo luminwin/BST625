@@ -26,3 +26,10 @@ Y <- as.matrix(Y)
 X <- as.matrix(X)
 
 solve(t(X)%*%X)%*%t(X)%*%Y
+
+BostonHousing$rm <- BostonHousing$rm - mean(BostonHousing$rm)
+
+BostonHousingC <- scale(BostonHousing[, c("rm", "crim", "zn","tax")], center = TRUE, scale = FALSE)
+
+colMeans(BostonHousingC)
+round(colMeans(BostonHousingC), 3)
