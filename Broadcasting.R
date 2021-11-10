@@ -268,3 +268,16 @@ power( y = 3, x = 2)
 
 power(3, 2)
 power(2, 3)
+
+
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+Pain_long <- dat$pain
+
+have_pain <- function(x, n = 0) {
+  use <- x > n
+  Pain_long[use]
+}
+
+have_pain(Pain_long)
+
+have_pain(x = dat$pain)
