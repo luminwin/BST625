@@ -69,3 +69,17 @@ normalize
 }
 
 normalize(dat$score1) 
+
+######################
+# {base}
+######################
+apply(dat[, 2:4], 2, normalize)
+
+apply(dat[, 2:4], 1, normalize)
+
+lapply(dat[, 2:4], normalize)
+
+as.data.frame(lapply(dat[, 2:4], normalize))
+
+
+
