@@ -33,3 +33,8 @@ BostonHousingC <- scale(BostonHousing[, c("rm", "crim", "zn","tax")], center = T
 
 colMeans(BostonHousingC)
 round(colMeans(BostonHousingC), 3)
+
+BostonHousingC <- scale(BostonHousing[, c("rm", "crim", "zn","tax")], center = TRUE, scale = TRUE)
+round(mean(BostonHousingC[, 1]), 3)
+sd(BostonHousingC[, 1])
+
