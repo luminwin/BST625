@@ -86,6 +86,7 @@ as.data.frame(lapply(dat[, 2:4], normalize))
 # {tidyverse}
 ######################
 ############################# slide 19
+library(tidyverse)
 dat %>%
   select(score1:score3) %>%
   map(normalize)%>%
