@@ -245,13 +245,26 @@ check_use("randomForest")
 x <- "tidyverse"
 library(x)
 
-times <- function(x, y)   x^y
-
+times <- function(x, y) { 
+  x*y
+} 
 
 times(x = 2, y = 4) 
 
-times(y = 4, x = 2) 
+times(2, 4) 
 
-times(2, 3) 
+times <- function(x, y = 2) { 
+  x*y
+} 
 
-times(3, 2) 
+times(2) 
+
+power <- function(x, y) { 
+  x^y
+} 
+
+power(x = 2, y = 3) 
+power( y = 3, x = 2) 
+
+power(3, 2)
+power(2, 3)
