@@ -87,6 +87,10 @@ as.data.frame(lapply(dat[, 2:4], normalize))
 ######################
 ############################# slide 19
 library(tidyverse)
+
+dat <- read_csv("https://luminwin.github.io/BST625/score_data.csv")
+
+
 dat %>%
   select(score1:score3) %>%
   map(normalize)%>%
