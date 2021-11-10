@@ -82,4 +82,15 @@ lapply(dat[, 2:4], normalize)
 as.data.frame(lapply(dat[, 2:4], normalize))
 
 
+######################
+# {tidyverse}
+######################
+############################# slide 19
+dat %>%
+  select(score1:score3) %>%
+  map(normalize)%>%
+  as_tibble %>%
+  rename(score1_norm = score1,
+         score2_norm = score2,
+         score3_norm = score3)
 
