@@ -152,3 +152,32 @@ dat %>%
                             Avg_Score >= 90 ~ "A" ),
          pass = ifelse(grade == "F", "Fail", "Pass") ) %>% 
   map(mySummary) 
+
+library(tidyverse)
+dat <- read_csv("https://luminwin.github.io/BST625/score_data999.csv") 
+dat[dat == 999] <- NA
+
+dat %>%
+  rowwise() %>%
+  mutate(Total_Score = sum(c(score1, score2, score3)),
+         Avg_Score = mean(c(score1, score2, score3)))
+
+
+dat %>% 
+  mutate(Avg_Score = rowMeans(select(.,score1, score2, score3), na.rm = TRUE))
+
+# dat %>%
+#  mutate(Avg_Score = colMeans(select(., score1:score3), na.rm = TRUE))  # doesn't work
+
+dat %>% 
+  select(score1:score3) %>%
+  mutate(Avg_Score = rowMeans(., na.rm = TRUE)) 
+
+dat %>% 
+  mutate(Avg_Score = rowMeans(dat[, c("score1", "score2", "score3")], na.rm = TRUE))
+
+dat %>% 
+  mutate(Avg_Score = rowMeans(dat[, paste("score", 1:3, sep = "")], na.rm = TRUE))
+
+
+
