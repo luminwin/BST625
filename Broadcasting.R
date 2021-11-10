@@ -239,3 +239,9 @@ check_use <-function(x){
 }
 
 check_use("tidyverse")
+check_use("metavcov")
+check_use("randomForest")
+
+x <- "tidyverse"
+library(x)
+
