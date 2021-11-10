@@ -259,8 +259,11 @@ times <- function(x, y = 2) {
 
 times(2) 
 
+z <- 3
 power <- function(x, y) { 
-  x^y
+  
+  x^y + z
+  
 } 
 
 power(x = 2, y = 3) 
@@ -281,3 +284,24 @@ have_pain <- function(x, n = 0) {
 have_pain(Pain_long)
 
 have_pain(x = dat$pain)
+
+
+############################ slide 28
+
+res <- binom.test(x = 2, n = 25, conf.level = .95)
+p <- res$estimate
+y <- c()
+for (i in 1:200){
+  x <- mean(rbinom(n = 25, size = 1, prob = p))
+  y <- c(y,x)
+  Sys.sleep(0.1)
+  plot(table(y), type = "h", xlim = c(0,1), ylim = c(0,60))
+  cat("\r","finish experiment", i)
+}
+
+x1 <- rbinom(n = 25, size = 1, prob = 0.2)
+x2 <- rbinom(n = 25, size = 1, prob = 0.5)
+
+y <- 1 + 0.6*x1 + 0.2*x2 + 0.1*rnorm(25)
+
+summary(lm(y ~ x1 + x2))
