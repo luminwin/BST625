@@ -179,5 +179,21 @@ dat %>%
 dat %>% 
   mutate(Avg_Score = rowMeans(dat[, paste("score", 1:3, sep = "")], na.rm = TRUE))
 
+dat %>% 
+  group_by(gender) %>%
+  summarise(mean(score1, na.rm = TRUE),
+            sd(score1, na.rm = TRUE))
 
+aggregate(score1~gender, dat, mean)
 
+aggregate(score1~gender, dat, sd)
+
+aggregate(cbind(score1,score3)~gender, dat, mean)
+
+mystats <- function(x){
+  c(Mean = mean(x), SD = sd(x))
+}
+
+aggregate(score1~gender, dat, mystats)
+
+aggregate(cbind(score1,score3)~gender, dat, mystats)
