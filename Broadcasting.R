@@ -99,3 +99,11 @@ dat %>%
          score2_norm = score2,
          score3_norm = score3)
 
+
+dat %>%
+  select(score1:score3) %>%
+  map(normalize) %>%
+  as_tibble %>%
+  rename_with(~gsub("score","score_norm", . ))
+
+gsub("score","score_norm", colnames(dat))
