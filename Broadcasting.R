@@ -73,9 +73,9 @@ normalize(dat$score1)
 ######################
 # {base}
 ######################
-apply(dat[, 2:4], 2, normalize)
+apply(dat[, 2:4], 2, normalize)  ## 2 for columns
 
-apply(dat[, 2:4], 1, normalize)
+apply(dat[, 2:4], 1, normalize)   ## 1 for rows
 
 lapply(dat[, 2:4], normalize)
 
