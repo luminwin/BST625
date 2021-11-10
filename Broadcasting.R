@@ -64,8 +64,8 @@ nominator <- x-min(x , na.rm = TRUE)
 denominator <- max(x , na.rm = TRUE)-min(x , na.rm = TRUE) 
 # step 3: divide nominator by denominator 
 normalize <- nominator/denominator 
-
-return(normalize)
+# return the value  
+normalize
 }
 
 normalize(dat$score1) 
