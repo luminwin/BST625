@@ -197,3 +197,32 @@ mystats <- function(x){
 aggregate(score1~gender, dat, mystats)
 
 aggregate(cbind(score1,score3)~gender, dat, mystats)
+
+plot(1:19)
+
+plot.fooLine <- function(y){
+  plot(y, type = "h")
+}
+
+plot.fooLine(1:19)
+
+dat <- dat %>%
+  mutate(score1 = replace(score1, is.na(score1),
+                          mean(score1, na.rm = TRUE)),
+         score2 = replace(score2, is.na(score2),
+                          mean(score1, na.rm = TRUE)),
+         score3 = replace(score3, is.na(score3),
+                          mean(score1, na.rm = TRUE))) %>% 
+  rowwise() %>%
+  mutate(Total_Score = sum(c(score1, score2, score3)),
+         Avg_Score = mean(c(score1, score2, score3)),
+         grade = case_when( Avg_Score < 60 ~ "F", 
+                            (60 <= Avg_Score)&(Avg_Score < 70) ~ "D", 
+                            (70 <= Avg_Score)&(Avg_Score < 80) ~ "C", 
+                            (80 <= Avg_Score)&(Avg_Score < 90) ~ "B", 
+                            Avg_Score >= 90 ~ "A" ),
+         pass = ifelse(grade == "F", "Fail", "Pass") ) 
+
+plot.fooLine(table(dat$grade))
+
+
