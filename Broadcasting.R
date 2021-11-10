@@ -38,3 +38,15 @@ BostonHousingC <- scale(BostonHousing[, c("rm", "crim", "zn","tax")], center = T
 round(mean(BostonHousingC[, 1]), 3)
 sd(BostonHousingC[, 1])
 
+
+
+x <- dat$score1 
+
+# step 1: create the nominator 
+nominator <- x-min(x , na.rm = TRUE) 
+# step 2: create the denominator 
+denominator <- max(x , na.rm = TRUE)-min(x , na.rm = TRUE) 
+# step 3: divide nominator by denominator 
+normalize <- nominator/denominator 
+
+
