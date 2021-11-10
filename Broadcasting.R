@@ -40,6 +40,14 @@ sd(BostonHousingC[, 1])
 
 
 
+dat <- read.csv("https://luminwin.github.io/BST625/score_data.csv")
+
+
+dat$score1_norm <- (dat$score1 
+                    - min(dat$score1, na.rm = TRUE))/(max(dat$score1, na.rm = TRUE)
+                                                      - min(dat$score1, na.rm = TRUE))
+
+
 x <- dat$score1 
 
 # step 1: create the nominator 
