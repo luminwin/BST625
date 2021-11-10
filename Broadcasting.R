@@ -18,3 +18,11 @@ yhat <- predict(obj, newdata = BostonHousing)
 yhat <- obj$fitted.values ## the same as above
 ##################### check your prediction result
 mean((y-yhat)^2) ### we want this number as small as possible
+
+
+Y <- BostonHousing[, "medv"]
+X <- cbind(1,BostonHousing[, c("rm", "crim", "zn","tax")])
+Y <- as.matrix(Y)
+X <- as.matrix(X)
+
+solve(t(X)%*%X)%*%t(X)%*%Y
