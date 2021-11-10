@@ -3,3 +3,10 @@
 # After the class, this file will be empty. You can find all the R code files for BST 625  in its Blackboard.
 ################################################################################################################
 
+if("mlbench" %in% rownames(installed.packages()) == FALSE) {install.packages("mlbench")}
+library(mlbench)
+data(BostonHousing) ## bring dataset BostonHousing into Global Environment ".GlobalEnv"
+summary(BostonHousing)
+
+obj <- lm(medv ~ rm + crim + zn + tax, data = BostonHousing)
+summary(obj)
