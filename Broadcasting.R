@@ -107,3 +107,23 @@ dat %>%
   rename_with(~gsub("score","score_norm", . ))
 
 gsub("score","score_norm", colnames(dat))
+
+summary(dat)
+
+mySummary <- function(x){
+  
+  if (is.character(x)){
+    
+    table(x) %>% 
+      sort(decreasing = TRUE) %>%
+      head
+    
+  } else {
+    summary(x)
+  }
+  
+}  
+
+map(dat, mySummary) 
+
+lapply(dat, mySummary) 
