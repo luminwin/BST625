@@ -226,3 +226,16 @@ dat <- dat %>%
 plot.fooLine(table(dat$grade))
 
 
+check_use <-function(x){
+  
+  if(x %in% rownames(installed.packages()) == FALSE) {
+    
+    install.packages(x)
+    
+  }
+  
+  library(x, character.only = TRUE)
+  
+}
+
+check_use("tidyverse")
