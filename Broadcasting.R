@@ -245,3 +245,10 @@ check_use("randomForest")
 x <- "tidyverse"
 library(x)
 
+times <- function(x, y) { 
+  x*y
+} 
+
+times(x = 2, y = 4) 
+
+times(2, 4) 
