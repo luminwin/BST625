@@ -4,3 +4,12 @@
 ################################################################################################################
 
 ############ go to Blackboard and download score_data.RData from R6
+
+load("score_data.RData")
+#load("/Users/min/Dropbox/R book/GitR/BST625/data/score_data.RData")
+
+?mpg # check the data
+
+ggplot(mpg) +
+  aes(x = hwy) +
+  geom_histogram()
