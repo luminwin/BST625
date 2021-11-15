@@ -85,9 +85,14 @@ dat %>% mutate(
   pass = case_when(
     grade == "F"~"Fail", 
     TRUE ~"Pass")) %>%
+  rename(GRE = score1,
+         GPA_stats_I = score2,
+         GPA_stats_II = score3) %>%
   ggplot() +
   aes(x = GRE, y = GPA_stats_II) + 
   geom_point(aes(colour = GPA_stats_I)) + 
   # Default smoother is LOESS
   geom_smooth() +
   geom_smooth(method = "lm", colour = "red")
+
+
