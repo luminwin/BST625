@@ -174,7 +174,7 @@ ggplot(data = mpg) +
         axis.title = element_text(size = 14, face = "bold"),
         plot.title = element_text(size = rel(2)),
         legend.title = element_text(face = "bold"),
-        panel.background = element_rect(fill = "white", colour = "red"))
+        panel.background = element_rect(fill = "white", colour = "grey50"))
 
 dat %>% mutate(   
   Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
