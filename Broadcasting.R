@@ -192,7 +192,7 @@ dat %>% mutate(
   geom_bar(stat = "count") +  #### now the magic happens
   coord_polar(theta = 'y') +
   labs(fill = "Grade") +
-  xlab(" ") +
+  xlab(" ") + 
   theme(legend.title = element_text(size=18),
         axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = "bold"))
