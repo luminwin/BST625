@@ -3,5 +3,3 @@
 # After the class, this file will be empty. You can find all the R code files for BST 625  in its Blackboard.
 ################################################################################################################
 
-
-1+1
