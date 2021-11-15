@@ -260,3 +260,43 @@ cols <- c("chocolate1", "chartreuse4")
 dat$trt <- factor(dat$trt, levels = 1:2,
                   labels = c("treatment", "control"))
 boxplot(Avg_Pain ~ trt + sex, data = dat, col = cols)
+
+
+####################
+# {other packages}
+####################
+if("VennDiagram" %in% rownames(installed.packages()) == FALSE) {install.packages("VennDiagram")}
+if("RColorBrewer" %in% rownames(installed.packages()) == FALSE) {install.packages("RColorBrewer")}
+library(VennDiagram)
+library(RColorBrewer)
+myCol <- brewer.pal(3, "Pastel2")
+# Generate data
+treatment1 <- paste("ID_", sample(1:50, 20), sep = "")
+treatment2 <- paste("ID_", sample(1:50, 20), sep = "")
+treatment3 <- paste("ID_", sample(1:50, 20), sep = "")
+
+# Chart
+venn.diagram(
+  x = list(treatment1, treatment2, treatment3),
+  category.names = c("Drug A" , "Drug B" , "Drug C"),
+  filename = 'venn_diagramm.png',
+  output=TRUE,
+  # Output features
+  imagetype = "png" ,
+  height = 350 , 
+  width = 350 , 
+  resolution = 100,
+  
+  # Circles
+  lty = 'blank',
+  fill = myCol,
+  
+  # Numbers
+  cex = 1,
+  fontface = "bold",
+  
+  # Set names
+  cat.cex = 1,
+  cat.fontface = "bold"
+)
+
