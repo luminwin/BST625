@@ -174,5 +174,26 @@ ggplot(data = mpg) +
         axis.title = element_text(size = 14, face = "bold"),
         plot.title = element_text(size = rel(2)),
         legend.title = element_text(face = "bold"),
-        panel.background = element_rect(fill = "white", colour = "grey50"))
+        panel.background = element_rect(fill = "white", colour = "red"))
+
+dat %>% mutate(   
+  Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
+  Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
+  grade = case_when( 
+    Avg_Score < 60 ~ "F", 
+    (60 <= Avg_Score)&(Avg_Score < 70) ~ "D", 
+    (70 <= Avg_Score)&(Avg_Score < 80) ~ "C", 
+    (80 <= Avg_Score)&(Avg_Score < 90) ~ "B", 
+    Avg_Score >= 90 ~ "A"),
+  pass = case_when(
+    grade == "F"~"Fail", 
+    TRUE ~"Pass")) %>%
+  ggplot(aes(x = factor(1), fill = factor(grade))) +
+  geom_bar(stat = "count") +  #### now the magic happens
+  coord_polar(theta = 'y') +
+  labs(fill = "Grade") +
+  xlab(" ") +
+  theme(legend.title = element_text(size=18),
+        axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = "bold"))
 
