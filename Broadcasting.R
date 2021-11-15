@@ -44,6 +44,7 @@ ggplot(data = dat) +
 ggplot(data = mpg) +
   aes(x = displ, y = hwy) + 
   geom_point(aes(colour = drv,
-                 size = cyl)) + 
+                 size = cyl),
+             alpha = 0.5) + 
   geom_smooth() +
   geom_smooth(method = "lm", colour = "red") 
