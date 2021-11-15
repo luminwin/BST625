@@ -109,5 +109,5 @@ dat %>% mutate(
     grade == "F"~"Fail", 
     TRUE ~"Pass")) %>%
   ggplot() +
-  geom_bar(mapping = aes(x = grade)) +
+  geom_bar(mapping = aes(x = grade), fill = "blue") +
   labs(x = "Grade", y="Count Number")
