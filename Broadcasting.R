@@ -19,4 +19,5 @@ ggplot(mpg) +
 
 ggplot(data = mpg) +
   aes(x = displ, y = hwy) + 
-  geom_point()
+  geom_point() +
+  geom_smooth(method = "lm", colour = "red") 
