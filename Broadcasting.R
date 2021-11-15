@@ -33,3 +33,17 @@ ggsave(height = 4, width = 4*1.9,
 # load("score_data.RData")
 
 ## make a scatter plot using score1 score2
+
+ggplot(data = dat) +
+  aes(x = score1, y = score2) + 
+  geom_point(aes(colour = score3)) + 
+  # Default smoother is LOESS (Locally Weighted Scatterplot Smoothing)
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red") 
+
+ggplot(data = mpg) +
+  aes(x = displ, y = hwy) + 
+  geom_point(aes(colour = drv,
+                 size = cyl)) + 
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red") 
