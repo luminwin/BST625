@@ -19,5 +19,7 @@ ggplot(mpg) +
 
 ggplot(data = mpg) +
   aes(x = displ, y = hwy) + 
-  geom_point() +
+  geom_point(aes(colour = cyl)) + 
+  # Default smoother is LOESS (Locally Weighted Scatterplot Smoothing)
+  geom_smooth() +
   geom_smooth(method = "lm", colour = "red") 
