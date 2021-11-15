@@ -28,4 +28,8 @@ ggplot(data = mpg) +
   geom_smooth(method = "lm", colour = "red") 
 
 ggsave(height = 4, width = 4*1.9,
-       file = "scatterexample.png")
+       file = "scatterexample.pdf")
+
+# load("score_data.RData")
+
+## make a scatter plot using score1 score2
