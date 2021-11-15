@@ -13,3 +13,6 @@ load("score_data.RData")
 ggplot(mpg) +
   aes(x = hwy) +
   geom_histogram(bins = 20)
+
+ggplot(mpg) +
+  geom_histogram(aes(x = hwy))
