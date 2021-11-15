@@ -257,5 +257,6 @@ boxplot(Avg_Pain ~ trt + sex, data = dat)
 ## remember that trt == 1 for "Control" and trt == 2 for "Post-operative suction"?
 ## Note that I have to put extra spaces to "Female" and "Male" to make them in the center
 cols <- c("chocolate1", "chartreuse4")
-
+dat$trt <- factor(dat$trt, levels = 1:2,
+                  labels = c("treatment", "control"))
 boxplot(Avg_Pain ~ trt + sex, data = dat, col = cols)
