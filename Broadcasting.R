@@ -37,7 +37,6 @@ ggsave(height = 4, width = 4*1.9,
 ggplot(data = dat) +
   aes(x = score1, y = score2) + 
   geom_point(aes(colour = score3)) + 
-  # Default smoother is LOESS (Locally Weighted Scatterplot Smoothing)
   geom_smooth() +
   geom_smooth(method = "lm", colour = "red") 
 
@@ -46,5 +45,12 @@ ggplot(data = mpg) +
   geom_point(aes(colour = drv,
                  size = cyl),
              alpha = 0.5) + 
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red") 
+
+ggplot(data = dat) +
+  aes(x = score1, y = score2) + 
+  geom_point(aes(colour = gender,
+                 size = score3)) + 
   geom_smooth() +
   geom_smooth(method = "lm", colour = "red") 
