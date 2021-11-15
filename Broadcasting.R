@@ -241,3 +241,13 @@ dat$Avg_Pain <- rowMeans(dat[,paste("pain", 1:6, sep = ".")], na.rm = TRUE)
 cols <- c("darkgreen", "orange")
 
 boxplot(Avg_Pain ~ trt + sex, data = dat)
+
+boxplot(Avg_Pain ~ trt + sex, data = dat,
+        at = c(1:2 , 4:5) , col = cols ,
+        names = c("XXXXA", "XXXXB", "XXXXA", "XXXXB"),
+        xaxs = FALSE,
+        xlab = "XXXXC",
+        ylab = "XXXXD")
+legend("topleft", fill = cols ,
+       legend = c("XXXX1", "XXXX2") , horiz = T, bty = "n")
+
