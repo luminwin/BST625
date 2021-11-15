@@ -15,4 +15,8 @@ ggplot(mpg) +
   geom_histogram(bins = 20)
 
 ggplot(mpg) +
-  geom_histogram(aes(x = hwy))
+  geom_histogram(aes(x = displ))
+
+ggplot(data = mpg) +
+  aes(x = displ, y = hwy) + 
+  geom_point()
