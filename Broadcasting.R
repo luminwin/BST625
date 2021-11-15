@@ -8,7 +8,9 @@
 load("score_data.RData")
 #load("/Users/min/Dropbox/R book/GitR/BST625/data/score_data.RData")
 
-library(tidyverse)
+library(tidyverse) # if you have error you have to run the following first
+# install.packages("tidyverse")
+
 ?mpg # check the data
 
 ggplot(mpg) +
@@ -24,3 +26,6 @@ ggplot(data = mpg) +
   # Default smoother is LOESS (Locally Weighted Scatterplot Smoothing)
   geom_smooth() +
   geom_smooth(method = "lm", colour = "red") 
+
+ggsave(height = 4, width = 4*1.9,
+       file = "scatterexample.png")
