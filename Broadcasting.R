@@ -8,6 +8,7 @@
 load("score_data.RData")
 #load("/Users/min/Dropbox/R book/GitR/BST625/data/score_data.RData")
 
+library(tidyverse)
 ?mpg # check the data
 
 ggplot(mpg) +
