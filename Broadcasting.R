@@ -197,6 +197,9 @@ dat %>% mutate(
         axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = "bold"))
 
+####################
+# {base}
+####################
 Age <- c(50, 55, 60, 65, 70)                                     # Age groups  
 Male <- c(15.4, 24.3, 37.0, 54.6, 71.1)                          # Death rates for males  
 Female <- c(8.4, 13.6, 19.3, 35.1, 50.0)                         # Death rates for females  
@@ -222,3 +225,19 @@ legend("topleft",                               # Add a legend to the plot
        legend=c("Male", "Female"),             # Text for the legend  
        fill=c("blue", "red"))                  # Fill for boxes of the legend  
 
+####################
+# {base}
+####################
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+dat <- reshape(dat, v.names = "pain", idvar = "id",
+               timevar = "time", direction = "wide")
+dat$age_grp <- cut(dat$age, breaks = c(0,(2.4:7.4)*10,range(dat$age)[2]),
+                   labels = c("24-", "25-34", "35-44", "45-54", "55-64","65-74","75+"),
+                   ordered_result = TRUE)
+dat$ct_grp <- factor(dat$trt, levels = 1:2, labels = c("control", "treatment"), ordered = TRUE)
+table(dat$age_grp,dat$ct_grp)
+dat$Avg_Pain <- rowMeans(dat[,paste("pain", 1:6, sep = ".")], na.rm = TRUE)
+
+cols <- c("darkgreen", "orange")
+
+boxplot(Avg_Pain ~ trt + sex, data = dat)
