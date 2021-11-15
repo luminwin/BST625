@@ -170,7 +170,7 @@ ggplot(data = mpg) +
   facet_grid(drv ~ cyl) +
   ggtitle("Plot of mpg data \n using ggplot2") +
   xlab("Engine displacement, in litres") + ylab("City miles per gallon") +
-  theme(axis.text = element_text(size = 9),
+  theme(axis.text = element_text(size = 10),
         axis.title = element_text(size = 14, face = "bold"),
         plot.title = element_text(size = rel(2)),
         legend.title = element_text(face = "bold"),
