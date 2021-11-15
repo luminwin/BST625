@@ -146,6 +146,7 @@ dat %>% mutate(
   geom_tile(mapping = aes(fill = n))+
   labs(x = "Grade", y="Female/Male")
 
+load("score_data.RData")
 dat %>% mutate(
   Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
   Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
@@ -159,4 +160,7 @@ dat %>% mutate(
     grade == "F"~"Fail", 
     TRUE ~"Pass")) %>%
   ggplot(aes(gender, Avg_Score, fill = factor(major))) +
-  geom_boxplot()   
+  geom_boxplot()  +
+  theme_classic()
+
+
