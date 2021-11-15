@@ -93,7 +93,8 @@ dat %>% mutate(
   geom_point(aes(colour = GPA_stats_I)) + 
   # Default smoother is LOESS
   geom_smooth() +
-  geom_smooth(method = "lm", colour = "red")
+  geom_smooth(method = "lm", colour = "red")+
+  labs(x = "GRE", y="GPA stats II")
 
 dat %>% mutate(
   Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
