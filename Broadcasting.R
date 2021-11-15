@@ -55,7 +55,7 @@ ggplot(data = dat) +
   geom_smooth() +
   geom_smooth(method = "lm", colour = "red") 
 
-dat2 <- dat %>% mutate(
+dat %>% mutate(
   Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
   Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
   grade = case_when( 
@@ -66,11 +66,9 @@ dat2 <- dat %>% mutate(
     Avg_Score >= 90 ~ "A"),
   pass = case_when(
     grade == "F"~"Fail", 
-    TRUE ~"Pass")) 
-
-ggplot(dat2) +
+    TRUE ~"Pass"))  %>%
+  ggplot() +
   aes(x = score1, y = score2) + 
   geom_point(aes(colour = Avg_Score)) + 
-  # Default smoother is LOESS
   geom_smooth() +
   geom_smooth(method = "lm", colour = "red")
