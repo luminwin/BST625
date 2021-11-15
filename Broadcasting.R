@@ -247,7 +247,15 @@ boxplot(Avg_Pain ~ trt + sex, data = dat,
         names = c("XXXXA", "XXXXB", "XXXXA", "XXXXB"),
         xaxs = FALSE,
         xlab = "XXXXC",
-        ylab = "XXXXD")
+        ylab = "Average Pain level")
 legend("topleft", fill = cols ,
        legend = c("XXXX1", "XXXX2") , horiz = T, bty = "n")
 
+par(mfrow = c(1, 2)) 
+boxplot(Avg_Pain ~ trt + sex, data = dat)
+
+## remember that trt == 1 for "Control" and trt == 2 for "Post-operative suction"?
+## Note that I have to put extra spaces to "Female" and "Male" to make them in the center
+cols <- c("chocolate1", "chartreuse4")
+
+boxplot(Avg_Pain ~ trt + sex, data = dat, col = cols)
