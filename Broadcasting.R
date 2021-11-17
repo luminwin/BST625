@@ -223,3 +223,5 @@ obj2 <- chisq.test(mpg$drv,mpg$trans)
 #obj2$statistic
 ```
 Type of drive train and type of transmission are significantly associated ($\chi^2$ = `r round(obj2$statistic,2)`, *df* = `r obj2$parameter`, *P* = `r round(obj2$"p.value", 3)`).
+
+luminwin@gamil.com
