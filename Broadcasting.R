@@ -88,3 +88,28 @@ tidy_source(width.cutoff = 50) # can set arbitrary width here
 
 # https://yihui.shinyapps.io/formatR/
 
+# download team.jpeg from blackboard R6 and save it in your working directory
+
+#########################################################################
+#
+#     !!! The following code is not for .R file, they are for .rmd file!!!
+#         Click Flie => New File => R Markdown to create .rmd file
+#         Download team.jpeg from Blackboard in R6
+#         Delete the contents and paste the following in the .rmd file
+#
+#########################################################################
+
+---
+title: "A Tiny Project for BST 625"
+author: "First Name Last name (XXXX@umiami.edu)"
+date: "11/17/2020"
+output: html_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+options(digits = 2)  ## set digits for statistics
+```
+[comment]: <> (This is a comment, it will not be included)
+[comment]: <> (You have to download team.jpeg from blackboard and save it in the same folder where this .rmd file is located)
+![](team.jpeg){width=60%}
