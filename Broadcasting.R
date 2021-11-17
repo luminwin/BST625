@@ -85,3 +85,6 @@ lm(y~x1+x2,data=data.frame(y=rnorm(100),x1=rnorm(100),x2=rnorm(100))) ### a line
 if("formatR" %in% rownames(installed.packages()) == FALSE) {install.packages("formatR")}
 library(formatR)
 tidy_source(width.cutoff = 50) # can set arbitrary width here
+
+# https://yihui.shinyapps.io/formatR/
+
