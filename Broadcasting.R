@@ -143,7 +143,11 @@ The variables are
   |hwy | Highway miles per gallon|
   |class | Type of car|
   
-  
+```{r}
+# dat <- read.csv("score_data.csv")
+# head(dat)
+```
+
 A snapshot of the data:
 ```{r}
 library(ggplot2) 
