@@ -155,4 +155,46 @@ data(mpg)
 knitr::kable(mpg[1:10, ])
 ```
 
+## Data visulization
+
+
+```{r}
+data(mpg)
+mpg$drv <- factor(mpg$drv, levels = c("f", "r", "4"),
+                  labels = c("Front-wheel drive",
+                             "Rear wheel drive",
+                             "Four wheel drive"))
+```
+
+
+```{r}
+#mfrow(c(1,2))
+ggplot(data = mpg) +
+  aes(x = displ, y = cty, colour = class) + 
+  geom_point() +
+  facet_grid(drv ~ cyl) +
+  ggtitle("Relationship between engine displacement and city miles per gallon") +
+  ylab("Type of drive train") + xlab("Number of cylinders") +
+  theme(axis.text = element_text(size = 9),
+        axis.title = element_text(size = 14, face = "bold"),
+        plot.title = element_text(size = rel(1.3)),
+        legend.title = element_text(face = "bold"),
+        panel.background = element_rect(fill = "white", colour = "grey50"))  
+
+```
+
+
+```{r cars,fig.width = 6,fig.height = 4}
+ggplot(data = mpg) +
+  aes(x = displ, y = hwy) + 
+  geom_point(aes(colour = cyl)) + 
+  # Default smoother is LOESS
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red") +
+  xlab("Engine displacement in litres") + ylab("Highway miles per gallon") +
+  theme(axis.text = element_text(size = 9),
+        axis.title = element_text(size = 14, face = "bold"),
+        plot.title = element_text(size = rel(2)),
+        legend.title = element_text(face = "bold"))  
+```
 
