@@ -142,3 +142,13 @@ The variables are
   |cty | City miles per gallon|
   |hwy | Highway miles per gallon|
   |class | Type of car|
+  
+  
+A snapshot of the data:
+```{r}
+library(ggplot2) 
+data(mpg)
+knitr::kable(mpg[1:10, ])
+```
+
+
