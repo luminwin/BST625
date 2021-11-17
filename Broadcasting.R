@@ -198,3 +198,6 @@ ggplot(data = mpg) +
         legend.title = element_text(face = "bold"))  
 ```
 
+
+
+The dataset contains `r nrow(mpg)` observations with `r ncol(mpg)` variables (see details in [Table 1] and the [EPA website](http://fueleconomy.gov)). The average value of highway miles per gallon is `r mean(mpg$hwy)` (SD = `r sd(mpg$hwy)`) and the average value of city miles per gallon is
