@@ -199,5 +199,27 @@ ggplot(data = mpg) +
 ```
 
 
+## Statistical Result
 
-The dataset contains `r nrow(mpg)` observations with `r ncol(mpg)` variables (see details in [Table 1] and the [EPA website](http://fueleconomy.gov)). The average value of highway miles per gallon is `r mean(mpg$hwy)` (SD = `r sd(mpg$hwy)`) and the average value of city miles per gallon is
+
+
+The dataset contains `r nrow(mpg)` observations with `r ncol(mpg)` variables (see details in [Table 1] and the [EPA website](http://fueleconomy.gov)). The average value of highway miles per gallon is `r mean(mpg$hwy)` (SD = `r sd(mpg$hwy)`) and the average value of city miles per gallon is `r mean(mpg$cty)` (SD = `r sd(mpg$cty)`). 
+```{r}
+obj <- lm(hwy ~ class, data = mpg)
+#summary(obj)
+# x <- summary(obj)$coefficient
+# x
+results <- anova(obj)
+#results
+#names(results)
+#results$"F value"
+
+```
+Highway miles per gallon and type of car are significantly associated (*F*-statistic = `r results$"F value"[1]`, *df* = `r results$Df[1]`, *P* < 0.0`r round(results$"Pr(>F)"[1], 3)`1). 
+```{r}
+obj2 <- chisq.test(mpg$drv,mpg$trans)
+#obj2
+#names(obj2)
+#obj2$statistic
+```
+Type of drive train and type of transmission are significantly associated ($\chi^2$ = `r round(obj2$statistic,2)`, *df* = `r obj2$parameter`, *P* = `r round(obj2$"p.value", 3)`).
