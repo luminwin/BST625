@@ -113,3 +113,15 @@ options(digits = 2)  ## set digits for statistics
 [comment]: <> (This is a comment, it will not be included)
 [comment]: <> (You have to download team.jpeg from blackboard and save it in the same folder where this .rmd file is located)
 ![](team.jpeg){width=60%}
+
+## Project Development Pipeline Process Steps
+
+- **Phase 1**
+  - Site Selections & Acquisition
+- Pre-feasibility Studies
+- **Phase II**
+  - Design & Development
+- Construction
+- **Phase III**
+  - Operation 
+- Maintenance
