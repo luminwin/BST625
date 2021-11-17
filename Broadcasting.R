@@ -35,3 +35,14 @@ boxplot(Avg_Pain ~ trt + sex, data = dat,
         ylab = "XXXXD")
 legend("topleft", fill = cols ,
        legend = c("XXXX1", "XXXX2") , horiz = T, bty = "n")
+
+par(mfrow = c(1, 2)) 
+boxplot(Avg_Pain ~ trt + sex, data = dat, col = cols)
+boxplot(Avg_Pain ~ trt + sex, data = dat,
+        at = c(1:2 , 4:5) , col = cols ,
+        names = c("XXXXA", "XXXXB", "XXXXA", "XXXXB"),
+        xaxs = FALSE,
+        xlab = "XXXXC",
+        ylab = "Average pain level")
+legend("topleft", fill = cols ,
+       legend = c("Control", "Treatment") , horiz = T, bty = "n")
