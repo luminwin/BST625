@@ -3,5 +3,5 @@
 # After the class, this file will be empty. You can find all the R code files for BST 625  in its Blackboard.
 ################################################################################################################
 
-# download team.jpeg from blackboard and save it in your working directory
+# download team.jpeg from blackboard R6 and save it in your working directory
 
