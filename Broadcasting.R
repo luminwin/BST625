@@ -122,3 +122,17 @@ sqldf('select *, avg(mpg) over (partition by "vs") as Avg_mpg
 sqldf('select cyl,avg(mpg) 
         from mtcars 
         group by cyl having vs = 0')
+
+############################################
+# {sqldf}
+# Subquery  from (select from) 
+############################################
+
+tmp <- sqldf('select *,
+              mpg - avg(mpg) over (partition by "vs") as centermpg
+              from mtcars')
+
+sqldf('select avg(centermpg) 
+        from tmp 
+        where centermpg > 0 
+        group by gear')
