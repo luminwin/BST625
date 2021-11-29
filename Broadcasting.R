@@ -340,3 +340,24 @@ unionedID <- sqldf("select ID from demo
                     select ID from treatA
                     union
                     select ID from treatB")
+
+sqldf("select d.ID, 
+              coalesce(a.Esoph, '-') || coalesce(b.Neo, '-') as treat
+              from unionedID as d
+                left join demo as dd on d.ID = dd.ID 
+                      left join 
+                      (select *, case
+                  when esophagectomy == 'Yes' then 'Esoph'
+                  when esophagectomy == 'No' then 'No-Esoph'
+                  end as Esoph  
+                       from treatA)
+                       as a
+                        on d.ID = a.ID
+                      left join 
+                      (select *, case
+                  when neoadjuvant == 'Yes' then 'Neo'
+                  when neoadjuvant == 'No' then 'No-Neo'
+                  end as Neo  
+                      from treatB)
+                        as b
+                        on d.ID = b.ID")
