@@ -100,3 +100,10 @@ mtcars %>%
     vs == 1 ~ 'straight',
     vs == 0 ~ 'V-shaped'
   ))
+
+## it looks strange if you don't give it a new name
+sqldf("select case
+                  when vs == 1 then 'straight'
+                  when vs == 0 then 'V-shaped'
+              end 
+       from mtcars limit 5")
