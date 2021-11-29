@@ -83,3 +83,8 @@ head(Orange)
 
 ### please list age and circumference for Tree type 1 and sort circumference in an ascending order
 
+sqldf("SELECT age, circumference FROM Orange 
+      WHERE tree = 1
+      ORDER BY circumference ASC")
+
+
