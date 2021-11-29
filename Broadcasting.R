@@ -35,3 +35,10 @@ sqldf("SELECT MPG, CYL FROM mtcars") # not case-sensitive except the name of the
 sqldf("SELECT 'MPG', 'CYL' FROM mtcars") # this does not work
 sqldf('SELECT "MPG", "CYL" FROM mtcars') # this works
 
+sqldf("SELECT mpg as miles_gallon, 
+              cyl as N_cylinders
+      FROM mtcars")
+
+sqldf("SELECT mpg miles_gallon,     ## don't have to have   as
+              cyl N_cylinders
+      FROM mtcars")
