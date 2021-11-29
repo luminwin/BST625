@@ -297,3 +297,24 @@ sqldf("select d.ID, *,
                   end as Neo  
                  from treatB) as b
                         on d.ID = b.ID")
+
+### some fancy coalesce
+sqldf("select d.ID, *,
+              coalesce(a.Esoph, '-') || coalesce(b.Neo, '-') as treat
+                 from demo as d 
+                      left join 
+                      (select *, case
+                  when esophagectomy == 'Yes' then 'Esoph'
+                  when esophagectomy == 'No' then 'No-Esoph'
+                  end as Esoph  
+                       from treatA)
+                       as a
+                        on d.ID = a.ID
+                      left join 
+                      (select *, case
+                  when neoadjuvant == 'Yes' then 'Neo'
+                  when neoadjuvant == 'No' then 'No-Neo'
+                  end as Neo  
+                      from treatB)
+                        as b
+                        on d.ID = b.ID")
