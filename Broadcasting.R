@@ -60,8 +60,15 @@ sqldf("select cyl, am, count(*) from mtcars group by am")
 
 sqldf("select am, count(*) as frequency from mtcars group by am")
 
-sqldf('select distinct am    
+sqldf('select distinct mpg    
        from mtcars')
 
 sqldf('select distinct *    
        from mtcars')
+
+
+##  int, real, char,
+sqldf('select 
+          cast(drat as int) dratint,    
+          mpg 
+      from mtcars LIMIT 5')
