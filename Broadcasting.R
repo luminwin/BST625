@@ -28,3 +28,10 @@ sqldf("SELECT mpg cyl FROM mtcars") # this gives you wrong answer; use ,
 sqldf("SELECT * FROM mtcars")
 sqldf("select * from mtcars")
 sqldf('select * from mtcars')
+
+sqldf("SELECT MPG, CYL FROM mtcars") # not case-sensitive except the name of the dataset
+# sqldf("select * from MTCARS") # this does not work
+
+sqldf("SELECT 'MPG', 'CYL' FROM mtcars") # this does not work
+sqldf('SELECT "MPG", "CYL" FROM mtcars') # this works
+
