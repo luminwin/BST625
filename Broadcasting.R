@@ -93,3 +93,10 @@ sqldf("select case
                   when vs == 0 then 'V-shaped'
               end as vschar
        from mtcars limit 5")
+
+library(tidyverse)
+mtcars %>% 
+  mutate(vschar = case_when(
+    vs == 1 ~ 'straight',
+    vs == 0 ~ 'V-shaped'
+  ))
