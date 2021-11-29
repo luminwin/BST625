@@ -337,4 +337,6 @@ exceptedID <- sqldf("select ID from treatA
 
 unionedID <- sqldf("select ID from demo 
                     union
-                    select ID from treatA")
+                    select ID from treatA
+                    union
+                    select ID from treatB")
