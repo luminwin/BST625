@@ -118,3 +118,7 @@ sqldf('select avg(mpg)
 
 sqldf('select *, avg(mpg) over (partition by "vs") as Avg_mpg
         from mtcars')
+
+sqldf('select cyl,avg(mpg) 
+        from mtcars 
+        group by cyl having vs = 0')
