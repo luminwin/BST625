@@ -20,3 +20,11 @@ checkuse <-function(x){
 # Basic manipulation 
 ############################################
 checkuse("sqldf")
+
+sqldf("SELECT mpg, cyl FROM mtcars")
+
+sqldf("SELECT mpg cyl FROM mtcars") # this gives you wrong answer; use ,
+
+sqldf("SELECT * FROM mtcars")
+sqldf("select * from mtcars")
+sqldf('select * from mtcars')
