@@ -318,3 +318,23 @@ sqldf("select d.ID, *,
                       from treatB)
                         as b
                         on d.ID = b.ID")
+
+intersectID <- sqldf("select ID from demo 
+                      intersect
+                      select ID from treatA")
+
+intersectID <- sqldf("select ID from demo 
+                      intersect
+                      select ID from treatA
+                      intersect
+                      select ID from treatB")
+
+
+### received treament A but did not receive treatment B
+exceptedID <- sqldf("select ID from treatA 
+                      except
+                      select ID from treatB")
+
+unionedID <- sqldf("select ID from demo 
+                    union
+                    select ID from treatA")
