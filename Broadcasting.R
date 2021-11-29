@@ -191,3 +191,9 @@ demotreatA <-
             left join treatA as a
                on d.ID = a.ID")
 
+sqldf("select d.*, a.esophagectomy 
+                 from demo as d 
+                    left join treatA as a
+                        on d.ID = a.ID")
+
+
