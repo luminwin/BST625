@@ -108,7 +108,7 @@ sqldf("select *, case
               end 
        from mtcars limit 5")
 
-sqldf('select avg(mpg) 
+sqldf('select vs, avg(mpg) as Avg_mpg
         from mtcars 
         group by vs')
 
