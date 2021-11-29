@@ -341,7 +341,7 @@ unionedID <- sqldf("select ID from demo
                     union
                     select ID from treatB")
 
-sqldf("select d.ID, 
+sqldf("select d.ID, *,
               coalesce(a.Esoph, '-') || coalesce(b.Neo, '-') as treat
               from unionedID as d
                 left join demo as dd on d.ID = dd.ID 
@@ -361,3 +361,88 @@ sqldf("select d.ID,
                       from treatB)
                         as b
                         on d.ID = b.ID")
+
+unionedID <- sqldf("select ID from demo 
+                    union
+                    select ID from treatA
+                    union
+                    select ID from treatB")
+
+sqldf("select d.ID, *,
+              coalesce(a.Esoph, '-') || coalesce(b.Neo, '-') as treat
+              from (select ID from demo 
+                    union
+                    select ID from treatA
+                    union
+                    select ID from treatB) as d
+                left join demo as dd on d.ID = dd.ID 
+                      left join 
+                      (select *, case
+                  when esophagectomy == 'Yes' then 'Esoph'
+                  when esophagectomy == 'No' then 'No-Esoph'
+                  end as Esoph  
+                       from treatA)
+                       as a
+                        on d.ID = a.ID
+                      left join 
+                      (select *, case
+                  when neoadjuvant == 'Yes' then 'Neo'
+                  when neoadjuvant == 'No' then 'No-Neo'
+                  end as Neo  
+                      from treatB)
+                        as b
+                        on d.ID = b.ID")
+
+checkuse <-function(x){
+  
+  if(x %in% rownames(installed.packages()) == FALSE) {
+    
+    install.packages(x)
+    
+  }
+  
+  library(x, character.only = TRUE)
+  
+}
+
+############################################
+# {dbplyr} from R studio
+# Translate tidyverse to SQL
+############################################
+
+checkuse("tidyverse")
+checkuse("dbplyr")
+
+iris_db <- dbplyr::tbl_memdb(iris, name = "iris_db") # Create a database table in temporary in-memory database
+iris_db %>%
+  group_by(Species) %>%
+  summarise(n = n())
+
+iris_db %>%
+  group_by(Species) %>%
+  summarise(n = n()) %>%
+  show_query()
+
+
+
+checkuse("sqldf")
+sqldf("SELECT Species, COUNT(*) AS n FROM iris GROUP BY Species")
+
+
+############################################
+# {tidyquery} from R studio
+# Translate SQL to tidyverse
+# Combine SQL with tidyverse
+############################################
+checkuse("tidyquery")
+
+query("SELECT Species, COUNT(*) AS a FROM iris GROUP BY Species")
+
+iris %>%
+  filter(Species != "setosa") %>%
+  query("SELECT Species, COUNT(*) AS n GROUP BY Species") %>%
+  arrange(desc(Species))
+
+show_dplyr("SELECT Species, COUNT(*) AS n FROM iris GROUP BY Species")
+
+
