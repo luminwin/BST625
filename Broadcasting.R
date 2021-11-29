@@ -175,3 +175,11 @@ sqldf('select "Species", avg("Sepal.Length")
        from iris) 
         where "above.mean" > 0 
         group by "Species"')
+
+demo <- read.csv("https://luminwin.github.io/BST625/demo.csv")
+treatA <- read.csv( "https://luminwin.github.io/BST625/treatA.csv")
+treatB <- read.csv( "https://luminwin.github.io/BST625/treatB.csv")
+
+
+sqldf("select ID, age from demo as d")
+sqldf("select d.ID, d.age from demo as d")
