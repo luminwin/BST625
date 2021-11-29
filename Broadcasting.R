@@ -138,7 +138,6 @@ sqldf('select gear, avg(centermpg)
         group by gear')
 
 
-
 sqldf('select gear, avg(centermpg) 
         from (
         select *,
@@ -147,6 +146,7 @@ sqldf('select gear, avg(centermpg)
         ) 
         where centermpg > 0 
         group by gear')
+
 
 ############################
 # {sqldf}
@@ -163,5 +163,15 @@ tmp <- sqldf('select
 
 sqldf('select "Species", avg("Sepal.Length") 
         from tmp 
+        where "above.mean" > 0 
+        group by "Species"')
+
+
+sqldf('select "Species", avg("Sepal.Length") 
+        from (select 
+       "Species", 
+       "Sepal.Length", 
+       "Sepal.Length" - avg("Sepal.Length") over (partition by "Species") as "above.mean" 
+       from iris) 
         where "above.mean" > 0 
         group by "Species"')
