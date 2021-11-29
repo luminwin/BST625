@@ -393,18 +393,6 @@ sqldf("select d.ID, *,
                         as b
                         on d.ID = b.ID")
 
-checkuse <-function(x){
-  
-  if(x %in% rownames(installed.packages()) == FALSE) {
-    
-    install.packages(x)
-    
-  }
-  
-  library(x, character.only = TRUE)
-  
-}
-
 ############################################
 # {dbplyr} from R studio
 # Translate tidyverse to SQL
