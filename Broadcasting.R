@@ -205,3 +205,9 @@ sqldf("select d.*, a.esophagectomy
 sqldf("select d.ID, d.age, a.esophagectomy 
                  from demo as d right join treatA as a
                         on d.ID = a.ID")
+
+### we can switch order for right join  
+sqldf("select d.ID, d.age, a.esophagectomy 
+                 from treatA as a 
+                    left join demo as d 
+                        on d.ID = a.ID")
