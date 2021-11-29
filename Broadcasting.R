@@ -116,5 +116,5 @@ sqldf('select avg(mpg)
         from mtcars 
         group by vs')
 
-sqldf('select avg(mpg) over (partition by "vs")
+sqldf('select *, avg(mpg) over (partition by "vs") as Avg_mpg
         from mtcars')
