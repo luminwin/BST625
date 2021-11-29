@@ -88,7 +88,7 @@ sqldf("SELECT age, circumference FROM Orange
       ORDER BY circumference ASC")
 
 
-sqldf("select case
+sqldf("select *, case
                   when vs == 1 then 'straight'
                   when vs == 0 then 'V-shaped'
               end as vschar
@@ -102,7 +102,7 @@ mtcars %>%
   ))
 
 ## it looks strange if you don't give it a new name
-sqldf("select case
+sqldf("select *, case
                   when vs == 1 then 'straight'
                   when vs == 0 then 'V-shaped'
               end 
