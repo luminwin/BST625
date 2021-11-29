@@ -107,3 +107,14 @@ sqldf("select *, case
                   when vs == 0 then 'V-shaped'
               end 
        from mtcars limit 5")
+
+sqldf('select avg(mpg) 
+        from mtcars 
+        group by vs')
+
+sqldf('select avg(mpg) 
+        from mtcars 
+        group by vs')
+
+sqldf('select avg(mpg) over (partition by "vs")
+        from mtcars')
