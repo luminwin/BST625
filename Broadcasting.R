@@ -88,3 +88,8 @@ sqldf("SELECT age, circumference FROM Orange
       ORDER BY circumference ASC")
 
 
+sqldf("select case
+                  when vs == 1 then 'straight'
+                  when vs == 0 then 'V-shaped'
+              end as vschar
+       from mtcars limit 5")
