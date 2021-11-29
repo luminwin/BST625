@@ -224,3 +224,17 @@ sqldf("select d.*, a.esophagectomy
                     left join treatA as a
                         on d.ID = a.ID
           where esophagectomy is not NULL")
+
+## we can rename the columns as before 
+sqldf("select d.ID, d.age, 
+                a.esophagectomy as Esoph
+                 from treatA as a 
+                    inner join demo as d 
+                        on d.ID = a.ID")
+
+sqldf("select d.ID, d.age, a.esophagectomy, b.neoadjuvant
+                 from demo as d 
+                      left join treatA as a
+                        on d.ID = a.ID
+                      left join treatB as b
+                        on d.ID = b.ID")
