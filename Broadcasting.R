@@ -212,4 +212,9 @@ sqldf("select d.ID, d.age, a.esophagectomy
                     left join demo as d 
                         on d.ID = a.ID")
 
-
+### left join (if null)
+sqldf("select d.*, a.esophagectomy 
+                 from demo as d 
+                    left join treatA as a
+                        on d.ID = a.ID
+          where esophagectomy is NULL")
