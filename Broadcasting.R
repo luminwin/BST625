@@ -53,3 +53,9 @@ sqldf("SELECT * FROM mtcars ORDER BY mpg LIMIT 5")
 sqldf("SELECT * FROM mtcars ORDER BY mpg ASC LIMIT 5")
 
 sqldf("SELECT * FROM mtcars ORDER BY mpg ASC, cyl DESC LIMIT 5")
+
+sqldf('SELECT * FROM mtcars WHERE cyl = 8')
+
+sqldf("select cyl, count(*) from mtcars group by am")
+
+sqldf("select cyl, count(*) as frequency from mtcars group by am")
