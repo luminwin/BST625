@@ -39,6 +39,12 @@ sqldf("SELECT mpg as miles_gallon,
               cyl as N_cylinders
       FROM mtcars")
 
-sqldf("SELECT mpg miles_gallon,     ## don't have to have   as
+## don't have to have   as
+
+sqldf("SELECT mpg miles_gallon,     
               cyl N_cylinders
       FROM mtcars")
+
+sqldf('SELECT * FROM mtcars LIMIT 5')
+
+sqldf("SELECT * FROM mtcars ORDER BY mpg LIMIT 5")
