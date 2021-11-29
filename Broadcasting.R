@@ -72,3 +72,14 @@ sqldf('select
           cast(drat as int) dratint,    
           mpg 
       from mtcars LIMIT 5')
+
+
+############################
+# {sqldf}
+# In class exercise
+############################
+
+head(Orange)
+
+### please list age and circumference for Tree type 1 and sort circumference in an ascending order
+
