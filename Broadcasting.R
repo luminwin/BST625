@@ -263,3 +263,19 @@ sqldf("select d.ID, *,
                         on d.ID = a.ID
                       left join treatB as b
                         on d.ID = b.ID")
+
+### I want to recode these "yes" and "no"
+
+sqldf("select *, case
+                  when esophagectomy == 'Yes' then 'Esoph'
+                  when esophagectomy == 'No' then 'No-Esoph'
+              end as Esoph  
+      from treatA")
+
+sqldf("select *, case
+                  when neoadjuvant == 'Yes' then 'Neo'
+                  when neoadjuvant == 'No' then 'No-Neo'
+              end as Neo  
+      from treatB")
+
+### Let's do subquery again!
