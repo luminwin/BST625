@@ -247,7 +247,19 @@ sqldf("select *, esophagectomy as Esoph from treatA")
 
 sqldf("select d.ID, d.age, a.Esoph, b.neoadjuvant
                  from demo as d 
-                      left join (select *, esophagectomy as Esoph from treatA) as a
+                      left join (
+                      select *, esophagectomy as Esoph from treatA
+                      ) as a
+                        on d.ID = a.ID
+                      left join treatB as b
+                        on d.ID = b.ID")
+
+### coalesce for NAs
+
+sqldf("select d.ID, *,
+              coalesce(a.esophagectomy, b.neoadjuvant, 'unknown') as treat
+                 from demo as d 
+                      left join treatA as a
                         on d.ID = a.ID
                       left join treatB as b
                         on d.ID = b.ID")
