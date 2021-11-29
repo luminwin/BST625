@@ -136,3 +136,12 @@ sqldf('select gear, avg(centermpg)
         from tmp 
         where centermpg > 0 
         group by gear')
+
+
+sqldf('select gear, avg(centermpg) 
+        from 
+        (select *,
+              mpg - avg(mpg) over (partition by "vs") as centermpg
+              from mtcars)
+        where centermpg > 0 
+        group by gear')
