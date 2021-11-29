@@ -182,4 +182,12 @@ treatB <- read.csv( "https://luminwin.github.io/BST625/treatB.csv")
 
 
 sqldf("select ID, age from demo as d")
+
 sqldf("select d.ID, d.age from demo as d")
+
+demotreatA <- 
+  sqldf("select * 
+         from demo as d 
+            left join treatA as a
+               on d.ID = a.ID")
+
