@@ -196,7 +196,7 @@ sqldf("select d.*, a.esophagectomy
                     left join treatA as a
                         on d.ID = a.ID")
 
-sqldf("select d.*, a.esophagectomy 
+sqldf("select d.*, a.esophagectomy, a.ID as treatAID 
                  from demo as d 
                     inner join treatA as a
                         on d.ID = a.ID")
@@ -211,3 +211,5 @@ sqldf("select d.ID, d.age, a.esophagectomy
                  from treatA as a 
                     left join demo as d 
                         on d.ID = a.ID")
+
+
