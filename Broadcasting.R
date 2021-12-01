@@ -67,3 +67,27 @@ plot(Pain_long)
 ###########################################################################
 unique(Pain_long)
 
+##########################################################################
+# contributor: Jessica Rivera; Valeria Aguilar; Diane Choi; Romita Rajasekaran {base}
+#              Ibidolapo Okedara; Ifedioranma Anikpo; Amrit Baral; Jayro Toledo
+#              Yuchen Wang; Peiyu Zhu
+###########################################################################
+hist(Pain_long)
+barplot(Pain_long)
+## write down the purpose of the above command
+## ----| To create a histogram and barplot of the Pain_long vector
+
+## ----|I found Google and the help section to be super helpful in finding  solutions
+
+##########################################################################
+# contributor: Frank Gutierrez {base}
+###########################################################################
+counts <- table(dat$pain)
+barplot(counts, main="Pain Intensity",
+        xlab="Pain Intensity Level", ylab="The Total Amount of the Same Pain Intensity",
+        col=c("green"))
+
+## write down the purpose of the above command
+## ----|This creates a box plot of the pain data with the color green. 
+
+## ----|The R help file has been extremely helpful.
