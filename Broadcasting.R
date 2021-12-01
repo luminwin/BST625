@@ -179,3 +179,26 @@ datw$trt <- ifelse(datw$trt == 1, "control", "treatment")
 datw$sex <- ifelse(datw$sex == 1, "male", "femail")
 boxplot(Avg_Pain~trt + sex, datw, col = c("chocolate1", "chartreuse4"))
 
+##########################################################################
+# contributor: Hatoun Alkamli {base}
+###########################################################################
+colMeans(dat)
+
+## write down the purpose of the above command
+## ----| The function colMeans() computes the mean of each column of a numeric 
+## data frame, matrix or array.
+
+# contributor: Min Lu {base} 
+# In R4, we saw
+ncol(dat)
+colnames(dat)
+colSums(dat)
+colMeans(dat)
+# cbind(dat1,dat2)
+
+nrow(dat)
+rownames(dat)
+rowSums(dat)
+rowMeans(dat)
+# rbind(dat1,dat2)
+
