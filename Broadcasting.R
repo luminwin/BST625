@@ -446,3 +446,14 @@ fast_car(200)
 ## Then it prints "LET'S GO!" followed by the results: car type, displacement, 
 ## horsepower, and quarter-mile time in seconds. (Example: 200hp)
 
+
+##########################################################################
+# contributor: Peiyu Zhu {maps}
+###########################################################################
+library(maps)
+map("state", fill = TRUE, col = rainbow(209),
+    mar = c(0, 0, 2, 0))
+title("American map")
+detach("package:maps", unload=TRUE)
+## write down the purpose of the above command
+## ----|I learned how to make a American map by R.
