@@ -430,3 +430,19 @@ end_time_dfb <- Sys.time()
 end_time_dfb - start_time_dfb
 ## In {base} R, square bracket is faster than subset()
 ## But I am surprised that tidyverse tibble is the slowest
+
+##########################################################################
+# contributor: Kyle Grealis {base}
+###########################################################################
+fast_car<-function(power){
+  cars<-subset(mtcars, hp>power, select=c(disp, hp, qsec))
+  print("LET'S GO!")
+  cars
+}
+fast_car(200)
+## write down the purpose of the above command
+## ----|This creates a function that searches the 'mtcars' dataset for cars 
+## with horsepower greater than the value entered into the function. 
+## Then it prints "LET'S GO!" followed by the results: car type, displacement, 
+## horsepower, and quarter-mile time in seconds. (Example: 200hp)
+
