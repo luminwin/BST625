@@ -126,3 +126,23 @@ x[which((startsWith(x, "E")==TRUE))]
 # contributor: Min Lu {base}
 # Now we know we can also use
 subset(x, startsWith(x, "E"))
+
+##########################################################################
+# contributor: Ahmed Alnajar {base}
+###########################################################################
+library("skimr")
+skimr::skim(dat)
+detach("package:skimr", unload=TRUE)
+scale0_1 <- function(x) {
+  return((x - min(x,na.rm = T)) / (max(x,na.rm = T) - min(x,na.rm = T))) 
+}
+
+hist(scale0_1(Pain_long))
+hist(scale(Pain_long))
+## write down the purpose of the above command
+## ----| this will present the data after transformation so I can tell how it 
+## affected my data distribution using 0-1 scale and Z-socre scale
+## ----|I find stackoverflow.com a very good resource to test others code and adopt it in my work
+# furthermore, base R functions are really easy to use, but our own functions can be more 
+## constomizable
+
