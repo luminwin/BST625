@@ -314,3 +314,30 @@ score %>% gather("Score", "Attempt", 2:4)
 # contributor: Min Lu {tidyverse} 
 # from ?gather, we can see that the lifecycle of gather is superseded
 # R studio decided to use pivot_longer() that we learnt in R3
+
+##########################################################################
+# contributor: Ifedioranma Anikpo {base}
+###########################################################################
+new.function <- function(a) {
+  for(i in 1:a) {
+    b <- i^2
+    print(b)
+  }
+}
+# Call the function new.function supplying 7 as an argument.
+new.function(7)
+## ----|This command helps me create a new (customized) function that squares 
+## a series of numbers in sequence. Here, I have used the function to compute 
+## the squares of the numbers 1 to 7.
+
+##########################################################################
+# contributor: Amrit Baral {tidyverse}
+###########################################################################
+flights %>%
+  slice_sample(n=10)
+
+## write down the purpose of the above command
+## ----|The function of the command is to sample and randomly shuffle data.Here, 
+## in this case I specified 10 rows to be randomly sampled. 
+
+
