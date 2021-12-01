@@ -216,3 +216,30 @@ mean(Pain_long[which(dat$sex==1)])
 pie(table(Pain_long))
 
 barplot(table(Pain_long))
+
+##########################################################################
+# contributor: Alvin Mathew {tidyverse}
+###########################################################################
+library(tidyverse)
+slice(dat,1:5) 
+## ----| Select rows by position. 
+
+#Group wise operation ----------------------------------------
+df <- tibble(
+  group = rep(c("a", "b", "c"), c(1, 2, 4)),
+  x = runif(7)
+)
+# All slice helpers operate per group, silently truncating to the group
+# size, so the following code works without error
+
+df %>% group_by(group) %>% slice_head(prop = 0.8)
+# When specifying the proportion of rows to include non-integer sizes
+# are rounded down, so group a gets 0 rows
+
+filter(mtcars, row_number() == 1L)
+filter(mtcars, row_number() == n())
+# Filter equivalents --------------------------------------------
+# slice() expressions can often be written to use `filter()` and
+# `row_number()`, which can also be translated to SQL. For many databases,
+# you'll need to supply an explicit variable to use to compute the row number
+
