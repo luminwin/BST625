@@ -232,7 +232,7 @@ df <- tibble(
 # All slice helpers operate per group, silently truncating to the group
 # size, so the following code works without error
 
-df %>% group_by(group) %>% slice_head(prop = 0.8)
+df %>% group_by(group) %>% slice_head
 # When specifying the proportion of rows to include non-integer sizes
 # are rounded down, so group a gets 0 rows
 
@@ -243,3 +243,39 @@ filter(mtcars, row_number() == n())
 # `row_number()`, which can also be translated to SQL. For many databases,
 # you'll need to supply an explicit variable to use to compute the row number
 
+
+##########################################################################
+# contributor: Jessica Rivera {tidyverse}
+###########################################################################
+flights <- read_csv("https://luminwin.github.io/BST625/flights.csv")
+flights %>%
+  mutate(date = as.Date(paste0(as.character(year), "-", as.character(month), "-", as.character(day)))) %>% 
+  group_by(date, origin) %>%
+  count() %>% 
+  collect() %>% 
+  ggplot(aes(x = date, y = n, color = origin)) +
+  geom_point() + 
+  geom_smooth() +
+  theme_minimal() +
+  labs(title = "Number of flights",
+       x = "Origin", 
+       y = "Number of flights") +
+  scale_y_continuous(limits = c(0, 450))
+
+## write down the purpose of the above command
+## ----|I was attepting to create a new plot with the flights data 
+## but the data points are all clustered.Is there a better way of writing the above code?
+
+## Min's response: we don't need scale_y_continuous(limits = c(0, 450)) to enlarge the range of y
+flights %>%
+  mutate(date = as.Date(paste0(as.character(year), "-", as.character(month), "-", as.character(day)))) %>% 
+  group_by(date, origin) %>%
+  count() %>% 
+  collect() %>% 
+  ggplot(aes(x = date, y = n, color = origin)) +
+  geom_point() + 
+  geom_smooth() +
+  theme_minimal() +
+  labs(title = "Number of flights",
+       x = "Origin", 
+       y = "Number of flights") 
