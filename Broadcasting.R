@@ -146,3 +146,36 @@ hist(scale(Pain_long))
 # furthermore, base R functions are really easy to use, but our own functions can be more 
 ## constomizable
 
+##########################################################################
+# contributor: Kyle Grealis {base}
+###########################################################################
+
+r1 <- c('I', 'am', 'happy')
+r2 <- c('what', 'a', 'day')
+r3 <- c(1,2,3)
+C <- rbind(r1, r2, r3)
+
+## ----| The above lines of code create 3 rows (2 character, 1 integer vectors), 
+# then binds the rows in the order listed, creating matrix 'C'.
+
+# contributor: Min Lu {base}
+# We used this to demonstrate that rbind coerses r3 from numeric to character in C
+##########################################################################
+# contributor: Eva Agasse; Victor Ortiz  {base}
+###########################################################################
+
+boxplot(Pain_long)
+
+## write down the purpose of the above command
+## ----|The purpose of the command above was to create a boxplot to analyze the 
+## distribution of vector Pain_long. 
+## I definitely want to learn how to make it prettier for next time. 
+
+# contributor: Min Lu {base} 
+datw <- reshape(dat, v.names = "pain", idvar = "id",
+                timevar = "time", direction = "wide")
+datw$Avg_Pain <- rowMeans(datw[,paste("pain", 1:6, sep = ".")], na.rm = TRUE)
+datw$trt <- ifelse(datw$trt == 1, "control", "treatment")
+datw$sex <- ifelse(datw$sex == 1, "male", "femail")
+boxplot(Avg_Pain~trt + sex, datw, col = c("chocolate1", "chartreuse4"))
+
