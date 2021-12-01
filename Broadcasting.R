@@ -457,3 +457,47 @@ title("American map")
 detach("package:maps", unload=TRUE)
 ## write down the purpose of the above command
 ## ----|I learned how to make a American map by R.
+
+##########################################################################
+# contributor: Eva Agasse {base}
+##########################################################################
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+chisq.test(dat$trt, dat$sex , correct = TRUE,
+           p = rep(1/length(x), length(x)), rescale.p = FALSE,
+           simulate.p.value = FALSE, B = 2000)
+## write down the purpose of the above command
+## ----|The purpose of the above command is calculate the Chi-square value of two variables 
+# (treatment and sex) within the att dataset. 
+
+##########################################################################
+# contributor: Xinyi Liao {base}
+###########################################################################
+
+#Learning some simple statistic funciton:
+student.pr <- princomp(dat, cor = T)
+## write down the purpose of the above command
+## ----| means principal component analysis with related factors
+
+# contributor: Min Lu {base} 
+datw <- reshape(dat, v.names = "pain", idvar = "id",
+                timevar = "time", direction = "wide")
+student.pr <- princomp(datw[,paste("pain", 1:6, sep = ".")], cor = T)
+summary(student.pr)
+plot(student.pr)
+##########################################################################
+# contributor: Hannah Cranford {tidyverse}
+###########################################################################
+favorite_desserts <- list(Sophia = "banana bread", Eliott = "pancakes", Karina = "chocolate
+cake")
+favorite_desserts %>% map_chr(~ paste(.x, "rocks!"))
+
+
+mtcars %>% map_dbl(sum)
+
+
+## write down the purpose of the above command
+## ----|I have been exploring map functions. There are many different types (under purrr
+# package). Two basic ones are above: The first shows map_chr() which returns a character
+#vector after applying a function to each element of a list. The second shows map_dbl() which
+# returns a double atomic vector after applying a function to each element of a vector.
+
