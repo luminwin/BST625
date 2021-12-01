@@ -340,4 +340,41 @@ flights %>%
 ## ----|The function of the command is to sample and randomly shuffle data.Here, 
 ## in this case I specified 10 rows to be randomly sampled. 
 
+##########################################################################
+# contributor: Dingtian Cai
+###########################################################################
+## write down the purpose of the above command
+## ----|We can use "Ctrl+L" to clean the R console which is equivalent to  
+## “Clear console” command under “Edit” menu.
 
+##########################################################################
+# contributor: Valeria Aguilar
+###########################################################################
+
+## ----|I learned that when using R it is important to check the available 
+## packages already developed that might be usefull for my work before even 
+## starting any programming
+##########################################################################
+# contributor: Jayro Toledo {base}
+###########################################################################
+## genotyped.allWhites.clinical_c_I50.chr1.csv <- read.csv("C:/Users/r0816/Downloads/genotyped.allWhites.clinical_c_I50.chr1.csv.gz", sep="")
+
+##########################################################################
+# contributor: Jingwei Gu {base}
+###########################################################################
+## Tell R your command in the next line
+fit=lm( pain~trt + sex + time, data=dat )
+summary ( fit )
+## write down the purpose of the above command
+## ----| It is use to do the simple liner regression.
+
+##########################################################################
+# contributor: Victor Ortiz {base}
+###########################################################################
+flights %>%
+  lm(flights,arr_time,dep_time)
+
+# contributor: Min Lu {tidyverse} 
+flights %>%
+  lm(arr_time ~ dep_time, .) %>%
+  summary()
