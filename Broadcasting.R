@@ -611,3 +611,41 @@ persp(x, y, z,
 ## ----| The purpose of the above command is to create a 3D plot of a cone and also to create
 ##      a 3D surface in perspective view of a cone
 
+##########################################################################
+# contributor:  Rachelle Brick {base}
+###########################################################################
+
+boxplot(dat$Avg_Pain,
+        notch = TRUE)
+
+## write down the purpose of the above command
+## ----| A different form of a boxplot is a "notched box plot". This allows you to assess
+## whether the medians are different across groups. If the notches do not overlap, there is
+## strong evidence (95% confidence) their medians differ. You add notches to a box plot by
+## setting the notch argument to TRUE.
+
+##########################################################################
+# contributor:  Ifedioranma Anikpo {base}
+###########################################################################
+fahrenheit_to_celsius <- function(temp_F) {
+  temp_C <- (temp_F - 32) * 5 / 9
+  return(temp_C)
+}
+fahrenheit_to_celsius(120)
+
+## write down the purpose of the above command
+## ----|Created a function to convert temperature from Fahrenheit to Celsius, then converted
+## 120F to C.
+
+##########################################################################
+# contributor:  Jessica Rivera {tidyverse}
+###########################################################################
+
+## Tell R your command in the next line
+
+df <- tibble(x = c("a", "b"), n = c(1, 2))
+uncount(df, n)
+uncount(df, n, .id = "id")
+
+# You can also use constants
+uncount(df, 2)
