@@ -501,3 +501,36 @@ mtcars %>% map_dbl(sum)
 #vector after applying a function to each element of a list. The second shows map_dbl() which
 # returns a double atomic vector after applying a function to each element of a vector.
 
+##########################################################################
+# contributor: Hannah Cranford {tidyverse::ggplot2}
+###########################################################################
+ggplot(mpg, aes(cyl, hwy)) +
+  geom_jitter() +
+  labs(x = "Number of cylinders", y="Highway miles per gallon")
+
+## write down the purpose of the above command
+## ----| Geom_jitter() is an aesthetic function that can be used in place of
+# geom_point(position = "jitter"), which shows a small amount of random variation at the
+# location of each point that can be used with overplotting
+
+##########################################################################
+# contributor: Kyle Grealis {base}
+###########################################################################
+## Tell R your command in the next line
+check_use <-function(x){
+  library(cowsay)
+  if(substring(x,1) %in% rownames(installed.packages()) == FALSE) {
+    install.packages(substring(x,1))
+  }
+  library(x, character.only=TRUE)
+  say('Kyle accepts Bitcoin, Ethereum, and Algorand payments', by='frog', what_color='green',
+      by_color='green')
+}
+check_use('sandwich')
+
+detach("package:cowsay", unload=TRUE)
+
+## write down the purpose of the above command
+## ----|Adding some more fun to the previously-created function. Draws a frog with a quote
+## when you use the function to check for/install a package or library
+
