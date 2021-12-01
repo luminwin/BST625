@@ -91,3 +91,38 @@ barplot(counts, main="Pain Intensity",
 ## ----|This creates a box plot of the pain data with the color green. 
 
 ## ----|The R help file has been extremely helpful.
+
+##########################################################################
+# contributor: Jingwei Gu {base}
+###########################################################################
+Pain_long[3]
+## [1] 0
+## write down the purpose of the above command
+## ----| Selecting the third element of pain_long and I run it, the third element is 0.
+
+##########################################################################
+# contributor: Xinyi Liao {base}
+###########################################################################
+typeof(Pain_long) 
+## write down the purpose of the above command
+## ----|Knowing what type of variable is for Pain_long([1] "integer")
+
+##########################################################################
+# contributor: Hannah Cranford {base}
+###########################################################################
+x<- c("Firefox", "Chrome", "Edge", "Safari", "Internet Explorer", "Opera")
+startsWith(x, "E")
+x[which((startsWith(x, "E")==TRUE))]
+
+## write down the purpose of the above command
+## ----|Line 75 assigns a set of character variables to the vector x. 
+## Line 76 is a logic function that returns true if the element in the vector starts 
+## with "E" and returns false if all other. Line 77 takes line 76 and uses it inside 
+## another function to return the name of the element(s) that return true for startsWith(). 
+## ----| I found the startsWith function online and after reviewing the use in R Help, 
+## I then used it in combination with some of the code learned in 2-data-struc.R to return 
+## the name of the element of interest. 
+
+# contributor: Min Lu {base}
+# Now we know we can also use
+subset(x, startsWith(x, "E"))
