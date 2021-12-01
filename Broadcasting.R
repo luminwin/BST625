@@ -534,3 +534,58 @@ detach("package:cowsay", unload=TRUE)
 ## ----|Adding some more fun to the previously-created function. Draws a frog with a quote
 ## when you use the function to check for/install a package or library
 
+##########################################################################
+# contributor: Corinne Ferrari {tidyverse::ggplot2}
+###########################################################################
+library(tidyverse)
+
+dat <-
+  read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+dat <- pivot_wider(dat, names_from = time,
+                   values_from = pain,
+                   names_prefix = "pain"
+)
+dat <- dat %>%
+  mutate(
+    Avg_Pain = rowMeans(select(.,"pain1":"pain6")),
+    age_grp =
+      case_when(
+        age < 25 ~ "24-",
+        (25 <= age)&(age < 35) ~ "25-34",
+        (35 <= age)&(age < 45) ~ "35-44",
+        (45 <= age)&(age < 55) ~ "45-54",
+        (55 <= age)&(age < 65) ~ "55-64",
+        (65 <= age)&(age < 75) ~ "65-74",
+        TRUE ~ "75+",
+      ),
+    ct_grp =
+      case_when(
+        trt == 1 ~ "control",
+        TRUE ~ "treatment"
+      )
+  )
+
+ggplot(dat, aes(x=sex, y=Avg_Pain)) +
+  geom_area()
+
+
+# contributor: Min Lu {tidyverse} 
+## For each x value, geom_area() displays a y interval defined by ymin and ymax.
+## so you want to choose continuous variable, intead of sex
+ggplot(dat, aes(x=pain1, y=Avg_Pain)) +
+  geom_area()
+
+
+##########################################################################
+# contributor:  Hatoun Alkamli  {base}
+###########################################################################
+
+list.dirs(R.home("doc"))
+list.dirs(R.home("doc"), full.names = FALSE)
+
+## write down the purpose of the above command
+## ----| To produce a character vector of the names of files or directories in the named
+##      directory.
+
+# contributor: Min Lu {base} 
+list.dirs()
