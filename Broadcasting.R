@@ -357,14 +357,14 @@ flights %>%
 ##########################################################################
 # contributor: Jayro Toledo {base}
 ###########################################################################
-## genotyped.allWhites.clinical_c_I50.chr1.csv <- read.csv("C:/Users/r0816/Downloads/genotyped.allWhites.clinical_c_I50.chr1.csv.gz", sep="")
+## dat <- read.csv("C:/Users/r0816/Downloads/genotyped.allWhites.clinical_c_I50.chr1.csv.gz", sep="")
 
 ##########################################################################
 # contributor: Jingwei Gu {base}
 ###########################################################################
 ## Tell R your command in the next line
-fit=lm( pain~trt + sex + time, data=dat )
-summary ( fit )
+fit <- lm( pain~trt + sex + time, data=dat )
+summary( fit )
 ## write down the purpose of the above command
 ## ----| It is use to do the simple liner regression.
 
@@ -378,3 +378,55 @@ flights %>%
 flights %>%
   lm(arr_time ~ dep_time, .) %>%
   summary()
+
+##########################################################################
+# contributor: Ibidolapo Okedara {base}
+###########################################################################
+x <- 10^-(1+2*1:9)
+cbind(x, log(1+x), log1p(x), exp(x)-1, expm1(x))
+## ----|The log function computes logarithms and the exp function computes 
+# the exponential function. The command can be used when solving problems with 
+# large numbers.
+
+##########################################################################
+# contributor: Ahmed Alnajar {tidyverse}
+###########################################################################
+
+## ----|In "ggplot" you could use geom_point()+geom_smooth() to customize the shape 
+## and  the formate of the figure
+
+flights <- read.csv("https://luminwin.github.io/BST625/flights.csv")
+
+start_time_df <- Sys.time()
+x <- subset(flights, carrier == "FL", select = c(dest, air_time))
+end_time_df <- Sys.time()
+end_time_df - start_time_df
+
+library(tidyverse)
+flightst <- as_tibble(flights)
+start_time_tidy <- Sys.time()
+x <- flightst %>%
+  filter(carrier == "FL") %>%
+  select(dest, air_time) 
+end_time_tidy <- Sys.time()
+end_time_tidy - start_time_tidy
+#detach("package:tidyverse", unload=TRUE)
+
+library(data.table)
+DT <- as.data.table(flights)
+start_time_DT <- Sys.time()
+x <- DT[carrier == "FL",.(dest, air_time)]
+end_time_DT <- Sys.time()
+end_time_DT - start_time_DT
+#detach("package:data.table", unload=TRUE)
+
+## write down the purpose of the above command
+## ----| data.table was faster by almost third the time needed for dataframes
+
+# contributor: Min Lu {base} 
+start_time_dfb <- Sys.time()
+x <- flights[flights$carrier == "FL", c("dest", "air_time")]
+end_time_dfb <- Sys.time()
+end_time_dfb - start_time_dfb
+## In {base} R, square bracket is faster than subset()
+## But I am surprised that tidyverse tibble is the slowest
