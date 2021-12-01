@@ -36,3 +36,34 @@ Pain_long <- dat$pain
 attach(dat)
 summary(pain)
 detach(dat)
+
+##########################################################################
+# contributor: Alvin Mathew {base}
+###########################################################################
+quantile(Pain_long, na.rm = TRUE, probs = c(0.33,0.66))
+## ----|The purpose of this command is to remove the missing values and obtain 
+## the tertiles of pain intensity within the object *Pain_long*.                                            
+
+# contributor: Min Lu {base}
+# try some continuous variable with more values
+quantile(dat$age, na.rm = TRUE, probs = c(0.33,0.66))
+##########################################################################
+# contributor: Dingtian Cai {base}
+###########################################################################
+
+## ----| I learned it from internet, R is an opening community. 
+## It can consist most statistics solutions by import the package to it. 
+## There are lots of people sharing their R package. We can use them directly instead of 
+## writing them by ourselves. 
+
+##########################################################################
+# contributor: Corinne Ferrari {base}
+###########################################################################
+plot(Pain_long)
+## ----|Plotting the values of Pain_long.
+
+##########################################################################
+# contributor: Haiyong Shu {base}
+###########################################################################
+unique(Pain_long)
+
