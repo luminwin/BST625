@@ -279,3 +279,38 @@ flights %>%
   labs(title = "Number of flights",
        x = "Origin", 
        y = "Number of flights") 
+
+##########################################################################
+# contributor: Hatoun Alkamli {tidyverse}
+###########################################################################
+flights %>%
+  mutate(short_flight = air_time < 270) %>% 
+  count(short_flight)
+## write down the purpose of the above command
+## ----|Count() lets you quickly count the unique values of one or more variables. 
+## Equivalent to as.data.frame(table(x)), but does not include combinations with zero counts.
+
+##########################################################################
+# contributor: Diane Choi {tidyverse}
+###########################################################################
+dat %>%
+  slice(1:10)
+
+## write down the purpose of the above command
+## ----|to get the first x rows
+
+##########################################################################
+# contributor: Rachelle Brick {tidyverse}
+###########################################################################
+score <- read_csv("https://luminwin.github.io/BST625/score_data999.csv")
+score %>% gather("Score", "Attempt", 2:4)
+## write down the purpose of the above command
+## ----| We use "gather()" to collect observations found in column names 
+## that need to be gathered under a variable with a new column name. 
+## It moves all of the individual score columns into one main column. 
+## The previous headings are now turned into a categorical variable. 
+## It appears to work in a similar transformation of changing a dataset from wide to long form. 
+
+# contributor: Min Lu {tidyverse} 
+# from ?gather, we can see that the lifecycle of gather is superseded
+# R studio decided to use pivot_longer() that we learnt in R3
