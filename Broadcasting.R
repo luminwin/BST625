@@ -733,7 +733,7 @@ dat %>%
       )
   )
 ggplot(dat) + geom_bar(mapping = aes(x = age_grp)) + labs(x = "Age Group", y="Count
-Number") + ylim(0.0, 12.5)
+Number") + ylim(0.0, 22.5)
 
 ## control the range of y by ylim(0, 12.5)
 ##########################################################################
@@ -744,3 +744,68 @@ numbers_1%>% mutate(number_col=parse_number(number_col))
 
 ## write down the purpose of the above command
 ## ----|parse_number function extarcts the numerical component from the colum
+
+##########################################################################
+# contributor:  Eva Agasse  {base}
+###########################################################################
+
+## Tell R your command in the next line
+#define x-values
+x <- seq(0, 2, by=0.01)
+#calculate gamma density for each x-value
+y <- dgamma(x, shape=5)
+#create density plot
+plot(y)
+
+## write down the purpose of the above command
+## ----|The purpose of the above command is to create a probability density plot of a gamma
+## distribution.Gamma distribution is used to model continuous variables that are always
+## positive and have skewed distributions.
+
+##########################################################################
+# contributor:  Valeria Aguilar  {tidyverse}
+###########################################################################
+ggplot(dat) +
+  geom_bar(mapping = aes(x = age_grp)) +
+  labs(title= "Age Group Hystogram", x = "Age Group", y="Count Number") #adds a title to the
+graph
+
+##########################################################################
+# contributor:  Peiyu Zhu  {base}
+###########################################################################
+cols <- terrain.colors(10)
+head(cols)
+## [1] "#00A600" "#2DB600" "#63C600" "#A0D600" "#E6E600" "#E8C32E"
+## [1] "#00A600FF" "#2DB600FF" "#63C600FF" "#A0D600FF" "#E6E600FF"
+"#E8C32EFF"
+image(1:10,1,as.matrix(1:10),col=cols,
+      xlab="terrain.colors(10)",
+      ylab="",xaxt="n",yaxt="n",bty="n")
+
+
+##########################################################################
+# contributor:  Dingtian Cai   {base}
+###########################################################################
+## Tell R your command in the next line
+dat_add_NA <- rbind(c(NA),dat)
+## write down the purpose of the above command
+## ----| Adding the NA at the first line of the data.
+
+
+###########################################
+# 2020 contributor: Antonela Peña {tidyverse}
+###########################################
+
+ggplot(flights[1:20,], aes(x=origin, y=dest)) +
+  geom_line(aes(group=1), colour="#000099") +
+  geom_point(size=3, colour="#CC0000")
+
+#########################################################################
+#
+#         other courses for website building
+#         Web Development : Web Lab CIM 103
+#         https://cognates.miami.edu/ST_0032/archive/Spring/2022
+#         arcgis website (google arcgis website to see their style)
+#         https://www.coursicle.com/miami/courses/GEG/310/
+#
+#########################################################################
