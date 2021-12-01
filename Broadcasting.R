@@ -673,3 +673,74 @@ as.numeric(rv)
 
 df <- data.frame(x = c(NA, "x.y", "x.z", "y.z"))
 df %>% separate(x, c("A", "B"))
+
+##########################################################################
+# contributor:  Romita Sherlina Rajasekaran {tidyverse}
+###########################################################################
+## Tell R your command in the next line
+library(ggplot2)
+# Create data frame for a n-level christmas tree
+# - specify 2*n bars (but have only n unique values)
+# - set divergence values (values at the same level should differ only in the sign)
+# - set labels for different parts of the tree
+df <- data.frame("wish" = c("YS", "YS", "IDA", "IDA", "HOL", "HOL",
+                            "PY", "PY", "HAP", "HAP"),
+                 "pos" = c(0.75, -0.75, 3.5, -3.5, 2.5, -2.5,
+                           1.5, -1.5, 0.3, -0.3),
+                 "part" = c(rep("bottom", 2), rep("tree", 6), rep("star", 2)))
+# Convert wish to factor, specify levels to have the right order
+df$wish <- factor(df$wish, levels = c("YS", "IDA", "HOL", "PY", "HAP"))
+ggplot(df, aes(x = wish, y = pos, fill = part)) + geom_bar(stat="identity") +
+  coord_flip() +
+  theme_minimal() +
+  ylim(-5, 5) +
+  theme(legend.position = "none",
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+  scale_fill_manual(values = c("#643413", "#FDBA1C", "#1A8017")) +
+  geom_point(aes(x=3.7, y=0.5), colour="#CF140D", size=12) +
+  geom_point(aes(x=2.5, y=-1), colour="#393762", size=12) +
+  geom_point(aes(x=1.7, y=1.5), colour="#CF140D", size=12) +
+  geom_point(aes(x=2.8, y=2.5), colour="#393762", size=12) +
+  geom_point(aes(x=1.8, y=-2.8), colour="#CF140D", size=12)
+
+## write down the purpose of the above command
+## ----| I looked up cool things on things to do with R and you can create a Christmas tree. At
+## first I copied and pasted it here but it did not work. Then i installed the ggplot to the library
+## and then it worked. yay!! I made a Christmas tree.
+
+
+##########################################################################
+# contributor:  Haiyong Shu {tidyverse}
+###########################################################################
+dat %>%
+  mutate(
+    age_grp =
+      case_when(
+        age < 25 ~ "24-",
+        (25 <= age)&(age < 35) ~ "25-34",
+        (35 <= age)&(age < 45) ~ "35-44",
+        (45 <= age)&(age <55) ~ "45-54",
+        (55 <= age)&(age <65) ~ "55-64",
+        (65 <= age)&(age <75) ~ "65-74",
+        TRUE ~ "75+",
+      ),
+    ct_grp =
+      case_when(
+        trt == 1 ~ "control",
+        TRUE ~ "treatment"
+      )
+  )
+ggplot(dat) + geom_bar(mapping = aes(x = age_grp)) + labs(x = "Age Group", y="Count
+Number") + ylim(0.0, 12.5)
+
+## control the range of y by ylim(0, 12.5)
+##########################################################################
+# contributor:  Amrit Baral {tidyverse}
+###########################################################################
+numbers_1<-tibble(number_col=c("Number5", "$6", "7"))
+numbers_1%>% mutate(number_col=parse_number(number_col))   
+
+## write down the purpose of the above command
+## ----|parse_number function extarcts the numerical component from the colum
