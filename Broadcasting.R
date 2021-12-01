@@ -202,3 +202,17 @@ rowSums(dat)
 rowMeans(dat)
 # rbind(dat1,dat2)
 
+
+##########################################################################
+# contributor: Rachelle Brick {base}
+###########################################################################
+
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+
+t.test(Pain_long ~ sex, data = dat)
+
+mean(Pain_long[which(dat$sex==1)])
+
+pie(table(Pain_long))
+
+barplot(table(Pain_long))
