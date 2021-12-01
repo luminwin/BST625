@@ -28,3 +28,11 @@ checkuse("data.table")
 checkuse("cowsay")
 dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 Pain_long <- dat$pain
+
+
+##########################################################################
+# contributor: Carson Coudriet {base}
+###########################################################################
+attach(dat)
+summary(pain)
+detach(dat)
