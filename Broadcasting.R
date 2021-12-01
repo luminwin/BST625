@@ -649,3 +649,27 @@ uncount(df, n, .id = "id")
 
 # You can also use constants
 uncount(df, 2)
+
+##########################################################################
+# contributor:  Xinyi Liao {base}
+###########################################################################
+
+x <- array(1:12, c(2, 3, 3))
+colSums(x, dims = 1)
+
+colSums(x, dims = 2)
+## [1] 21 57 21
+rv<- c("-0.1", " 2.7 ", "3")
+as.numeric(rv)
+
+## write down the purpose of the above command
+## ----| # I learned how to use colSums function which can always be used in
+## data.frame and table question.And how to change data type from character to
+## numeric.
+
+##########################################################################
+# contributor:  Jingwei Gu {tidyverse}
+###########################################################################
+
+df <- data.frame(x = c(NA, "x.y", "x.z", "y.z"))
+df %>% separate(x, c("A", "B"))
