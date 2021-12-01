@@ -589,3 +589,25 @@ list.dirs(R.home("doc"), full.names = FALSE)
 
 # contributor: Min Lu {base} 
 list.dirs()
+
+##########################################################################
+# contributor:  Frank Gutierrez {base}
+###########################################################################
+
+cone <- function(x,y){
+  sqrt(x^2 + y^2)
+}
+x <- y <- seq(-1, 1, length = 40)
+z <- outer(x, y, cone)
+persp(x, y, z)
+
+persp(x, y, z,
+      main = "Perspective Plot of a 3D Cone",
+      zlab = "Height",
+      theta = 20, phi = 10,
+      col = "Aquamarine", shade = 0.5)
+
+## write down the purpose of the above command
+## ----| The purpose of the above command is to create a 3D plot of a cone and also to create
+##      a 3D surface in perspective view of a cone
+
