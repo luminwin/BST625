@@ -55,8 +55,8 @@ mean(age, 0.2)        # the same as mean(x = age, trim = 0.2, na.rm = FALSE)
 
 lgl_var <- c(TRUE, FALSE) # logical
 int_var <- c(1L, 6L, 10L) # integer
-dbl_var <- c(1, 2.5, 4.5) # double
-chr_var <- c("Everyone can be", "contributer for R") # "character"
+dbl_var <- c(1, 2.5, 4.50121345421) # double
+chr_var <- c("Everyone can be", "contributer for R 22458  sxdaweqawq") # "character"
 
 typeof(lgl_var) 
 
@@ -73,7 +73,7 @@ isMale <- c(FALSE, TRUE, FALSE, TRUE)
 
 mylist <- list(names, heightInCM, isMale) ## initialize a list
 mylist
-mylist[[1]]
+mylist[[1]][2]
 
 
 
