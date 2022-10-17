@@ -32,13 +32,48 @@ ls()  # print all the objects created by you
 
 
 
-age <- 5:10
+age <- c(5:10, NA)
+
 mean(age) # calculate the average/mean
-mean(x = age, trim = 0.2, na.rm = TRUE) # trimmed mean
+
+
+mean(x = age, trim = 0.2, 
+     na.rm = TRUE) # trimmed mean
+
+
+x <- c(0:10, 50)
+xm <- mean(x)
+c(xm, mean(x, trim = 0.10))
 
 mean(c(22, 15, 90, 55))
 
 mean(age, 0.2, TRUE)  # the same as mean(x = age, trim = 0.2, na.rm = TRUE)
 mean(age, 0.2)        # the same as mean(x = age, trim = 0.2, na.rm = FALSE)
+
+
+########## R1_Intro.ppt Slides 23 to 25 ## initialize a vector 
+
+lgl_var <- c(TRUE, FALSE) # logical
+int_var <- c(1L, 6L, 10L) # integer
+dbl_var <- c(1, 2.5, 4.5) # double
+chr_var <- c("Everyone can be", "contributer for R") # "character"
+
+typeof(lgl_var) 
+
+typeof(int_var) 
+
+typeof(dbl_var) 
+
+typeof(chr_var) 
+
+########## R1_Intro.ppt Slides 26 to 28 ##  a vector
+names <- c("Min", "Robert", "Mary", "Hemant")
+heightInCM <- c(165, 185, 170, 180)
+isMale <- c(FALSE, TRUE, FALSE, TRUE) 
+
+mylist <- list(names, heightInCM, isMale) ## initialize a list
+mylist
+mylist[[1]]
+
 
 
