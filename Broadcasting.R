@@ -3,3 +3,4 @@
 # After the class, this file will be empty. You can find all the R code files for BST 625  in its Blackboard.
 ################################################################################################################
 
+age <- c(10,32,5,9)
