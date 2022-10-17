@@ -15,3 +15,17 @@ pdf("example.pdf", width = 5, height = 5)
 plot(age, height)
 dev.off()
 
+########## R1_Intro.ppt Slides 7 to 12 ## environment
+
+plot(mtcars$mpg, mtcars$cyl)
+
+search() # display all environments in your RAM/memory
+
+ls()  # print all the objects created by you
+
+## Windows users should install Rtools at
+## https://cran.rstudio.com/bin/windows/Rtools/
+
+#install.packages("metavcov")  # install a package
+#library("metavcov")           # load a package
+#require("metavcov")           # load a package
