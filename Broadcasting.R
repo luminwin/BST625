@@ -75,5 +75,31 @@ mylist <- list(names, heightInCM, isMale) ## initialize a list
 mylist
 mylist[[1]][2]
 
+## initialize a named list
+myNamedList <- list(Names = names, Height = heightInCM, IsMale = isMale)
+
+myNamedList <- list(Names = c("Min", "Robert", "Mary", "Hemant"), 
+                    Height = c(165, 185, 170, 180), 
+                    IsMale = c(FALSE, TRUE, FALSE, TRUE))
+myNamedList
+as.data.frame(myNamedList)
+
+print(myNamedList)
+str(myNamedList)
+
+myNamedList$Names
+myNamedList$names  ## case sensitive
+
+
+########## R1_Intro.ppt Slides 28 to 32 ## Looking at Complicated Lists
+str(mtcars)
+########## R1_Intro.ppt Slide 32 ## Looking at An Object
+age <- c(5, 6, 7, 8, 9, 10)      
+height <- c(103, 108, 112, 122, 129, 140)
+obj <- lm(height~age)
+str(obj)
+
+summary(obj)
+
 
 
