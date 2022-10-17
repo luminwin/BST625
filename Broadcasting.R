@@ -101,5 +101,7 @@ str(obj)
 
 summary(obj)
 
+summary(age)
 
+summary(mtcars)
 
