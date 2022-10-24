@@ -115,9 +115,11 @@ x - y
 x/y
 x*y
 ######## for single value, it repeats that value for you as a vector with the same length
-y <- 5
+y <- c(1,5)
 x
 y
+yfake <- c(1, 5, 1, 5)
+x + yfake
 x + y
 x - y
 x/y
@@ -129,6 +131,46 @@ dosageWeek1 <- c(2, 8, 9, 13, 25)
 dosageWeek2 <- c(1, 7, 6, 12, 23)
 dosage <- dosageWeek1 + dosageWeek2
 summary(dosage)
+
+## input each element one by one
+names <- c("Min", "Robert", "Mary", "Hemant")
+
+## use as. function
+id <- as.character(1:4)
+## use paste function
+id2 <- paste(5:9)
+id <- c(id, id2)
+label1 <- paste("Scenario", 1:4)
+label2 <- paste("Scenario", 1:4, sep = "_")
+label3 <- paste("Scenario", 1:4, collapse = "/") # we call this string
+## use R Built-in Constants
+Zone <- LETTERS[1:14]
+zone <- letters[1:14]
+Month.abb <- month.abb[1:4]
+Month <- month.name[1:4]
+
+## get information
+zone # just type in the name to get information
+head(zone) ## quick check for the first 6 elements/rows from data
+length(zone) ## length of a vector
+is.numeric(zone) # is it numeric or not? is.character(), is.na(), is.logical()...
+is.character(zone)
+is.vector(zone) # Is it a vector or not?
+typeof(zone)
+
+summary(zone) # not useful since summary() is for numeric values
+
+
+##111111111  the following functions only applies to a character vector
+toupper(zone) # to upper case
+tolower(Zone) # to lower case
+##111111111  end
+
+
+
+dosage <- c("0-9g/day", "10-19", "20-29", "30+", "0-9g/day", "10-19", "20-29", "30+", "0-9g/day")
+summary(dosage)  # not useful since summary() is for numeric values
+table(dosage)   # table() is useful for character values
 
 
 
