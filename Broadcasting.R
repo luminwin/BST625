@@ -95,3 +95,5 @@ mtcars
 is.data.frame(mtcars)
 head(mtcars)
 attributes(mtcars)
+tail(mtcars)
+contributors()
