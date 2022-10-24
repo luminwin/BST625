@@ -140,7 +140,7 @@ id <- as.character(1:4)
 ## use paste function
 id2 <- paste(5:9)
 id <- c(id, id2)
-label1 <- paste("Scenario", 1:4)
+label1 <- paste("Scenario", LETTERS[1:4])
 label2 <- paste("Scenario", 1:4, sep = "_")
 label3 <- paste("Scenario", 1:4, collapse = "/") # we call this string
 ## use R Built-in Constants
@@ -173,4 +173,41 @@ summary(dosage)  # not useful since summary() is for numeric values
 table(dosage)   # table() is useful for character values
 
 
+############# input a logical vector
+condition <- c(FALSE, TRUE)
+conditionC <- !condition   ## ! for the opposite
+x <- c(0, 1:3, 0, -5, 6)
+condition <- as.logical(x) ## 0 will be FALSE, otherwise it will be true
+
+x == 1 # check if x equals to 1 through comparing each element
+x > 1  # ........... greater than .......... 
+x >= 1 # ........... greater than or equal to ..........
+x <= 1 # ........... less than or equal to .......... 
+x < 1  # ........... less than .......... 
+
+x <- c(6, 3, 8, 10)
+y <- 6:9
+
+x == y # check if x equals to y through comparing each element 
+x < y # ........... is smaller than y ...............
+x <= y # .......... is smaller than or equal to y ...............
+
+(x < y)|(x == y)  # | for "or"
+x <= y
+(x <= y)&(x == y) # & for "and"
+x == y
+
+age <- c(10, 12, 25, 50, 55, 80)
+height <- c(120, 118, 162, 160, 169, 170)
+height[which(age>20)] 
+height[age>20] ## the same as above
+
+############# logic vectors are useful for manipulating data
+age <- c(6, 3, 8, 10, NA, NA, NA)
+is.na(age)  # ask if each element is missing
+age[!is.na(age)] # delete missing elements
+
+age[is.na(age)] <- 999 ## missing value imputation
+age <- c(6, 3, 8, 10, NA, NA, NA)
+age[is.na(age)] <- mean(age, na.rm = TRUE) # mean imputation
 
