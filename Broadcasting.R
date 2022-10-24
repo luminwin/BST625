@@ -356,6 +356,38 @@ ggplot(data = mpg) +
         panel.background = element_rect(fill = "white", colour = "grey50"))
 
 
+install.packages("waffle") 
 
+library("waffle")
+parts <- c(`Un-breached\nUS Population` = (318 - 11 - 79), `Premera` = 11, `Anthem` = 79)
+
+waffle(
+  parts, rows = 8, size = 1, 
+  colors = c("#969696", "#1879bf", "#009bda"), 
+  legend_pos = "bottom",
+  title = "Health records breaches as fraction of US Population",
+  xlab = "One square == 10m ppl"
+)
+
+p <- waffle(
+  parts, rows = 8, size = 1, 
+  colors = c("#969696", "#1879bf", "#009bda"), 
+  legend_pos = "bottom",
+  title = "Health records breaches as fraction of US Population",
+  xlab = "One square == 10m ppl"
+)
+
+pdf("waffle.pdf", width = 6, height = 4)
+p
+dev.off()
+
+attributes(p)
+head(p$data)
+p$labels
+
+
+
+
+p + theme(legend.text = element_text(size = 12))
 
 
