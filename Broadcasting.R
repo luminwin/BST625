@@ -369,6 +369,17 @@ waffle(
   xlab = "One square == 10m ppl"
 )
 
+
+plot(mtcars$mpg ~ mtcars$wt,
+     #  xlim = c(0, 6),
+     #  ylim = c(10, 40),
+     main = "Miles per Gallon and \n Weight",
+     xlab = "Weight (1000 lbs)",
+     ylab = "Miles/ gallon",
+     col = "coral2",
+     bg = "yellow",
+     pch = 21)
+
 p <- waffle(
   parts, rows = 8, size = 1, 
   colors = c("#969696", "#1879bf", "#009bda"), 
@@ -391,3 +402,5 @@ p$labels
 p + theme(legend.text = element_text(size = 12))
 
 
+debugonce(mean) 
+mean(age)
