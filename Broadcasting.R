@@ -260,11 +260,12 @@ data(mtcars)
 plot(mtcars$mpg ~ mtcars$wt,
      #  xlim = c(0, 6),
      #  ylim = c(10, 40),
-     main = "Miles per Gallon and Weight",
+     main = "Miles per Gallon and \n Weight",
      xlab = "Weight (1000 lbs)",
      ylab = "Miles/ gallon",
      col = "coral2",
-     pch = 19)
+     bg = "yellow",
+     pch = 21)
 
 
 # pie chart
@@ -274,7 +275,7 @@ data(esoph) ## bring esoph data from environment "package:datasets" to environme
 pie(table(esoph$agegp), main = "Age groups of esophageal Cancer")
 
 ## layout of subfigures
-par(mfrow = c(1, 2)) # display figures as 1 row 2 columns
+par(mfrow = c(2, 1)) # display figures as 1 row 2 columns
 
 ## \n to start a new line for long titles
 pie(table(esoph$agegp), main = "Age groups from Smoking, \n Alcohol and esophageal Cancer")
@@ -285,4 +286,44 @@ pie(table(esoph$agegp),
     main = "Age groups of esophageal Cancer")
 
 dev.off() # store the default layout in R
+
+
+# Bar Plot
+counts <- table(mtcars$gear)
+barplot(counts, main="Car Distribution by Gears",
+        xlab="Number of Gears", 
+        col=c("darkblue"))
+# Stacked Bar Plot with Colors and Legend
+counts <- table(mtcars$vs, mtcars$gear)
+barplot(counts, main="Car Distribution by Gears and Engine Type",
+        xlab="Number of Gears", 
+        col=c("darkblue","red"),
+        legend = c("V-shaped Engine", "Straight Engine"))
+
+# scatter plot
+# Simple Scatterplot
+mtcars <- mtcars ## bring data from environment "package:datasets" to environment ".GlobalEnv"
+attach(mtcars) ## elevate the data to the top environment to save your typing of $
+head(mtcars)
+#pdf("Scatter.pdf", width = 5, height = 5)
+plot(wt, mpg, main = "Scatterplot Example",
+     xlab = "Car Weight ", 
+     ylab = "Miles Per Gallon ", 
+     pch = 19,
+     col = gear)
+abline(lm(mpg ~ wt), col = "red") # regression line (y~x)
+lines(lowess(wt, mpg), col = "blue") # lowess line (x,y)
+legend("topright", legend = paste("gear =", unique(gear)), 
+       col = unique(gear), pch = 19, bty = "n")
+legend("right", legend = c("Linear regression", "Lowess"), 
+       col = c("red","blue"), lty = 1, bty = "n")
+#dev.off()
+
+# pairwise comparison Scatterplot
+plot(mtcars[, c(1:3,6)], labels = c("Miles/(US) gallon", 
+                                    "Number of cylinders", 
+                                    "Displacement (cu.in.)",
+                                    "Weight (1000 lbs)"), 
+     col = gear, pch = 19)
+detach(mtcars)
 
