@@ -254,13 +254,35 @@ plot(mtcars$mpg ~ mtcars$wt,         # y ~ x
 ## find colors in the following link
 ## https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/
 
+mtcars <- mtcars
+data(mtcars)
+
 plot(mtcars$mpg ~ mtcars$wt,
      #  xlim = c(0, 6),
      #  ylim = c(10, 40),
      main = "Miles per Gallon and Weight",
      xlab = "Weight (1000 lbs)",
      ylab = "Miles/ gallon",
-     col = "red",
+     col = "coral2",
      pch = 19)
 
+
+# pie chart
+data(esoph) ## bring esoph data from environment "package:datasets" to environment ".GlobalEnv"
+## esoph <- esoph # the same as above
+
+pie(table(esoph$agegp), main = "Age groups of esophageal Cancer")
+
+## layout of subfigures
+par(mfrow = c(1, 2)) # display figures as 1 row 2 columns
+
+## \n to start a new line for long titles
+pie(table(esoph$agegp), main = "Age groups from Smoking, \n Alcohol and esophageal Cancer")
+
+pie(table(esoph$agegp), 
+    col = c("purple", "violetred1", "green3",
+            "cornsilk", "cyan", "white"),
+    main = "Age groups of esophageal Cancer")
+
+dev.off() # store the default layout in R
 
