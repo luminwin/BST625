@@ -214,6 +214,7 @@ age[is.na(age)] <- mean(age, na.rm = TRUE) # mean imputation
 
 ############## factors 
 esoph <- esoph  ## bring the data from the "datasets" package to your environment
+
 head(esoph) ## show the first 6 rows of your data
 esoph$agegp
 is.factor(esoph$agegp) ## is it a factor?
@@ -227,3 +228,14 @@ levels[c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2)]
 
 table(esoph$agegp) 
 table(agegp.cat)  ## you can use table() for both 
+
+age <- c(10, 12, 25, 50, 55, 80)
+height <- c(120, 118, 162, 160, 179, 190)
+################################################################
+plot(age, height)
+plot(height)
+
+obj <- lm(height~age)
+plot(obj)
+methods(plot)
+attributes(obj)
