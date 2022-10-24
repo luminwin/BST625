@@ -20,7 +20,12 @@ cbind(age, height) # create a matrix by binding the columns
 rbind(age, height) # create a matrix by binding the rows
 # create a matrix by specifying each element
 mdat <- matrix(c(1,2,3, 11,12,13), nrow = 3, ncol = 2) 
-mdat
+mdat <- matrix(c(1,2,3, 11,12,13), 3, 2) 
+mdat <- matrix(c(1,2,3, 11,12,13), ncol = 2, nrow = 3) 
+
+mdat[2 , 2]
+mdat[1:3 , 2]
+mdat[c(1,3) , 2]
 
 mdat <- matrix(c(1,2,3, 11,12,13), nrow = 3, ncol = 2, 
                dimnames = list(Subject = c("Geometry","Algebra", "Reading"),
