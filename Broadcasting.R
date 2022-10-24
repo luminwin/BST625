@@ -26,6 +26,10 @@ mdat <- matrix(c(1,2,3, 11,12,13), ncol = 2, nrow = 3)
 mdat[2 , 2]
 mdat[1:3 , 2]
 mdat[c(1,3) , 2]
+mdat[ , 2]
+mdat[1 , ]
+
+mdat[3 , 2] <- 5
 
 mdat <- matrix(c(1,2,3, 11,12,13), nrow = 3, ncol = 2, 
                dimnames = list(Subject = c("Geometry","Algebra", "Reading"),
