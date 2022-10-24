@@ -246,7 +246,7 @@ plot(mtcars$mpg ~ mtcars$wt,         # y ~ x
      main = "Miles per Gallon and Weight", # title for this plot
      xlab = "Weight (1000 lbs)",           # label for x axis
      ylab = "Miles/ gallon",               # label for y axis
-     col = "red",          # color for the symbols
+     col = 3,          # color for the symbols
      pch = 19)             # shape for the symbols
 
 ### Please manipulate these inputs and see the changes in the output figure
@@ -314,7 +314,7 @@ plot(wt, mpg, main = "Scatterplot Example",
 abline(lm(mpg ~ wt), col = "red") # regression line (y~x)
 lines(lowess(wt, mpg), col = "blue") # lowess line (x,y)
 legend("topright", legend = paste("gear =", unique(gear)), 
-       col = unique(gear), pch = 19, bty = "n")
+       col = unique(gear), pch = 17, bty = "n")
 legend("right", legend = c("Linear regression", "Lowess"), 
        col = c("red","blue"), lty = 1, bty = "n")
 #dev.off()
@@ -326,4 +326,36 @@ plot(mtcars[, c(1:3,6)], labels = c("Miles/(US) gallon",
                                     "Weight (1000 lbs)"), 
      col = gear, pch = 19)
 detach(mtcars)
+
+if("ggplot2" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse", type="binary")}
+
+library(ggplot2) # Remember that we have to run the following first
+# install.packages("ggplot2") # or
+# install.packages("tidyverse") 
+?mpg # check the data
+mpg <- ggplot2::mpg
+ggplot(data = mpg) +    
+  aes(x = displ, y = hwy) +  
+  geom_point(aes(colour = cyl)) + 
+  # Default smoother is LOESS
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red")
+
+
+
+ggplot(data = mpg) +
+  aes(x = displ, y = cty, colour = class) + 
+  geom_point() +
+  facet_grid(drv ~ cyl) +
+  ggtitle("Plot of mpg data \n using ggplot2") +
+  xlab("Engine displacement, in litres") + ylab("City miles per gallon") +
+  theme(axis.text = element_text(size = 9),
+        axis.title = element_text(size = 14, face = "bold"),
+        plot.title = element_text(size = rel(2)),
+        legend.title = element_text(face = "bold"),
+        panel.background = element_rect(fill = "white", colour = "grey50"))
+
+
+
+
 
