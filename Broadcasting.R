@@ -99,3 +99,14 @@ hist(dat$logSystolic)
 hist(dat.sortH$systolic)
 dat.sortH <- transform(dat.sortH, systolic = log(systolic))
 hist(dat.sortH$systolic)
+
+######################## slide 15
+########## transform values
+dat <- transform(dat, isMale = ifelse(Sex == "Male", 1, 0))
+
+dat <- transform(dat, isMale = ifelse(Sex == "Male", "Y", "N"))
+head(dat)
+## we also learnt factor in data structure
+dat <- transform(dat, isMale = factor(Sex, 
+                                      levels = c("Female", "Male"),
+                                      labels = c(0,1)) )
