@@ -143,8 +143,16 @@ table(dat$Heightgrp)
 head(dat)
 ### create a dataset redcording (Cat_Weight_Status,  Cat_Smoking_Status, logSystolic) 
 ###       for patients whose Height > 70
-dat70 <- subset(dat, Height > 70, select = c(Cat_Weight_Status,  Cat_Smoking_Status, logSystolic))
+dat70 <- subset(dat, subset = Height > 70, 
+                     select = c(Cat_Weight_Status,  Cat_Smoking_Status, logSystolic))
+
+dat70 <- subset(dat, Height > 70, 
+                     c(Cat_Weight_Status,  Cat_Smoking_Status, logSystolic))
+
+
 head(dat70)
+1:7
+c(1:7)
 
 ## the same as above since these three conlumns are consecutive
 dat70 <- subset(dat, Height > 70, select = c(Cat_Weight_Status:logSystolic)) 
@@ -165,3 +173,34 @@ head(datF)
 ### create a dataset removing columns Height and Weight ---- minus sign
 datnew <- subset(dat, select = - c(Height, Weight))
 head(datnew)
+
+##########################################
+#
+#    In-class Exercise
+#
+##########################################
+
+#  can you choose "State","Minor.Population","Education.Expenditures" 
+#  for Region 2 states from the education dataset and save the result in the
+#  ed_exp4 dataset
+
+
+
+# The subset() function takes 3 arguments: the data frame you want subsetted, the rows 
+# corresponding to the condition by which you want it subsetted, and the columns 
+# you want returned. In our case, we take a subset of education where "Region" is 
+# equal to 2 and then we select the "State," "Minor.Population," and "Education.Expenditure" columns.
+
+
+##########################################
+#
+#    In-class Exercise
+#
+##########################################
+
+##### select variables Cholesterol and Cat_Chol_Status from the dat dataset for subjects whose Status is
+## Alive and create a new variable  to recode "High" Cat_Chol_Status as "off-the-chart"
+## for subjects whose Cholesterol is greater than 290
+## save the result in the dat_Chol dataset
+
+
