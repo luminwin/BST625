@@ -381,3 +381,5 @@ dat$sex ## this gives you error, so dollar sign $ from Base R is safer
 
 #  can you choose "AgeCHDdiag, AgeAtStart, AgeAtDeath" 
 #  from the dat dataset and save the result in a dataset named as ages
+
+ages <- dat %>% select(AgeCHDdiag, AgeAtStart, AgeAtDeath)
