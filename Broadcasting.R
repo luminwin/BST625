@@ -319,6 +319,9 @@ mtcars %>% head %>% rbind(., tail(mtcars))
 
 dat <- read_csv("https://luminwin.github.io/BST625/HEART.csv")
 ######################## slide 26
+filter(dat, Status == "Dead")
+
+
 dat %>%
   filter(Status == "Dead")  # the people who died
 dat %>%
@@ -328,3 +331,16 @@ dat %>%
 
 dat %>%
   filter(complete.cases(.)) # complete cases only
+############################################
+# {tidyverse}
+# Row manipulation arrange() ---sort records
+############################################
+######################## slide 30
+dat %>%
+  arrange(Height)  # sort by increasing order of Height
+
+dat %>%
+  arrange(desc(Height))  # sort by decreasing order of Height
+
+dat %>%
+  arrange(AgeAtStart, desc(Height))  # sort by ascending AgeAtStart then descending Height 
