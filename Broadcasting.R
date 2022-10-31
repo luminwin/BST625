@@ -209,5 +209,30 @@ ed_exp4 <- subset(education, Region == 2,
 dat_Chol <- subset(dat, Cat_Status == "Alive", 
                   select = c(Cholesterol, Cat_Chol_Status))
 
+## another way to do it
+dat_Chol <- subset(dat, Cat_Status == "Alive")
+dat_Chol <- subset(dat_Chol, select = c(Cholesterol, Cat_Chol_Status))
+
 dat_Chol <- transform(dat_Chol, newChol = ifelse(Cholesterol > 290, "off-the-chart", Cat_Chol_Status))
 
+######################## slide 17
+
+### create a dataset containing columns whose names start with "Cat_"
+
+startsWith(colnames(dat), "Cat_")
+
+datCat <- subset(dat, select = startsWith(colnames(dat), "Cat_"))
+head(datCat)
+
+### create a dataset containing columns whose names end with "_Status"
+
+datStat <- subset(dat, select = endsWith(colnames(dat), "_Status"))
+head(datStat)
+
+
+grepl("Weight", colnames(dat)) ## Pattern Matching for a character vector containing "Weight"
+
+### create a dataset containing columns whose names contain "Weight"
+
+datWeight <- subset(dat, select = grepl("Weight", colnames(dat)))
+head(datWeight)
