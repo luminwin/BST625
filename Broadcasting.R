@@ -383,3 +383,38 @@ dat$sex ## this gives you error, so dollar sign $ from Base R is safer
 #  from the dat dataset and save the result in a dataset named as ages
 
 ages <- dat %>% select(AgeCHDdiag, AgeAtStart, AgeAtDeath)
+
+ages <- dat %>% 
+  select(AgeCHDdiag, AgeAtStart, AgeAtDeath)
+ages
+
+#  can you remove "AgeCHDdiag, AgeAtStart, AgeAtDeath" 
+#  from the dat dataset and save the result in a dataset named as withoutAges
+
+withoutAges <- dat %>%   
+  select(-c(AgeCHDdiag, AgeAtStart, AgeAtDeath))
+withoutAges
+######################## slide 36
+colnames(dat)
+dat %>%
+  select(ends_with("_Status"))
+
+dat %>%
+  select(contains("tolic"))
+
+dat %>%
+  select(starts_with("Age"))
+
+
+
+## check the order
+dat %>% select(AgeCHDdiag, Sex)  
+dat %>% select(Sex, AgeCHDdiag)
+
+dat %>%
+  select(AgeCHDdiag, everything()) ## bring AgeCHDdiag in front
+
+dat %>%
+  select(ends_with("_Status"), starts_with("Age"), everything()) ## rearrange the column
+
+
