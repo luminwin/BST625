@@ -213,7 +213,17 @@ dat_Chol <- subset(dat, Cat_Status == "Alive",
 dat_Chol <- subset(dat, Cat_Status == "Alive")
 dat_Chol <- subset(dat_Chol, select = c(Cholesterol, Cat_Chol_Status))
 
+################ 
+dat_Chol <- subset(dat, Cat_Status == "Alive", 
+                   select = c(Cholesterol, Cat_Chol_Status))
+
 dat_Chol <- transform(dat_Chol, newChol = ifelse(Cholesterol > 290, "off-the-chart", Cat_Chol_Status))
+
+
+## another crazy way to do it
+dat_Chol <- transform(subset(dat, Cat_Status == "Alive", 
+                             select = c(Cholesterol, Cat_Chol_Status)), 
+                      newChol = ifelse(Cholesterol > 290, "off-the-chart", Cat_Chol_Status))
 
 ######################## slide 17
 
@@ -236,3 +246,24 @@ grepl("Weight", colnames(dat)) ## Pattern Matching for a character vector contai
 
 datWeight <- subset(dat, select = grepl("Weight", colnames(dat)))
 head(datWeight)
+
+##############################################
+#
+# reading in .csv file to R by point and click
+#
+##############################################
+
+if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
+library(tidyverse)
+
+HEART1 <- read.csv("C:/Users/mlu6/Dropbox/R book/HEART.csv") ## {base}
+
+HEART2 <- read_csv("C:/Users/mlu6/Dropbox/R book/HEART.csv") ## {tidyverse}
+
+
+### check how Base R (HEART1) and tidyverse (HEART2) display data differently
+head(HEART1)
+
+head(HEART2)
+
+library(dplyr)  
