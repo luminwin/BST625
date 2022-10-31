@@ -110,3 +110,26 @@ head(dat)
 dat <- transform(dat, isMale = factor(Sex, 
                                       levels = c("Female", "Male"),
                                       labels = c(0,1)) )
+dat$isMale
+
+x <- cut(dat$Height, breaks = 4)
+table(x)
+## cut can also create a factor
+dat <- transform(dat, Heightgrp = cut(Height, 
+                                      breaks = 4)) ## automatically create 4 groups
+
+dat$Heightgrp
+table(dat$Heightgrp)
+
+
+dat$Heightgrp <- cut(dat$Height, breaks = c(0, 60, 70, 80),
+                     labels = c("59-","60-69","70+"))
+
+table(dat$Heightgrp)
+
+## Now let's use the transform function
+dat <- transform(dat, Heightgrp = cut(Height, 
+                                      breaks = c(0, 60, 70, 80),
+                                      labels = c("59-","60-69","70+"))) 
+
+table(dat$Heightgrp)
