@@ -253,10 +253,12 @@ head(datWeight)
 #
 ##############################################
 
-if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
-library(tidyverse)
+
 
 HEART1 <- read.csv("C:/Users/mlu6/Dropbox/R book/HEART.csv") ## {base}
+
+if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
+library(tidyverse)
 
 HEART2 <- read_csv("C:/Users/mlu6/Dropbox/R book/HEART.csv") ## {tidyverse}
 
