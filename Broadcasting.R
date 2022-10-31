@@ -343,4 +343,5 @@ dat %>%
   arrange(desc(Height))  # sort by decreasing order of Height
 
 dat %>%
-  arrange(AgeAtStart, desc(Height))  # sort by ascending AgeAtStart then descending Height 
+  arrange(AgeAtStart, desc(Height))  # sort by ascending AgeAtStart then descending Height
+
