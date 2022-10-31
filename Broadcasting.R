@@ -253,14 +253,12 @@ head(datWeight)
 #
 ##############################################
 
-
-
-HEART1 <- read.csv("C:/Users/mlu6/Dropbox/R book/HEART.csv") ## {base}
+HEART1 <- read.csv("C:/Users/m.lu/Downloads/BST625/R3/HEART.csv") ## {base}
 
 if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
 library(tidyverse)
 
-HEART2 <- read_csv("C:/Users/mlu6/Dropbox/R book/HEART.csv") ## {tidyverse}
+HEART2 <- read_csv("HEART.csv") ## {tidyverse}
 
 
 ### check how Base R (HEART1) and tidyverse (HEART2) display data differently
