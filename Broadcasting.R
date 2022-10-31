@@ -123,8 +123,8 @@ dat$Heightgrp
 table(dat$Heightgrp)
 
 
-dat$Heightgrp <- cut(dat$Height, breaks = c(0, 60, 70, 80),
-                     labels = c("59-","60-69","70+"))
+dat$Heightgrp <- cut(dat$Height, breaks = c(0, 60, 65, 70, 80),
+                     labels = c("59-","60-65","66-69","70+"))
 
 table(dat$Heightgrp)
 
@@ -134,3 +134,34 @@ dat <- transform(dat, Heightgrp = cut(Height,
                                       labels = c("59-","60-69","70+"))) 
 
 table(dat$Heightgrp)
+
+##########################################################
+# {base}
+# Row and column manipulation subset() --- extract records
+##########################################################
+######################## slide 16
+head(dat)
+### create a dataset redcording (Cat_Weight_Status,  Cat_Smoking_Status, logSystolic) 
+###       for patients whose Height > 70
+dat70 <- subset(dat, Height > 70, select = c(Cat_Weight_Status,  Cat_Smoking_Status, logSystolic))
+head(dat70)
+
+## the same as above since these three conlumns are consecutive
+dat70 <- subset(dat, Height > 70, select = c(Cat_Weight_Status:logSystolic)) 
+head(dat70)
+
+## the same as above
+dat70 <- subset(dat, Height > 70, select = Cat_Weight_Status:logSystolic)
+head(dat70)
+
+### create a dataset redcording (Weight_Status,  Smoking_Status) for all patients 
+dat0 <- subset(dat, select = c(Cat_Weight_Status, Cat_Smoking_Status))
+head(dat0)
+
+### create a dataset for all female patients 
+datF <- subset(dat, Sex == "Female")
+head(datF)
+
+### create a dataset removing columns Height and Weight ---- minus sign
+datnew <- subset(dat, select = - c(Height, Weight))
+head(datnew)
