@@ -355,3 +355,29 @@ select(dat, AgeCHDdiag, Sex)  ## tidyverse
 dat %>% select(., AgeCHDdiag, Sex) ## the same as above using %>% with . for the first argument
 dat %>% select(AgeCHDdiag, Sex)    ## the same as above where . is not needed since it is the first argument
 
+######################## slide 33
+weightsVars <- dat %>% 
+  select(Weight, Weight_Status)
+
+withoutweightVars <- dat %>%   
+  select(-c(Weight, Weight_Status))
+
+
+
+######################## slide 35
+
+sex <- 1
+
+# the column name is upper case Sex, but you make a mistake
+# R uses the sex object outside of the tibble, so... keep your environment clean
+dat %>% select(sex) ## this won't give you error
+
+dat$sex ## this gives you error, so dollar sign $ from Base R is safer
+##########################################
+#
+#    In-class Exercise
+#
+##########################################
+
+#  can you choose "AgeCHDdiag, AgeAtStart, AgeAtDeath" 
+#  from the dat dataset and save the result in a dataset named as ages
