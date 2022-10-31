@@ -49,3 +49,22 @@ colnames(dat)[c(2,14:17)]  <- paste("Cat",c("DeathCause",
 ## rename the column names to lower case
 colnames(dat.sortH) <- tolower(colnames(dat.sortH))
 colnames(dat.sortH)
+
+##########################################
+#
+#    In-class Exercise
+#
+##########################################
+
+education <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/robustbase/education.csv")
+head(education)
+
+##########################################
+# Can you rename the columns of education as 
+c("ID",
+  "State",
+  "Region",
+  "Urban.Population",
+  "Per.Capita.Income",
+  "Minor.Population",
+  "Education.Expenditures")
