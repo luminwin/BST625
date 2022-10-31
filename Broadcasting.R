@@ -206,4 +206,8 @@ ed_exp4 <- subset(education, Region == 2,
 ## for subjects whose Cholesterol is greater than 290
 ## save the result in the dat_Chol dataset
 
+dat_Chol <- subset(dat, Cat_Status == "Alive", 
+                  select = c(Cholesterol, Cat_Chol_Status))
+
+dat_Chol <- transform(dat_Chol, newChol = ifelse(Cholesterol > 290, "off-the-chart", Cat_Chol_Status))
 
