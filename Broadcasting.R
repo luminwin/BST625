@@ -185,6 +185,9 @@ head(datnew)
 #  ed_exp4 dataset
 
 
+ed_exp4 <- subset(education, Region == 2, 
+                           select = c("State","Minor.Population","Education.Expenditures"))
+
 
 # The subset() function takes 3 arguments: the data frame you want subsetted, the rows 
 # corresponding to the condition by which you want it subsetted, and the columns 
