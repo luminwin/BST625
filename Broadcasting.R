@@ -258,12 +258,37 @@ HEART1 <- read.csv("C:/Users/m.lu/Downloads/BST625/R3/HEART.csv") ## {base}
 if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
 library(tidyverse)
 
-HEART2 <- read_csv("HEART.csv") ## {tidyverse}
+HEART2 <- read_csv("C:/Users/m.lu/Downloads/BST625/R3/HEART.csv") ## {tidyverse}
 
 
 ### check how Base R (HEART1) and tidyverse (HEART2) display data differently
 head(HEART1)
 
-head(HEART2)
+HEART2
 
 library(dplyr)  
+
+######################## slide 20
+
+myTibble <- tibble(Names = c("Min", "Robert", "Mary", "Hemant"), 
+                   Height = c(165, 185, 170, 180), 
+                   IsMale = c(FALSE, TRUE, FALSE, TRUE))
+myTibble
+
+names <- c("Min", "Robert", "Mary", "Hemant")
+heightInCM <- c(165, 185, 170, 180)
+isMale <- c(FALSE, TRUE, FALSE, TRUE)
+mylist <- list(Name = names, Height = heightInCM, IsMale = isMale)
+
+myTibble <- as_tibble(mylist)
+myTibble
+
+myTibble <- tribble(
+  ~name,    ~gender,   ~runs,
+  "Max",    "male",       10,
+  "Sandra", "female",      1,
+  "Susan",  "female",      4
+)
+myTibble
+######################## slide 21
+glimpse(myTibble) 
