@@ -317,4 +317,14 @@ mtcars %>% lm(mpg~cyl, data = .,)
 
 mtcars %>% head %>% rbind(., tail(mtcars))
 
+dat <- read_csv("https://luminwin.github.io/BST625/HEART.csv")
+######################## slide 26
+dat %>%
+  filter(Status == "Dead")  # the people who died
+dat %>%
+  filter(is.na(AgeCHDdiag)) # people missing AgeCHDdiag --- coronary heart disease (CHD)
+dat %>%
+  filter(!is.na(AgeCHDdiag)) # people not missing AgeCHDdiag
 
+dat %>%
+  filter(complete.cases(.)) # complete cases only
