@@ -114,6 +114,7 @@ dat$isMale
 
 x <- cut(dat$Height, breaks = 4)
 table(x)
+barplot(table(x))
 ## cut can also create a factor
 dat <- transform(dat, Heightgrp = cut(Height, 
                                       breaks = 4)) ## automatically create 4 groups
