@@ -76,3 +76,48 @@ dat %>%
   mutate(logHeight = log(Height) ,
          sqrtHeight = sqrt(Height) )
 
+######################## slide 40
+dat %>%
+  select(Sex)  %>%
+  mutate(isMale = (Sex == "Male") ) %>%
+  mutate(isMale = as.numeric(isMale)) %>%  
+  mutate(isMale = as.character(isMale))   # convert the number to text 
+
+dat %>%
+  select(Sex)  %>%
+  mutate(isMale = factor(Sex, 
+                         levels = c("Female", "Male"),
+                         labels = c(0,1)) )   # convert the text to factor
+
+
+######################## slide 41
+dat %>%
+  select(Sex)  %>%
+  mutate(isMale = if_else(Sex == "Male", 1, 0))   # the same as as.numeric((Sex == "Male"))
+
+dat %>%
+  select(Sex)  %>%
+  mutate(isMale = case_when(Sex == "Male" ~ 1, 
+                            Sex == "Female" ~ 0)) # the same as above
+
+dat %>%
+  select(Height)  %>%
+  mutate(Heightgrp = case_when( Height < 60 ~ "59-", 
+                                (60 <= Height)&(Height < 70) ~ "60-69",
+                                TRUE ~ "70+"))
+
+range(dat$Height, na.rm = TRUE)
+
+###########################################################
+# {tidyverse}
+# Column manipulation transmute() --- only keeps the mutation
+###########################################################
+######################## slide 42
+dat %>%
+  select(Sex)  %>%
+  mutate(isMale = (Sex == "Male") )  %>%
+  select(isMale)
+
+dat %>%
+  transmute(isMale = (Sex == "Male"))  ## the same as above
+
