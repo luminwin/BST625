@@ -45,7 +45,9 @@ dat %>%
   select(ends_with("_Status"))
 
 dat %>%
-  select(ends_with("_Status"), starts_with("Age"), everything()) ## rearrange the column
+  select(ends_with("_Status"), 
+         starts_with("Age"), 
+         everything()) ## rearrange the column
 
 ###########################################################
 # {tidyverse}
@@ -55,3 +57,22 @@ dat %>%
 ######################## slide 38
 dat %>%
   rename(Gender = Sex)  # from sex to gender
+
+dat %>%
+  rename(Gender = Sex,
+         Mortality = Status)
+
+###########################################################
+# {tidyverse}
+# Column manipulation mutate() --- add new column/variable(s)
+###########################################################
+######################## slide 39
+dat %>%  # start with everybody then     
+  select(Sex, Height)  %>%  # keep only one variable then  
+  mutate(logHeight = log(Height) )  # add a new variable
+
+dat %>%
+  select(Sex, Height)  %>%
+  mutate(logHeight = log(Height) ,
+         sqrtHeight = sqrt(Height) )
+
