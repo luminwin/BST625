@@ -461,6 +461,10 @@ res$conf.int
 
 obj <- lm(mpg ~ cyl + disp + hp + drat, data = mtcars)
 
+# all the predictors using "."
+obj <- lm(mpg ~ ., data = mtcars)
+
+# the same as 462
 obj <- lm(mpg ~ ., data = mtcars[, 1:5]) # the same as above
 
 str(obj)
