@@ -177,6 +177,9 @@ dat %>%
   ))
 
 dat %>%
+  select(DeathCause)
+
+dat %>%
   mutate( DeathCauseC = case_when(  DeathCause == "Cerebral Vascular Disease" ~ "C1",
                                     DeathCause == "Coronary Heart Disease" ~ "C2",
                                     DeathCause == "Cancer" ~ "C3",
