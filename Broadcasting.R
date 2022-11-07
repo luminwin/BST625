@@ -198,4 +198,25 @@ dat %>%
   )) %>%
   select(DeathCause, DeathCauseC)
 
+head(mtcars)
+summary(mtcars$drat, digits = 4)
+table(mtcars$cyl)
+table(mtcars$cyl, mtcars$am)
 
+unique(mtcars$cyl)
+
+############################################
+# {base}
+# data summary aggregate() 
+############################################
+######################## slide 9
+
+aggregate(mpg ~ cyl, data = mtcars, mean)
+aggregate(mpg ~ cyl, data = mtcars, sd)
+aggregate(mpg ~ cyl, data = mtcars, max)
+
+aggregate(cbind(mpg, disp) ~ cyl, data = mtcars, mean)
+
+aggregate(mpg ~ cyl + vs, data = mtcars, mean)
+
+aggregate(cbind(mpg, disp) ~ cyl + vs, data = mtcars, mean)
