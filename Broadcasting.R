@@ -131,6 +131,9 @@ dat %>%
 ## Alive and create a new variable NewChol to recode "High" Chol_Status as "off-the-chart"
 ## for subjects whose Cholesterol is greater than 290
 
-select()
 filter()
+select()
 mutate()
+
+dat %>%
+  filter(Status == "Dead")
