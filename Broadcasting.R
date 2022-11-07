@@ -385,3 +385,32 @@ mytable
 mytable %>%
   ungroup() %>%
   summarise(N = sum(n))
+
+############################################
+# {tidyverse}
+# Transform wide <---> longe format
+############################################
+
+###################### slide 24
+
+## https://tidyr.tidyverse.org/news/index.html
+relig_income %>%
+  pivot_longer(-religion, 
+               names_to = "income", 
+               values_to = "count")
+
+fish_encounters %>%
+  pivot_wider(names_from = station, 
+              values_from = seen)
+
+
+
+billboard %>%
+  pivot_longer(
+    cols = starts_with("wk"),
+    names_to = "week",
+    names_prefix = "wk",
+    values_to = "rank",
+    values_drop_na = TRUE
+  )
+
