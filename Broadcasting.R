@@ -458,3 +458,23 @@ res <- binom.test(x = 2, n = 25, conf.level = .95)
 res
 attributes(res)
 res$conf.int
+
+obj <- lm(mpg ~ cyl + disp + hp + drat, data = mtcars)
+
+obj <- lm(mpg ~ ., data = mtcars[, 1:5]) # the same as above
+
+str(obj)
+attributes(obj)
+
+summary(obj)
+
+methods(summary)
+summary(mtcars)
+
+results <- anova(obj)
+results
+attributes(results)
+
+results$"Pr(>F)"
+
+results$`Pr(>F)`[2]
