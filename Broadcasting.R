@@ -328,7 +328,7 @@ books <- data.frame(
   other.author = c(NA, "Ripley", NA, NA, NA, NA))
 
 
-merge(authors, books, by.x="surname", by.y="name")
+merge(x = authors, y = books, by.x="surname", by.y="name")
 merge(books, authors, by.x="name", by.y="surname")
 
 
