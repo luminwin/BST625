@@ -254,3 +254,5 @@ dat_wide <- reshape(dat_long, v.names = "score", idvar = "name",
                     timevar = "time", direction = "wide")
 
 
+
+
