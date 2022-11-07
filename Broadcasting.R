@@ -456,4 +456,5 @@ full_join(a, b, by = "X1")
 
 res <- binom.test(x = 2, n = 25, conf.level = .95)
 res
+attributes(res)
 res$conf.int
