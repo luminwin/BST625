@@ -121,3 +121,16 @@ dat %>%
 dat %>%
   transmute(isMale = (Sex == "Male"))  ## the same as above
 
+##########################################
+#
+#    In-class Exercise
+#
+##########################################
+
+##### select variables Cholesterol and Chol_Status for subjects whose Status is
+## Alive and create a new variable NewChol to recode "High" Chol_Status as "off-the-chart"
+## for subjects whose Cholesterol is greater than 290
+
+select()
+filter()
+mutate()
