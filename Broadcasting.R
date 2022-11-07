@@ -279,8 +279,13 @@ b <- data.frame(X1 = c("A", "B", "D"),
 # left_join
 merge(x = a, y = b, by = "X1", all.x = TRUE)
 
+merge(a, b, by = "X1", all.x = TRUE)
+
 # right_join
 merge(a,b,by = "X1", all.y = TRUE)
+
+# the same as above
+merge(b,a,by = "X1", all.x = TRUE)
 
 # inner_join
 merge(a,b,by = "X1")   # the same as  merge(a,b,by = "X1", all.x = FALSE, all.y = FALSE)
