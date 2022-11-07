@@ -223,3 +223,25 @@ aggregate(cbind(mpg, disp) ~ cyl, data = mtcars, mean)
 aggregate(mpg ~ cyl + vs, data = mtcars, mean)
 
 aggregate(cbind(mpg, disp) ~ cyl + vs, data = mtcars, mean)
+
+
+############################################
+# {base}
+# Transform wide <---> longe format
+############################################
+######################## slide 10
+
+dat <- read.csv("https://luminwin.github.io/BST625/score_data999.csv")
+dat[dat == 999] <- NA
+
+dat_long <- reshape(dat, idvar = "name", 
+                    varying = paste("score", 1:3, sep = ""), 
+                    # or you can specify varying = list(2:4) to refer the 2nd to the 4th columns
+                    v.names = "score", direction = "long")
+dat_wide <- reshape(dat_long, v.names = "score", idvar = "name",
+                    # sep = "_",  # you can use this to customerize your names
+                    # instead of score.1, you have score_1
+                    # you can write sep = "",
+                    timevar = "time", direction = "wide")
+
+
