@@ -245,8 +245,10 @@ dat_long <- reshape(dat, idvar = "name",
                     # or you can specify varying = list(2:4) to refer the 2nd to the 4th columns
                     v.names = "score", direction = "long")
 
+paste("score", 1:3, sep = "_")
+
 dat_wide <- reshape(dat_long, v.names = "score", idvar = "name",
-                    # sep = "_",  # you can use this to customerize your names
+                     sep = "_",  # you can use this to customerize your names
                     # instead of score.1, you have score_1
                     # you can write sep = "",
                     timevar = "time", direction = "wide")
