@@ -346,3 +346,9 @@ dat <- read_csv("https://luminwin.github.io/BST625/HEART.csv")
 dat %>% distinct(Status)
 
 dat %>% distinct(DeathCause)
+
+dat %>%
+  count(Status)
+
+dat %>%
+  count(Status, Sex)
