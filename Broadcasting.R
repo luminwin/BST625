@@ -352,3 +352,36 @@ dat %>%
 
 dat %>%
   count(Status, Sex)
+
+
+dat %>%
+  filter(!is.na(Height)) %>%
+  summarise(theMinHeight = min(Height),
+            theMeanHeight = mean(Height),
+            theMaxHeight = max(Height),
+            n = n())
+
+###################### slide 20
+
+dat %>%
+  filter(!is.na(Height)) %>%
+  group_by(Sex) %>%
+  summarise(theMinHeight = min(Height),
+            theMeanHeight = mean(Height),
+            theMaxHeight = max(Height),
+            n = n())
+
+###################### slide 21
+
+mytable <- dat %>%
+  filter(!is.na(Height)) %>%
+  group_by(Sex) %>%
+  summarise(theMinHeight = min(Height),
+            theMeanHeight = mean(Height),
+            theMaxHeight = max(Height),
+            n = n())
+mytable
+
+mytable %>%
+  ungroup() %>%
+  summarise(N = sum(n))
