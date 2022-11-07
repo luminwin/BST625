@@ -199,7 +199,7 @@ dat %>%
   select(DeathCause, DeathCauseC)
 
 head(mtcars)
-summary(mtcars$drat, digits = 4)
+summary(mtcars$drat, digits = 2)
 table(mtcars$cyl)
 table(mtcars$cyl, mtcars$am)
 
@@ -214,6 +214,9 @@ unique(mtcars$cyl)
 aggregate(mpg ~ cyl, data = mtcars, mean)
 aggregate(mpg ~ cyl, data = mtcars, sd)
 aggregate(mpg ~ cyl, data = mtcars, max)
+
+lm(mpg ~ cyl, data = mtcars)
+summary(lm(mpg ~ cyl, data = mtcars))
 
 aggregate(cbind(mpg, disp) ~ cyl, data = mtcars, mean)
 
