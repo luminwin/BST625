@@ -332,4 +332,17 @@ merge(x = authors, y = books, by.x="surname", by.y="name")
 merge(books, authors, by.x="name", by.y="surname")
 
 
+############################################
+# {tidyverse}
+# data summary
+############################################
 
+if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
+library(tidyverse)
+
+######################## slide 17
+dat <- read_csv("https://luminwin.github.io/BST625/HEART.csv")
+
+dat %>% distinct(Status)
+
+dat %>% distinct(DeathCause)
