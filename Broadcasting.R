@@ -131,9 +131,68 @@ dat %>%
 ## Alive and create a new variable NewChol to recode "High" Chol_Status as "off-the-chart"
 ## for subjects whose Cholesterol is greater than 290
 
-filter()
-select()
-mutate()
+##########################################
+#
+#    Tidyverse
+#
+##########################################
 
 dat %>%
-  filter(Status == "Dead")
+  filter(Status == "Alive") %>%
+  select(Cholesterol, Chol_Status)  %>%
+  mutate(NewChol = if_else(Cholesterol > 290, "off-the-chart", Chol_Status)) 
+
+##########################################
+#
+#    base
+#
+##########################################
+dat_Chol <- subset(dat, filter = Status == "Alive", 
+                   select = c(Cholesterol, Cat_Chol_Status))
+dat_Chol <- transform(dat_Chol, NewChol = ifelse(Cholesterol > 290, "off-the-chart", Cat_Chol_Status))
+
+##########################################
+#
+#    other ways from Tidyverse
+#
+##########################################
+
+dat %>%
+  filter(Status == "Alive") %>%
+  select(Cholesterol, Chol_Status) %>%
+  mutate(NewChol = case_when( 
+    Cholesterol > 290 ~ "off-the-chart",
+    TRUE ~ Chol_Status
+  ))
+
+## another way to do that
+dat %>%
+  filter(Status == "Alive") %>%
+  select(Cholesterol, Chol_Status) %>%
+  mutate(NewChol = case_when( 
+    Chol_Status == "Borderline" ~ "Borderline",
+    Chol_Status == "Desirable" ~ "Desirable",
+    Cholesterol > 290 ~ "off-the-chart",
+    TRUE ~ "High"
+  ))
+
+dat %>%
+  mutate( DeathCauseC = case_when(  DeathCause == "Cerebral Vascular Disease" ~ "C1",
+                                    DeathCause == "Coronary Heart Disease" ~ "C2",
+                                    DeathCause == "Cancer" ~ "C3",
+                                    DeathCause == "Other" ~ "C4",
+                                    DeathCause == "Unknown" ~ "C5"
+  )) %>%
+  select(DeathCause, DeathCauseC)
+
+dat %>%
+  mutate( DeathCauseC = fct_recode( DeathCause,
+                                    "C1" = "Cerebral Vascular Disease",
+                                    "C2" = "Coronary Heart Disease",
+                                    "C3" = "Cancer",
+                                    "C4" = "Other",
+                                    "C5" = "Unknown"
+  )) %>%
+  select(DeathCause, DeathCauseC)
+
+
