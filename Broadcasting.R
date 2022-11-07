@@ -175,7 +175,11 @@ dat %>%
     Cholesterol > 290 ~ "off-the-chart",
     TRUE ~ "High"
   ))
-
+##########################################
+#
+#    In-class Exercise Over
+#
+##########################################
 dat %>%
   select(DeathCause)
 
@@ -445,3 +449,11 @@ inner_join(a, b, by = "X1")
 
 full_join(a, b, by = "X1")
 
+################################
+# {base}
+# statistical models
+################################
+
+res <- binom.test(x = 2, n = 25, conf.level = .95)
+res
+res$conf.int
