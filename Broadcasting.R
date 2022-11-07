@@ -254,5 +254,77 @@ dat_wide <- reshape(dat_long, v.names = "score", idvar = "name",
                     timevar = "time", direction = "wide")
 
 
+######################## slide 11
+# {base}
+## merge in rows
+############ I fake two data sets to merge
+dat_top <- head(dat)
+dat_bot <- tail(dat)
+rbind(dat_top, dat_bot)
+## r is very smart, even the names ordered differently
+dat_bot <- dat_bot[, 5:1]
+rbind(dat_top, dat_bot)
+
+############################################
+# {base}
+# merge two datasets
+############################################
+######################## slide 12
+
+a <- data.frame(X1 = LETTERS[1:3],
+                X2 = 1:3)
+b <- data.frame(X1 = c("A", "B", "D"),
+                X3 = c("T", "F", "T"))
+
+# left_join
+merge(x = a, y = b, by = "X1", all.x = TRUE)
+
+# right_join
+merge(a,b,by = "X1", all.y = TRUE)
+
+# inner_join
+merge(a,b,by = "X1")   # the same as  merge(a,b,by = "X1", all.x = FALSE, all.y = FALSE)
+
+# full_join
+merge(a,b,by = "X1", all = TRUE)
+
+######################## slide 13
+
+## merge in columns
+## input two datasets
+authors <- data.frame(
+  name = c("Tukey", "Venables", "Tierney", "Ripley", "McNeil"),
+  nationality = c("US", "Australia", "US", "UK", "Australia"),
+  retired = c("yes", rep("no", 4)))
+books <- data.frame(
+  name = c("Tukey", "Venables", "Tierney", "Ripley", "Ripley", "McNeil"),
+  title = c("Exploratory Data Analysis",
+            "Modern Applied Statistics ...",
+            "LISP-STAT",
+            "Spatial Statistics", "Stochastic Simulation",
+            "Interactive Data Analysis"),
+  other.author = c(NA, "Ripley", NA, NA, NA, NA))
+
+merge(authors, books, by = "name")
+
+######################## slide 14
+########### suppose "name" is named as "surname" in authors
+authors <- data.frame(
+  surname = c("Tukey", "Venables", "Tierney", "Ripley", "McNeil"),
+  nationality = c("US", "Australia", "US", "UK", "Australia"),
+  retired = c("yes", rep("no", 4)))
+books <- data.frame(
+  name = c("Tukey", "Venables", "Tierney", "Ripley", "Ripley", "McNeil"),
+  title = c("Exploratory Data Analysis",
+            "Modern Applied Statistics ...",
+            "LISP-STAT",
+            "Spatial Statistics", "Stochastic Simulation",
+            "Interactive Data Analysis"),
+  other.author = c(NA, "Ripley", NA, NA, NA, NA))
+
+
+merge(authors, books, by.x="surname", by.y="name")
+merge(books, authors, by.x="name", by.y="surname")
+
 
 
