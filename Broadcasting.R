@@ -87,7 +87,7 @@ dat %>%
   select(Sex)  %>%
   mutate(isMale = factor(Sex, 
                          levels = c("Female", "Male"),
-                         labels = c(0,1)) )   # convert the text to factor
+                         labels = c("female","male")) )   # convert the text to factor
 
 
 ######################## slide 41
