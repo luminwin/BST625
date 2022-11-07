@@ -414,3 +414,9 @@ billboard %>%
     values_drop_na = TRUE
   )
 
+us_rent_income %>%
+  pivot_wider(
+    names_from = variable,
+    names_glue = "{variable}_{.value}",
+    values_from = c(estimate, moe)
+  )
