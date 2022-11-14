@@ -18,6 +18,7 @@ HEART1
 HEART2
 
 dat <- HEART2
+
 dat <- dat %>%
   select(Sex, Height) 
 
