@@ -19,9 +19,16 @@ HEART2
 
 dat <- HEART2
 
-dat <- dat %>%
+dat %>%
   select(Sex, Height) 
 
 dat %>%
+  mutate(logHeight = log(Height) ,
+         sqrtHeight = sqrt(Height) )
+
+### combine the two steps
+
+dat %>%
+  select(Sex, Height)  %>%
   mutate(logHeight = log(Height) ,
          sqrtHeight = sqrt(Height) )
