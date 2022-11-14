@@ -64,3 +64,4 @@ datt %>%
   group_by(age_grp, ct_grp) %>% 
   summarise(n = n(), .groups = "drop") %>% 
   pivot_wider(names_from = ct_grp, values_from = n) 
+
