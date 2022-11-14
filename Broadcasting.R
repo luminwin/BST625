@@ -306,3 +306,38 @@ dat %>%
   summarise(n = n()) %>%
   pivot_wider(names_from = grade, 
               values_from = n)
+
+
+############################# slide 18
+normalize <- function(x){ 
+  # step 1: create the nominator 
+  nominator <- x-min(x , na.rm = TRUE) 
+  # step 2: create the denominator 
+  denominator <- max(x , na.rm = TRUE)-min(x , na.rm = TRUE) 
+  # step 3: divide nominator by denominator 
+  normalize <- nominator/denominator 
+  # return the value 
+  return(normalize)
+} 
+############################# slide 18
+
+dat %>%
+  select(score1:score3) %>%
+  map(normalize)
+
+dat %>%
+  select(score1:score3) %>%
+  map(normalize) %>%
+  as_tibble
+
+######################
+# {base}
+######################
+apply(dat[, 2:4], 2, normalize)
+
+apply(dat[, 2:4], 2, normalize)
+
+lapply(dat[, 2:4], normalize)
+
+as.data.frame(lapply(dat[, 2:4], normalize))
+
