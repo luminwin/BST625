@@ -70,7 +70,6 @@ datt %>%
 
 ## key
 
-## Step 1
 datt <- read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 pivot_wider(datt, names_from = time, 
                     values_from = pain) %>% 
