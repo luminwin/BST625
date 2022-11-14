@@ -115,3 +115,47 @@ dat[,-1] ## first column excluded
 relig_income
 relig_income %>%
   pivot_longer(-religion, names_to = "income", values_to = "counts")
+
+###################################################################	
+###
+### R code for your SAS project 2
+###
+###################################################################	
+
+##  (Total_Score) Total score as the sum of score 1 to 3
+##  (Avg_Score) Average score as the mean of the score 1 to 3
+##  (grade)         grade A: Avg_Score >= 90
+##                        B: Avg_Score [80, 90)
+##                        C: Avg_Score [70, 80)
+##                        D: Avg_Score [60, 70)
+##                        F: Avg_Score [0, 60)
+##  (pass) grade A to D: "Pass", grade F: "Fail"
+
+##  create a .csv file in your local machine that contains (name, gender and the above 4 new variables)
+##  Data Q1.Score_m contains male students and the students have an average score sorted from low to high.
+##  Data Q1.Score_f contains female students and the students have an average score sorted score from high to low.
+
+
+######################
+# {base}
+######################
+########################## slide 6
+dat <- read.csv("https://luminwin.github.io/BST625/score_data.csv")
+
+dat <- transform(dat,
+                 Total_Score = rowSums(dat[, paste("score", 1:3, sep = "")], na.rm = TRUE),
+                 Avg_Score = rowMeans(dat[, paste("score", 1:3, sep = "")], na.rm = TRUE))
+
+
+cut(dat$Avg_Score, breaks = c(0, 60, 70, 80, 90, 100) ) ## not correct for the edge
+cut(dat$Avg_Score, breaks = c(0, 60, 70, 80, 90, 100) , right = FALSE) ## correct
+
+cut(dat$Avg_Score, breaks = c(0, 60, 70, 80, 90, 100) , right = FALSE,
+    labels = c("F", "D", "C", "B", "A"))  
+
+dat <- transform(dat,
+                 grade = cut(Avg_Score, breaks = 10*5:10,
+                             labels = c("F", LETTERS[4:1]), # comment this line to check if you are right
+                             right = FALSE,
+                             ordered_result = TRUE))
+dat$pass <- ifelse(dat$grade == "F", "Fail", "Pass")
