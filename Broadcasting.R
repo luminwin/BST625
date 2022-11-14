@@ -16,3 +16,11 @@ HEART2 <- read_csv("C:/Users/m.lu/Downloads/BST625/R3/HEART.csv") ## {tidyverse}
 HEART1
 
 HEART2
+
+dat <- HEART2
+dat <- dat %>%
+  select(Sex, Height) 
+
+dat %>%
+  mutate(logHeight = log(Height) ,
+         sqrtHeight = sqrt(Height) )
