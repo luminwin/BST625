@@ -353,6 +353,9 @@ apply(dat[, 2:4], 2, normalize) ## normalize in column
 
 apply(dat[, 2:4], 1, normalize) ## normalize in row
 
+x <- apply(dat[, 2:4], 1, normalize)
+t(x)
+
 lapply(dat[, 2:4], normalize)
 
 as.data.frame(lapply(dat[, 2:4], normalize))
