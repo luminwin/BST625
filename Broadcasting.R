@@ -349,9 +349,9 @@ dat %>%
 apply(dat[, 2:4], MARGIN = 2, normalize)
 
 ## the same as above
-apply(dat[, 2:4], 2, normalize)
+apply(dat[, 2:4], 2, normalize) ## normalize in column
 
-apply(dat[, 2:4], 2, normalize)
+apply(dat[, 2:4], 1, normalize) ## normalize in row
 
 lapply(dat[, 2:4], normalize)
 
