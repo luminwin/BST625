@@ -35,6 +35,7 @@ dat %>%
 
 ### in class exercise: connect the following three steps:
 ############ HW5
+library(tidyverse)
 ## Step 1
 datt <- read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 datt <- pivot_wider(datt, names_from = time, 
@@ -65,3 +66,36 @@ datt %>%
   summarise(n = n(), .groups = "drop") %>% 
   pivot_wider(names_from = ct_grp, values_from = n) 
 
+
+
+## key
+
+## Step 1
+datt <- read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+datt <- pivot_wider(datt, names_from = time, 
+                    values_from = pain)
+
+## Step 2
+datt <- datt %>% 
+  mutate(
+    age_grp = 
+      case_when(
+        age < 25 ~ "24-", 
+        (25 <= age)&(age < 35) ~ "25-34", 
+        (35 <= age)&(age < 45) ~ "35-44", 
+        (45 <= age)&(age < 55) ~ "45-54", 
+        (55 <= age)&(age < 65) ~ "55-64", 
+        (65 <= age)&(age < 75) ~ "65-74", 
+        TRUE ~ "75+", 
+      ), 
+    ct_grp = 
+      case_when(
+        trt == 1 ~ "control", 
+        TRUE ~ "treatment"
+      )
+  )
+## Step 3
+datt %>% 
+  group_by(age_grp, ct_grp) %>% 
+  summarise(n = n(), .groups = "drop") %>% 
+  pivot_wider(names_from = ct_grp, values_from = n) 
