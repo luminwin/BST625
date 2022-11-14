@@ -163,3 +163,17 @@ dat <- transform(dat,
                              right = FALSE,
                              ordered_result = TRUE))
 dat$pass <- ifelse(dat$grade == "F", "Fail", "Pass")
+
+range(dat$Avg_Score)
+cut(dat$Avg_Score, breaks = 10*5:10,
+    labels = c("F", LETTERS[4:1]), # comment this line to check if you are right
+    right = FALSE,
+    ordered_result = TRUE)
+
+table(dat$grade)
+
+x <- subset(dat, gender == "m",
+            select = c("name", "gender", "Total_Score", "Avg_Score", "grade", "pass"))
+
+write.csv(x[order(x$Avg_Score), ], file = "Q1.Score_m.csv")
+
