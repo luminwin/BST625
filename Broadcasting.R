@@ -175,5 +175,14 @@ table(dat$grade)
 x <- subset(dat, gender == "m",
             select = c("name", "gender", "Total_Score", "Avg_Score", "grade", "pass"))
 
-write.csv(x[order(x$Avg_Score), ], file = "Q1.Score_m.csv")
+write.csv(x[order(x$Avg_Score), ], file = "Q1.Score_m.csv", row.names = FALSE)
 
+dat[1:3,] <- dat[1,]
+
+unique(dat)
+
+table(dat$grade, dat$gender)
+
+table(dat$grade, dat$gender, dat$pass)
+
+ftable(dat$grade, dat$gender, dat$pass)
