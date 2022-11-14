@@ -33,7 +33,7 @@ dat %>%
   mutate(logHeight = log(Height) ,
          sqrtHeight = sqrt(Height) )
 
-
+### in class exercise: connect the following three steps:
 ############ HW5
 ## Step 1
 datt <- read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
