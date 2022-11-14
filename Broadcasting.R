@@ -294,3 +294,15 @@ dat %>%
   drop_na()
 
 na.omit(dat) ## na.omit is from {base}
+
+############################# slide 14
+
+dat %>% 
+  group_by(gender, grade) %>%
+  summarise(n = n())
+
+dat %>% 
+  group_by(gender, grade) %>%
+  summarise(n = n()) %>%
+  pivot_wider(names_from = grade, 
+              values_from = n)
