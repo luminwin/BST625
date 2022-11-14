@@ -306,8 +306,21 @@ dat %>%
   summarise(n = n()) %>%
   pivot_wider(names_from = grade, 
               values_from = n)
+### wrap a commend into a function
+
+if("tidyverse" %in% rownames(installed.packages()) == FALSE) {install.packages("tidyverse")}
+
+if("ggplot2" %in% rownames(installed.packages()) == FALSE) {install.packages("ggplot2")}
+
+myinstall <- function(x){ 
+  if(x %in% rownames(installed.packages()) == FALSE) {install.packages(x)}
+}
 
 
+myinstall("dplyr")
+
+# the same as above
+if("dplyr" %in% rownames(installed.packages()) == FALSE) {install.packages("dplyr")}
 ############################# slide 18
 normalize <- function(x){ 
   # step 1: create the nominator 
