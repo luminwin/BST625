@@ -145,6 +145,10 @@ dat <- read.csv("https://luminwin.github.io/BST625/score_data.csv")
 dat <- transform(dat,
                  Total_Score = rowSums(dat[, paste("score", 1:3, sep = "")], na.rm = TRUE),
                  Avg_Score = rowMeans(dat[, paste("score", 1:3, sep = "")], na.rm = TRUE))
+## the same as above
+dat <- transform(dat,
+                 Total_Score = rowSums(dat[, 2:4], na.rm = TRUE),
+                 Avg_Score = rowMeans(dat[, c("score1", "score2", "score3")], na.rm = TRUE))
 
 
 cut(dat$Avg_Score, breaks = c(0, 60, 70, 80, 90, 100) ) ## not correct for the edge
