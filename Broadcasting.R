@@ -72,11 +72,8 @@ datt %>%
 
 ## Step 1
 datt <- read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
-datt <- pivot_wider(datt, names_from = time, 
-                    values_from = pain)
-
-## Step 2
-datt <- datt %>% 
+pivot_wider(datt, names_from = time, 
+                    values_from = pain) %>% 
   mutate(
     age_grp = 
       case_when(
@@ -93,9 +90,7 @@ datt <- datt %>%
         trt == 1 ~ "control", 
         TRUE ~ "treatment"
       )
-  )
-## Step 3
-datt %>% 
+  ) %>% 
   group_by(age_grp, ct_grp) %>% 
   summarise(n = n(), .groups = "drop") %>% 
   pivot_wider(names_from = ct_grp, values_from = n) 
