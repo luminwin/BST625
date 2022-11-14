@@ -93,3 +93,15 @@ pivot_wider(datt, names_from = time,
   group_by(age_grp, ct_grp) %>% 
   summarise(n = n(), .groups = "drop") %>% 
   pivot_wider(names_from = ct_grp, values_from = n) 
+
+### == vs =
+x = 5
+## the same as x <- 5
+x == 5
+
+dat %>%
+  mutate(Height == log(Height) ,
+         Height == sqrt(Height) )
+
+dat %>%
+  select(Height) 
