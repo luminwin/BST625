@@ -177,8 +177,10 @@ x <- subset(dat, gender == "m",
 
 write.csv(x[order(x$Avg_Score), ], file = "Q1.Score_m.csv", row.names = FALSE)
 
+## pretend I have duplicates
 dat[1:3,] <- dat[1,]
 
+unique(dat$grade)
 unique(dat)
 
 table(dat$grade, dat$gender)
@@ -186,3 +188,28 @@ table(dat$grade, dat$gender)
 table(dat$grade, dat$gender, dat$pass)
 
 ftable(dat$grade, dat$gender, dat$pass)
+
+######################
+# {tidyverse}
+######################
+########################## slide 7
+library(tidyverse)
+dat <- read_csv("https://luminwin.github.io/BST625/score_data999.csv") 
+dat[dat == 999] <- NA
+
+dat %>%  rowwise() %>%  #rowwise will make sure the sum operation occurs on each row
+  mutate(Total_Score = sum(c(score1, score2, score3), na.rm= TRUE ),
+         Avg_Score = mean(c(score1, score2, score3), na.rm= TRUE ),
+         grade = case_when( Avg_Score < 60 ~ "F", 
+                            (60 <= Avg_Score)&(Avg_Score < 70) ~ "D", 
+                            (70 <= Avg_Score)&(Avg_Score < 80) ~ "C", 
+                            (80 <= Avg_Score)&(Avg_Score < 90) ~ "B", 
+                            Avg_Score >= 90 ~ "A" ),
+         pass = if_else(grade == "F", "Fail", "Pass")
+  ) %>% 
+  select(name, gender, Total_Score, Avg_Score, grade, pass) %>% 
+  filter(gender == "m") %>% 
+  arrange(Avg_Score) %>% 
+  write_csv("Q1.Score_m.csv")
+
+
