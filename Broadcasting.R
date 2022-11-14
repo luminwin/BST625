@@ -105,3 +105,9 @@ dat %>%
 
 dat %>%
   select(Height) 
+
+
+dat %>%
+  select(-Height) 
+
+dat[,-1] ## first column excluded
