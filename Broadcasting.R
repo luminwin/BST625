@@ -261,6 +261,9 @@ dat %>%
   mutate(score1 = replace(score1, is.na(score1),
                           mean(score1, na.rm = TRUE))) ## replace is from {base}
 
+dat$score1 <- replace(dat$score1, is.na(dat$score1),
+        mean(dat$score1, na.rm = TRUE))
+
 dat$score1 %>%
   replace_na(999) ## replace_na is from {tidyverse}
 
