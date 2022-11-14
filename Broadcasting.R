@@ -114,4 +114,4 @@ dat[,-1] ## first column excluded
 
 relig_income
 relig_income %>%
-  pivot_longer(!religion, names_to = "income", values_to = "count")
+  pivot_longer(-religion, names_to = "income", values_to = "counts")
