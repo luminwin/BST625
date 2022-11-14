@@ -346,6 +346,9 @@ dat %>%
 ######################
 # {base}
 ######################
+apply(dat[, 2:4], MARGIN = 2, normalize)
+
+## the same as above
 apply(dat[, 2:4], 2, normalize)
 
 apply(dat[, 2:4], 2, normalize)
