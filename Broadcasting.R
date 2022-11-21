@@ -47,7 +47,7 @@ ggplot(data = mpg) +
 ggplot(data = mpg) +
   aes(x = displ, y = hwy) + 
   geom_point(aes(colour = cyl,
-                 size = displ),
+                 size = displ),   ## bubble plot
              alpha = 0.5) + 
   # Default smoother is LOESS (Locally Weighted Scatterplot Smoothing)
   geom_smooth() +
