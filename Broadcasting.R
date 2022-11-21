@@ -143,3 +143,4 @@ dat %>% mutate(
   ggplot() +
   geom_bar(mapping = aes(x = grade)) +
   labs(x = "Grade", y="Count Number")
+
