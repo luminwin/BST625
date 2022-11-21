@@ -254,7 +254,7 @@ barplot(Deathrate2,                             # Data (bar heights) to plot
         space = c(0.2,0.8),                       # Amount of space between i) bars within a group, ii) bars between groups  
         names.arg = c("65-69", "60-64", "55-59", "50-54", "70-74"),    #Names for the bars  
         col = c("blue", "red"),                   # Color of the bars  
-        border = "black",                         # Color of the bar borders  
+        border = "yellow",                         # Color of the bar borders  
         main = c("Death rates in Virginia"),      # Main title for the plot  
         xlab = "Age group",                       # X-axis label  
         ylab = "Death rate",                      # Y-axis label  
@@ -263,4 +263,34 @@ barplot(Deathrate2,                             # Data (bar heights) to plot
 legend("topleft",                               # Add a legend to the plot  
        legend=c("Male", "Female"),             # Text for the legend  
        fill=c("blue", "red"))                  # Fill for boxes of the legend  
+
+
+####################
+# {base}
+####################
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+dat <- reshape(dat, v.names = "pain", idvar = "id",
+               timevar = "time", direction = "wide")
+dat$Avg_Pain <- rowMeans(dat[,paste("pain", 1:6, sep = ".")])
+
+par(mfrow = c(1, 2)) 
+boxplot(Avg_Pain ~ trt + sex, data = dat)
+
+## remember that trt == 1 for "Control" and trt == 2 for "Post-operative suction"?
+cols <- c("chocolate1", "chartreuse4")
+dat$sex <- factor(dat$sex, levels = 1:2, labels = c("male", "female"))
+dat$trt <- ifelse(dat$trt == 1, "control", "treat") 
+boxplot(Avg_Pain ~ trt + sex, data = dat, col = cols)
+
+par(mfrow = c(1, 2)) 
+boxplot(Avg_Pain ~ trt + sex, data = dat, col = cols)
+boxplot(Avg_Pain ~ trt + sex, data = dat,
+        at = c(1:2 , 4:5) , col = cols ,
+        names = c("                   Male", "", 
+                  "                   Female", ""),
+        xaxs = FALSE,
+        xlab = "XXXXC",
+        ylab = "XXXXD")
+legend("topleft", fill = cols ,
+       legend = c("Control", "Treatment") , horiz = T, bty = "n")
 
