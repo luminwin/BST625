@@ -76,4 +76,53 @@ dat2 <- dat %>% mutate(
 #############################
 # make a scatterplot using above dat2  with score1 score2 with Avg_Score as colour
 
+ggplot(dat2) +
+  aes(x = score1, y = score2) + 
+  geom_point(aes(colour = Avg_Score)) + 
+  # Default smoother is LOESS
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red")
 
+## connect the above two steps with %>%
+
+dat %>% mutate(
+  Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
+  Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
+  grade = case_when( 
+    Avg_Score < 60 ~ "F", 
+    (60 <= Avg_Score)&(Avg_Score < 70) ~ "D", 
+    (70 <= Avg_Score)&(Avg_Score < 80) ~ "C", 
+    (80 <= Avg_Score)&(Avg_Score < 90) ~ "B", 
+    Avg_Score >= 90 ~ "A"),
+  pass = case_when(
+    grade == "F"~"Fail", 
+    TRUE ~"Pass")) %>%
+ggplot() +
+  aes(x = score1, y = score2) + 
+  geom_point(aes(colour = Avg_Score)) + 
+  # Default smoother is LOESS
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red")
+
+
+dat %>% mutate(
+  Total_Score = rowSums(select(., score1:score3), na.rm = TRUE), 
+  Avg_Score = rowMeans(select(.,score1:score3), na.rm = TRUE), 
+  grade = case_when( 
+    Avg_Score < 60 ~ "F", 
+    (60 <= Avg_Score)&(Avg_Score < 70) ~ "D", 
+    (70 <= Avg_Score)&(Avg_Score < 80) ~ "C", 
+    (80 <= Avg_Score)&(Avg_Score < 90) ~ "B", 
+    Avg_Score >= 90 ~ "A"),
+  pass = case_when(
+    grade == "F"~"Fail", 
+    TRUE ~"Pass")) %>%
+  rename(GRE = score1,
+         GPA_stats_I = score2,
+         GPA_stats_II = score3) %>%
+  ggplot() +
+  aes(x = GRE, y = GPA_stats_II) + 
+  geom_point(aes(colour = GPA_stats_I)) + 
+  # Default smoother is LOESS
+  geom_smooth() +
+  geom_smooth(method = "lm", colour = "red")
