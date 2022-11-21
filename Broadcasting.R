@@ -13,6 +13,10 @@ load("score_data.RData")
 save.image("scoresave.RData") ## save all the object in your environment
 save(dat, file = "score_data.RData") ## save a specific object dat
 
+
+library(tidyverse) # if you have error you have to run the following first
+# install.packages("tidyverse")
+
 ?mpg # check the data
 
 ggplot(mpg) +
