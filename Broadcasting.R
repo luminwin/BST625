@@ -294,3 +294,20 @@ boxplot(Avg_Pain ~ trt + sex, data = dat,
 legend("topleft", fill = cols ,
        legend = c("Control", "Treatment") , horiz = T, bty = "n")
 
+#######################################################
+# !!!! paste the following code to your .rmd file NOT .r file
+############################################################
+
+---
+title: "A Tiny Project for BST 625"
+author: "First Name Last name (XXXX@umiami.edu)"
+date: "11/21/2022"
+output: html_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+options(digits = 2)  ## set digits for statistics
+```
+
+![](team.jpeg){width=60%}
