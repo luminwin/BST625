@@ -33,6 +33,14 @@ ggplot(mpg) +
   geom_histogram(aes(x = hwy), bins = 20)
 
 
+ggplot(data = mpg) +
+  aes(x = displ, y = hwy) + 
+  geom_point()
 
+
+ggplot(data = mpg) +
+  aes(x = displ, y = hwy) + 
+  geom_point() +
+  geom_smooth(method = "lm", colour = "red") 
 
 
