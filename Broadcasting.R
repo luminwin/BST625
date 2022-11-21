@@ -33,3 +33,6 @@ ggplot(mpg) +
   geom_histogram(aes(x = hwy), bins = 20)
 
 
+
+
+
