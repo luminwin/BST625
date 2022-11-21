@@ -7,3 +7,6 @@
 # I will grade your homework early so that you can resubmit to claim all your lost points. 
 
 # Please download "team.jpg" and "score_data.RData" from our blackboard to join class
+
+setwd("C:/Users/m.lu/Downloads/BST625/R6")
+load("score_data.RData")
