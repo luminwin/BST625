@@ -10,3 +10,5 @@
 
 setwd("C:/Users/m.lu/Downloads/BST625/R6")
 load("score_data.RData")
+save.image("scoresave.RData") ## save all the object in your environment
+save(dat, file = "score_data.RData") ## save a specific object dat
