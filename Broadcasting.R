@@ -53,5 +53,5 @@ ggplot(data = mpg) +
   geom_smooth(colour = "green") +
   geom_smooth(method = "lm", colour = "red") 
 ggsave(height = 4, width = 4*1.9,
-       file = "scatterexample.png") # .jpg   or   .pdf
+       file = "scatterexample.jpg") #.png  .jpg   or   .pdf
 
