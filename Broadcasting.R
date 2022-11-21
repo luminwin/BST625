@@ -326,3 +326,25 @@ options(digits = 2)  ## set digits for statistics
 
 ## Data description
 The dataset we used contains a subset of the fuel economy data that the EPA makes available on http://fueleconomy.gov. It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car.
+
+The variables are
+
+#### Table 1
+|Variable | Content |
+  |:-----|:-----|
+  |displ| Engine displacement in litres|
+  |cyl | Number of cylinders|
+  |trans| Type of transmission|
+  |drv | Type of drive train, where f = front-wheel drive, r = rear wheel drive, 4 = four wheel drive|
+  |cty | City miles per gallon|
+  |hwy | Highway miles per gallon|
+  |class | Type of car|
+  
+  
+  A snapshot of the data:
+```{r}
+library(ggplot2) 
+data(mpg)
+knitr::kable(mpg[1:10, ])
+```
+
