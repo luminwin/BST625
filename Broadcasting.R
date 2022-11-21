@@ -5,3 +5,5 @@
 
 # If you submit your HW6 by this Friday with the bonus part (Nov 25th, 11:59pm), 
 # I will grade your homework early so that you can resubmit to claim all your lost points. 
+
+# Please download "team.jpg" and "score_data_RData" from our blackboard to join class
