@@ -311,3 +311,18 @@ options(digits = 2)  ## set digits for statistics
 ```
 
 ![](team.jpeg){width=60%}
+
+## Project Development Pipeline Process Steps
+
+- **Phase 1**
+  - Site Selections & Acquisition
+- Pre-feasibility Studies
+- **Phase II**
+  - Design & Development
+- Construction
+- **Phase III**
+  - Operation 
+- Maintenance
+
+## Data description
+The dataset we used contains a subset of the fuel economy data that the EPA makes available on http://fueleconomy.gov. It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car.
