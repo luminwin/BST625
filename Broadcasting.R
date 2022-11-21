@@ -56,7 +56,7 @@ ggsave(height = 4, width = 4*1.9,
        file = "scatterexample.jpg") #.png  .jpg   or   .pdf
 
 
-setwd("~/Dropbox/R book/R6") ## the folder you save "score_data.RData" that you downloaded from BB
+setwd("C:/Users/m.lu/Downloads/BST625") ## the folder you save "score_data.RData" that you downloaded from BB
 load("score_data.RData")
 
 dat2 <- dat %>% mutate(
@@ -74,5 +74,6 @@ dat2 <- dat %>% mutate(
 #############################
 # In-class Exercise
 #############################
-# make a scatterplot with score1 score2 with Avg_Score as colour
+# make a scatterplot using above dat2  with score1 score2 with Avg_Score as colour
+
 
