@@ -46,12 +46,12 @@ ggplot(data = mpg) +
 
 ggplot(data = mpg) +
   aes(x = displ, y = hwy) + 
-  geom_point(aes(colour = cyl,
+  geom_point(aes(colour = trans,
                  size = displ),   ## bubble plot
              alpha = 0.5) + 
   # Default smoother is LOESS (Locally Weighted Scatterplot Smoothing)
-  geom_smooth() +
+  geom_smooth(colour = "green") +
   geom_smooth(method = "lm", colour = "red") 
 ggsave(height = 4, width = 4*1.9,
-       file = "scatterexample.png")
+       file = "scatterexample.png") # .jpg   or   .pdf
 
