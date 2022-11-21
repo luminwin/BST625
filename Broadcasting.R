@@ -26,4 +26,10 @@ ggplot(mpg) +
 ggplot(mpg) +
   geom_histogram(aes(x = hwy))
 
+ggplot(mpg) +
+  geom_histogram(aes(x = hwy), binwidth = 5)
+
+ggplot(mpg) +
+  geom_histogram(aes(x = hwy), bins = 20)
+
 
