@@ -346,3 +346,17 @@ iris %>%
   arrange(desc(Species))
 
 show_dplyr("SELECT Species, COUNT(*) AS n FROM iris GROUP BY Species")
+
+library("tidyverse")
+install.packages("dbplyr") ## after installation, add # in front to put it in comment 
+library("dbplyr")
+
+iris_db <- dbplyr::tbl_memdb(iris, name = "iris_db") # Create a database table in temporary in-memory database
+iris_db %>%
+  group_by(Species) %>%
+  summarise(n = n())
+
+iris_db %>%
+  group_by(Species) %>%
+  summarise(n = n()) %>%
+  show_query()
