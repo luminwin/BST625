@@ -405,3 +405,19 @@ dat$Avg_Pain <- rowMeans(dat[,paste("pain", 1:6, sep = ".")], na.rm = TRUE)
 dat$age_grp <- cut(dat$age, c(10*2:9))
 barplot(table(round(dat$Avg_Pain), dat$age_grp),beside = TRUE)
 
+
+## Omar qadi
+
+f_to_c <- function(temp_F) {
+  temp_C <- (temp_F - 32) * 5 / 9
+  return(temp_C)
+}
+f_to_c(72)
+## [1] 22.22222
+## write down the purpose of the above command
+## ----| Converts Fahrenheit to Celsius
+
+## Aaron Ruby, MS Biostatistics 
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+table(dat$pain, useNA = 'always')
+## Count the number of times of occurrences of each value (including NA values) in the ‘pain’ column of the dat table.
