@@ -6,3 +6,12 @@
 install.packages("sqldf") ## after installation, add # in front to put it in comment 
 # install.packages("RSQLite") 
 library("sqldf")
+
+sqldf("SELECT mpg, cyl FROM mtcars")
+
+sqldf("SELECT mpg cyl FROM mtcars") # this gives you wrong answer; use ,
+
+sqldf("SELECT * FROM mtcars")
+sqldf("select * from mtcars")
+sqldf('select * from mtcars')
+
