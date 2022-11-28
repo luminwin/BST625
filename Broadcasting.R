@@ -21,8 +21,26 @@ sqldf("SELECT MPG, CYL FROM mtcars") # not case-sensitive except the name of the
 sqldf("SELECT 'MPG', 'CYL' FROM mtcars") # this does not work
 sqldf('SELECT "MPG", "CYL" FROM mtcars') # this works
 
+sqldf("SELECT mpg as miles_gallon, cyl as N_cylinders FROM mtcars") ## too long so I did the following for seperate lines
 
-sqldf("SELECT mpg as miles_gallon, 
+sqldf("SELECT mpg as miles_gallon,  
               cyl as N_cylinders
       FROM mtcars")
+
+## don't have to have   as
+sqldf("SELECT mpg miles_gallon,     
+              cyl N_cylinders
+      FROM mtcars")
+
+
+
+sqldf('SELECT * FROM mtcars LIMIT 5')
+
+sqldf("SELECT * FROM mtcars ORDER BY mpg LIMIT 5")
+
+sqldf("SELECT * FROM mtcars ORDER BY mpg ASC LIMIT 5")
+
+sqldf("SELECT * FROM mtcars ORDER BY mpg ASC, cyl DESC LIMIT 5")
+
+
 
