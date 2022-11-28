@@ -387,3 +387,21 @@ dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 t.test(pain~sex, data=dat)
 
 
+### Rebe Silvey
+
+#Simple scatterplot of pain intensity by age
+Age <- dat$age
+Pain <- dat$pain
+plot(Age, Pain, main="Pain Intensity by Age Scatterplot")
+
+
+## Min Lu
+# a small change: 
+plot(Age, Pain, main="Pain Intensity by Age Scatterplot", cex = Pain)
+# a bigger change
+dat <- reshape(dat, v.names = "pain", idvar = "id",
+               timevar = "time", direction = "wide")
+dat$Avg_Pain <- rowMeans(dat[,paste("pain", 1:6, sep = ".")], na.rm = TRUE)
+dat$age_grp <- cut(dat$age, c(10*2:9))
+barplot(table(round(dat$Avg_Pain), dat$age_grp),beside = TRUE)
+
