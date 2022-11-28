@@ -971,3 +971,149 @@ summary(height)
 # database can be accessed by simply giving their names
 
 ## Min Lu: use detach() after the task to make your environment clean
+detach(women)
+
+##########################################################################
+# Code from 2021 class contributors 
+###########################################################################
+
+##########################################################################
+# contributor: Ahmed Alnajar {base}
+###########################################################################
+install.packages("skimr")
+library("skimr")
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+Pain_long <- dat$pain
+skimr::skim(dat)
+detach("package:skimr", unload=TRUE)
+
+##########################################################################
+# contributor: Ahmed Alnajar {tidyverse}
+###########################################################################
+
+## ----|In "ggplot" you could use geom_point()+geom_smooth() to customize the shape 
+## and  the formate of the figure
+
+flights <- read.csv("https://luminwin.github.io/BST625/flights.csv")
+
+start_time_df <- Sys.time()
+x <- subset(flights, carrier == "FL", select = c(dest, air_time))
+end_time_df <- Sys.time()
+end_time_df - start_time_df
+
+library(tidyverse)
+flightst <- as_tibble(flights)
+start_time_tidy <- Sys.time()
+x <- flightst %>%
+  filter(carrier == "FL") %>%
+  select(dest, air_time) 
+end_time_tidy <- Sys.time()
+end_time_tidy - start_time_tidy
+#detach("package:tidyverse", unload=TRUE)
+
+
+# contributor: Min Lu {base} 
+start_time_dfb <- Sys.time()
+x <- flights[flights$carrier == "FL", c("dest", "air_time")]
+end_time_dfb <- Sys.time()
+end_time_dfb - start_time_dfb
+## In {base} R, square bracket is faster than subset()
+## But I am surprised that tidyverse tibble is the slowest
+
+##########################################################################
+# contributor: Kyle Grealis {base}
+###########################################################################
+fast_car<-function(power){
+  cars<-subset(mtcars, hp>power, select=c(disp, hp, qsec))
+  print("LET'S GO!")
+  cars
+}
+fast_car(200)
+## write down the purpose of the above command
+## ----|This creates a function that searches the 'mtcars' dataset for cars 
+## with horsepower greater than the value entered into the function. 
+## Then it prints "LET'S GO!" followed by the results: car type, displacement, 
+## horsepower, and quarter-mile time in seconds. (Example: 200hp)
+
+##########################################################################
+# contributor: Peiyu Zhu {maps}
+###########################################################################
+install.packages("maps")
+library(maps)
+map("state", fill = TRUE, col = rainbow(209),
+    mar = c(0, 0, 2, 0))
+title("American map")
+detach("package:maps", unload=TRUE)
+## write down the purpose of the above command
+## ----|I learned how to make a American map by R.
+
+
+##########################################################################
+# contributor: Hannah Cranford {tidyverse::ggplot2}
+###########################################################################
+library(tidyverse)
+ggplot(mpg, aes(cyl, hwy)) +
+  geom_jitter() +
+  labs(x = "Number of cylinders", y="Highway miles per gallon")
+
+## write down the purpose of the above command
+## ----| Geom_jitter() is an aesthetic function that can be used in place of
+# geom_point(position = "jitter"), which shows a small amount of random variation at the
+# location of each point that can be used with overplotting
+
+
+##########################################################################
+# contributor:  Hatoun Alkamli  {base}
+###########################################################################
+
+list.dirs(R.home("doc"))
+list.dirs(R.home("doc"), full.names = FALSE)
+
+## write down the purpose of the above command
+## ----| To produce a character vector of the names of files or directories in the named
+##      directory.
+
+# contributor: Min Lu {base} 
+list.dirs()
+##########################################################################
+# contributor:  Frank Gutierrez {base}
+###########################################################################
+
+cone <- function(x,y){
+  sqrt(x^2 + y^2)
+}
+x <- y <- seq(-1, 1, length = 40)
+z <- outer(x, y, cone)
+persp(x, y, z)
+
+persp(x, y, z,
+      main = "Perspective Plot of a 3D Cone",
+      zlab = "Height",
+      theta = 20, phi = 10,
+      col = "Aquamarine", shade = 0.5)
+
+## write down the purpose of the above command
+## ----| The purpose of the above command is to create a 3D plot of a cone and also to create
+##      a 3D surface in perspective view of a cone
+
+
+
+##########################################################################
+# contributor:  Peiyu Zhu  {base}
+###########################################################################
+cols <- terrain.colors(10)
+head(cols)
+## [1] "#00A600" "#2DB600" "#63C600" "#A0D600" "#E6E600" "#E8C32E"
+## [1] "#00A600FF" "#2DB600FF" "#63C600FF" "#A0D600FF" "#E6E600FF"
+"#E8C32EFF"
+image(1:10,1,as.matrix(1:10),col=cols,
+      xlab="terrain.colors(10)",
+      ylab="",xaxt="n",yaxt="n",bty="n")
+
+###########################################
+# 2020 contributor: Antonela Peña {tidyverse}
+###########################################
+flights <- read_csv("https://luminwin.github.io/BST625/flights.csv")
+ggplot(flights[1:20,], aes(x=origin, y=dest)) +
+  geom_line(aes(group=1), colour="#000099") +
+  geom_point(size=3, colour="#CC0000")
