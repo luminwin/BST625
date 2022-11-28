@@ -421,3 +421,22 @@ f_to_c(72)
 dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 table(dat$pain, useNA = 'always')
 ## Count the number of times of occurrences of each value (including NA values) in the ‘pain’ column of the dat table.
+
+## Sophie Cen
+library(foreign)
+sav <- system.file("files", "electric.sav", package = "foreign")
+dat <- read.spss(file=sav) 
+## If you want to share something in English, write down your answer after "## ---|" in the next line.
+## ---- Now I can read SPSS in R. Awesome!
+
+## Min Lu: download shoulder.sav from our Blackboard
+datsav <- read.spss("shoulder.sav") 
+
+#  Omar Qadi; Bader Alsuliman
+head(dat)
+## write down the purpose of the above command
+
+## ----|Provides a list of the first few rows of the data set for all the 
+## variables in it
+## Bethly Aubourg
+head(dat,3)
