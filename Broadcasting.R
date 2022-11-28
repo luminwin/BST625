@@ -795,3 +795,53 @@ RSiteSearch('"logistic regression"')
 # search for “keyword” in various documentation, such as R manuals, help pages 
 # of base and CRAN packages, vignettes, task views and others.THIS IS SO 
 #AWESOME!!! Love this one!!!
+
+
+## Vaughn Edelson   Carly Davis
+library(ggplot2)
+# Create data frame for a n-level christmas tree
+# - specify 2*n bars (but have only n unique values)
+# - set divergence values (values at the same level should differ only in the sign)
+# - set labels for different parts of the tree
+df <- data.frame("wish" = c("YS", "YS", "IDA", "IDA", "HOL", "HOL",
+                            
+                            "PY", "PY", "HAP", "HAP"),
+                 
+                 "pos" = c(0.75, -0.75, 3.5, -3.5, 2.5, -2.5,
+                           
+                           1.5, -1.5, 0.3, -0.3),
+                 
+                 "part" = c(rep("bottom", 2), rep("tree", 6), rep("star", 
+                                                                  2)))
+# Convert wish to factor, specify levels to have the right order
+df$wish <- factor(df$wish, levels = c("YS", "IDA", "HOL", "PY", "HAP"))
+ggplot(df, aes(x = wish, y = pos, fill = part)) + geom_bar(stat="identity") +
+  
+  coord_flip() +
+  
+  theme_minimal() +
+  
+  ylim(-5, 5) +
+  
+  theme(legend.position = "none",
+        
+        axis.title.x=element_blank(),
+        
+        axis.text.x=element_blank(),
+        
+        axis.ticks.x=element_blank()) +
+  
+  scale_fill_manual(values = c("#643413", "#FDBA1C", "#1A8017")) +
+  
+  geom_point(aes(x=3.7, y=0.5), colour="#CF140D", size=12) +
+  
+  geom_point(aes(x=2.5, y=-1), colour="#393762", size=12) +
+  
+  geom_point(aes(x=1.7, y=1.5), colour="#CF140D", size=12) +
+  
+  geom_point(aes(x=2.8, y=2.5), colour="#393762", size=12) +
+  
+  geom_point(aes(x=1.8, y=-2.8), colour="#CF140D", size=12)
+
+
+
