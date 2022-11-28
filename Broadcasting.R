@@ -360,3 +360,30 @@ iris_db %>%
   group_by(Species) %>%
   summarise(n = n()) %>%
   show_query()
+
+
+
+#  Alexandra McMahon
+
+## Tell R your command in the next line
+help(hist) 
+## write down the purpose of the above command
+## ----|help with histogram command
+
+# Alireza Abdshah
+## Tell R your command in the next line
+#old.packages()
+#update.packages(ask=FALSE)
+## write down the purpose of the above command
+## to see which packages are out of date, and update all of them at the same time ----|
+
+##  Alex Stewart
+#I have learned that packages inside of R can be used to add tons to the 
+#functionality to the system overall. Including packages to make better graphs
+#like ggplot and graphics!
+
+### Yina Wang
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+t.test(pain~sex, data=dat)
+
+
