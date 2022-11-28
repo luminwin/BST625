@@ -329,3 +329,20 @@ sqldf("select d.ID, *,
                       from treatB)
                         as b
                         on d.ID = b.ID")
+
+############################################
+# {tidyquery} from R studio
+# Translate SQL to tidyverse
+# Combine SQL with tidyverse
+############################################
+install.packages("tidyquery") ## after installation, add # in front to put it in comment 
+library("tidyquery")
+
+query("SELECT Species, COUNT(*) AS a FROM iris GROUP BY Species")
+
+iris %>%
+  filter(Species != "setosa") %>%
+  query("SELECT Species, COUNT(*) AS n GROUP BY Species") %>%
+  arrange(desc(Species))
+
+show_dplyr("SELECT Species, COUNT(*) AS n FROM iris GROUP BY Species")
