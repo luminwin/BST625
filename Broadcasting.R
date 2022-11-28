@@ -193,3 +193,15 @@ sqldf("select d.*, a.esophagectomy
                  from demo as d 
                     left join treatA as a
                         on d.ID = a.ID")
+
+### RIGHT and FULL OUTER JOINs are not currently supported
+sqldf("select d.ID, d.age, a.esophagectomy 
+                 from demo as d right join treatA as a
+                        on d.ID = a.ID")
+
+### we can switch order for right join  
+sqldf("select d.ID, d.age, a.esophagectomy 
+                 from treatA as a 
+                    left join demo as d 
+                        on d.ID = a.ID")
+
