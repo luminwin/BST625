@@ -127,3 +127,31 @@ sqldf('select avg(centermpg)
         group by gear')
 
 ### merge above, we have a subquery
+
+sqldf('select avg(centermpg) 
+        from (
+        select *,
+              mpg - avg(mpg) over (partition by "vs") as centermpg
+              from mtcars
+        ) 
+        where centermpg > 0 
+        group by gear')
+
+############################
+# {sqldf}
+# In class exercise
+############################
+
+######## can you merge the following two command into a subquery
+
+tmp <- sqldf('select 
+       "Species", 
+       "Sepal.Length", 
+       "Sepal.Length" - avg("Sepal.Length") over (partition by "Species") as "above.mean" 
+       from iris')
+
+sqldf('select "Species", avg("Sepal.Length") 
+        from tmp 
+        where "above.mean" > 0 
+        group by "Species"')
+
