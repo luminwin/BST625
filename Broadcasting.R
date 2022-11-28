@@ -685,3 +685,40 @@ for (i in 1:10) {
 }
 
 ## Min Lu: %>% alone is a operater that passing its left as the first argument to its right function
+
+library(tidyverse)
+## Victoria Rico
+#I learned how to group together codes with the pipe operator. it is 
+# easier to go step by step to avoid mistakes, however; it is nice to see the 
+# code together to make sure I did it correct
+
+flightsb <- read_csv("https://luminwin.github.io/BST625/flights.csv")
+## Mary Gorora
+flightsb %>%
+  filter(origin != "LGA") %>%
+  filter(day == 1) %>%
+  select(dest, distance, air_time, everything()) %>%
+  arrange(desc(distance))
+
+## ----|I learned that the "!" means that it will output the opposite of 
+## sew all the steps together.
+## whatever follows it. For example, when we typed (origin ! = EWK), the output 
+## would be all answers except EWK. Also, when you are filtering things, you use
+## one "=" for variables that are characters, but you use two "==" when the 
+## variable is a number. In addition to this, using the pipe operator helps to 
+
+# Teja Henry
+flights %>%
+  group_by(hour) %>%
+  summarise(arr_delay = mean(arr_delay, na.rm = TRUE)) %>%
+  arrange(arr_delay)
+
+##  Leah Dodds
+## Tell R your command in the next line
+
+## trt == 1 ~ "control"
+
+## write down the purpose of the above command
+## ----| I was initially confused about using the "==" which I now know helps
+## us to denote whether or not the condition is TRUE/FALSE. This syntax I wrote 
+## check to see if trt variable equals to 1 then select and rename as "control".
