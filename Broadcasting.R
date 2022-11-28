@@ -722,3 +722,32 @@ flights %>%
 ## ----| I was initially confused about using the "==" which I now know helps
 ## us to denote whether or not the condition is TRUE/FALSE. This syntax I wrote 
 ## check to see if trt variable equals to 1 then select and rename as "control".
+
+
+## Alessandra Maggioni
+remotes::install_cran("tidyverse",force=TRUE)
+## write down the purpose of the above command
+## Because I continuously had error messages in installing tidyverse, 
+## specifically lubridate, I found a way to force the install, and install the 
+## packages independently which can be seen in lines 34-37.
+
+install.packages("apaTables")
+# Michaela Larson
+library(apaTables)
+apa.cor.table(
+  data=mtcars,
+  filename = "correlations_hw4.doc",
+  table.number = 1,
+  show.conf.interval = TRUE,
+  show.sig.stars = TRUE,
+  landscape = TRUE
+)
+## write down the purpose of the above command
+## ----|Creates a word document with a table of correlations in APA style!
+
+
+##  Ruth De Mesa
+
+dat <- read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+head(dat %>%
+       rename(gender = sex))
