@@ -222,3 +222,23 @@ sqldf("select d.ID, d.age,
                  from treatA as a 
                     inner join demo as d 
                         on d.ID = a.ID")
+
+sqldf("select d.ID, d.age, a.esophagectomy, b.neoadjuvant
+                 from demo as d 
+                      left join treatA as a
+                        on d.ID = a.ID
+                      left join treatB as b
+                        on d.ID = b.ID")
+
+### I want to manipulate treatA before left join like this
+
+sqldf("select *, esophagectomy as Esoph from treatA")
+
+### Let's do subquery again!
+
+sqldf("select d.ID, d.age, a.Esoph, b.neoadjuvant
+                 from demo as d 
+                      left join (select *, esophagectomy as Esoph from treatA) as a
+                        on d.ID = a.ID
+                      left join treatB as b
+                        on d.ID = b.ID")
