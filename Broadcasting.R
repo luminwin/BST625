@@ -96,3 +96,19 @@ mtcars %>%
     vs == 0 ~ 'V-shaped'
   ))
 
+
+sqldf('select avg(mpg) 
+        from mtcars 
+        group by vs')
+
+sqldf('select avg(mpg) 
+        from mtcars 
+        group by vs')
+
+sqldf('select avg(mpg) over (partition by "vs")
+        from mtcars')
+
+sqldf('select avg(mpg) 
+        from mtcars 
+        group by cyl having vs = 0')
+
