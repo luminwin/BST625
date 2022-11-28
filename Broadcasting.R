@@ -751,3 +751,47 @@ apa.cor.table(
 dat <- read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
 head(dat %>%
        rename(gender = sex))
+
+## Min Lu: if you use read_csv() then you don't need to use head() for tibble
+##         head() is more useful for read.csv() that will give you a data.frame
+dat %>%
+  rename(gender = sex)
+
+## Yina Wang
+a <- tibble(X1 = LETTERS[1:3],
+            
+            X2 = 1:3)
+b <- tibble(X1 = c("A", "B", "D"),
+            
+            X3 = c("T", "F", "T"))
+
+left_join(a, b, by = "X1")
+
+a %>% left_join(b, by = "X1")
+
+right_join(a, b, by = "X1")
+
+inner_join(a, b, by = "X1")
+
+full_join(a, b, by = "X1")
+
+## ----|The purpose is to merge two tables.
+
+## Catherine Campos
+## ----|R studio is easier to use when compared to SAS.
+
+## Sophie Ying Cen
+
+# need Internet connection
+## for phrase searching you may use (escaped) double quotes or brackets
+RSiteSearch("{logistic regression} \"glm object\"")
+## A search query has been submitted to https://search.r-project.org
+## The results page should open in your browser shortly
+RSiteSearch('"logistic regression"')
+## A search query has been submitted to https://search.r-project.org
+## The results page should open in your browser shortly
+## write down the purpose of the above command
+## ----| RSiteSearch(“keyword”) will open a browser window and return a 
+# search for “keyword” in various documentation, such as R manuals, help pages 
+# of base and CRAN packages, vignettes, task views and others.THIS IS SO 
+#AWESOME!!! Love this one!!!
