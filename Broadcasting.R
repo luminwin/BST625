@@ -953,3 +953,21 @@ dat%>%
         axis.text = element_text(size = 12),
         
         axis.title = element_text(size = 14, face = "bold"))
+
+## Sophie Ying Cen
+
+
+summary(women$height) # refers to variable 'height' in the data frame
+attach(women)
+
+summary(height) 
+# The same variable now available by name
+#height <- height*2.54 # Don't do this. It creates a new variable
+
+# in the user's workspace
+## write down the purpose of the above command
+## ----| The database is attached to the R search path. This means that the 
+# database is searched by R when evaluating a variable, so objects in the 
+# database can be accessed by simply giving their names
+
+## Min Lu: use detach() after the task to make your environment clean
