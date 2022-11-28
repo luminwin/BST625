@@ -155,3 +155,41 @@ sqldf('select "Species", avg("Sepal.Length")
         where "above.mean" > 0 
         group by "Species"')
 
+
+
+sqldf('select "Species", avg("Sepal.Length") 
+        from (
+        select 
+       "Species", 
+       "Sepal.Length", 
+       "Sepal.Length" - avg("Sepal.Length") over (partition by "Species") as "above.mean" 
+       from iris
+        ) 
+        where "above.mean" > 0 
+        group by "Species"')
+
+
+demo <- read.csv("https://luminwin.github.io/BST625/demo.csv")
+treatA <- read.csv( "https://luminwin.github.io/BST625/treatA.csv")
+treatB <- read.csv( "https://luminwin.github.io/BST625/treatB.csv")
+
+
+sqldf("select ID, age from demo as d")
+sqldf("select d.ID, d.age from demo as d")
+
+demotreatA <- 
+  sqldf("select * 
+         from demo as d 
+            left join treatA as a
+               on d.ID = a.ID")
+
+demotreatA <- 
+  sqldf("select d.ID, d.age, a.esophagectomy 
+                 from demo as d 
+                    left join treatA as a
+                        on d.ID = a.ID")
+
+sqldf("select d.*, a.esophagectomy 
+                 from demo as d 
+                    left join treatA as a
+                        on d.ID = a.ID")
