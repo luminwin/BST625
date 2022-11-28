@@ -480,3 +480,51 @@ for (i in 1:200){
   plot(table(y), type = "h", xlim = c(0,1), ylim = c(0,60))
   cat("\r","finish experiment", i)
 }
+
+## Chen Ye
+## Tell R your command in the next line
+dat<- data.frame(t=seq(0, 2*pi, by=0.1) )
+xhrt <- function(t) 16*sin(t)^3
+yhrt <- function(t) 13*cos(t)-5*cos(2*t)-2*cos(3*t)-cos(4*t)
+dat$y=yhrt(dat$t)
+dat$x=xhrt(dat$t)
+with(dat, plot(x,y, type="l"))
+## write down the purpose of the above command
+## ----|draw a heart by R
+
+
+
+### Nawaf Alhazmi
+## Tell R your command in the next line
+# R Program to find the multiplicationtable (from 1 to 10)
+# take input from the user
+num = as.integer(readline(prompt = "Enter a number: "))
+## Enter a number:
+# use for loop to iterate 10 times
+for(i in 1:10) {
+  print(paste(num,'x', i, '=', num*i))
+}
+
+## write down the purpose of the above command
+## ----| To design Multiplication Table
+
+# Min Lu
+## slide 14 on R4_statistical_model.ppt
+res <- binom.test(x = 2, n = 25, conf.level = .95)
+p <- res$estimate
+y <- c()
+for (i in 1:200){
+  x <- mean(rbinom(n = 25, size = 1, prob = p))
+  y <- c(y,x)
+  Sys.sleep(0.1)
+  plot(table(y), type = "h", xlim = c(0,1), ylim = c(0,60))
+  cat("\r","finish experiment", i)
+}
+
+
+## Min Lu: unique() is the same as Vaughn's
+dat[!duplicated(dat),]
+
+## Min Lu: for "nodupkey" (SAS) --- no duplicated id:  Slide 17 on R7_review_additional.ppt
+
+dat[which(!duplicated(dat$id)), ]
