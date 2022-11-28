@@ -607,3 +607,49 @@ mySummary <- function(x){
 ############################# use the above function just like HW6
 lapply(dat, mySummary) 
 lapply(esoph, mySummary) 
+
+
+
+### Mary Gorora
+sex <- dat$sex
+sex <- factor (sex)
+levels (sex) <- c("Male", "Female")
+my_table <- table (sex, Pain_long)
+barplot(my_table,
+        
+        main = "Total Pain Intensity Ratings by Sex",
+        
+        xlab = "Pain Intensity Rating",
+        
+        ylab = "Number of Reports",
+        
+        col = c("blue", "pink"),
+        
+        legend.text = rownames (my_table),
+        
+        beside = TRUE)
+
+## write down the purpose of the above command
+## ----|First, I changed the "sex" variable to a two-level factor (male, 
+#female). Then, I created a new table for the new factor "sex" and the 
+#previously created "Pain_long". This was done to narrow down the items I 
+#would need to create a clustered barplot. Next, I created a barplot based 
+#upon the table and labeled the axes. Next, I changed the colors to blue 
+#(representing male) and pink (female). I used the line "beside=TRUE" because 
+#I wanted the graph to read easier when comparing the quantity of reports for 
+#each pain intensity rating.
+## If you want to share something in English, write down your answer after 
+#"## ---|" in the next line.
+## ----|I found that creating the graph on R is much easier than SAS. The 
+#only thing I will have to get used to in this program is not capitalizing all
+#my words in the syntax
+
+
+## Ye Chen 
+library(tidyverse)
+flights <- read_csv("https://luminwin.github.io/BST625/flights.csv")
+install.packages("gganimate")
+library(gganimate)
+p<-ggplot(flights) +
+  geom_point(mapping = aes(x = carrier, y = distance))
+plot(p)
