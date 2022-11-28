@@ -923,3 +923,33 @@ xyplot(pain.1 ~ pain.2,
        data = dat,
        group = age_grp,
        auto.key = TRUE)
+
+
+# Rebe Silvey?
+library(devtools)
+install_github("Gibbsdavidl/CatterPlots")
+library(CatterPlots)
+x <- -10:10
+y <- -x^2 + 10
+rainbowCats(x, y, yspread=0.05, xspread=0.05, ptsize=2, catshiftx=0.5, 
+            catshifty=-0.2, canvas=c(-0.5,1.5,-1,1.5))
+
+## Leah Dodds
+dat <- read_csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+dat <- dat %>%
+  pivot_wider(names_from = time, 
+              
+              values_from = pain, 
+              
+              names_prefix = "pain")
+dat%>%
+  ggplot(aes(x = factor(1), fill = factor(sex))) +
+  geom_bar(stat = "count") + #### now the magic happens
+  coord_polar(theta = 'y') +
+  labs(fill = "Sex") +
+  xlab(" ") +
+  theme(legend.title = element_text(size=18),
+        
+        axis.text = element_text(size = 12),
+        
+        axis.title = element_text(size = 14, face = "bold"))
