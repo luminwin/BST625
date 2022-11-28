@@ -49,7 +49,7 @@ sqldf("select cyl, count(*) from mtcars group by am")
 
 sqldf("select cyl, am, count(*) from mtcars group by am")
 
-sqldf("select cyl, count(*) as frequency from mtcars group by am")
+sqldf("select cyl, am, count(*) as frequency from mtcars group by am")
 
 sqldf('select distinct am    
        from mtcars')
@@ -57,4 +57,19 @@ sqldf('select distinct am
 sqldf('select distinct *    
        from mtcars')
 
+##  int, real, char,
+sqldf('select 
+          cast(drat as int) dratint,    
+          mpg 
+      from mtcars LIMIT 5')
+
+
+############################
+# {sqldf}
+# In class exercise
+############################
+
+head(Orange)
+
+### please list age and circumference for Tree type 1 and sort circumference in an ascending order
 
