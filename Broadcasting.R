@@ -845,3 +845,31 @@ ggplot(df, aes(x = wish, y = pos, fill = part)) + geom_bar(stat="identity") +
 
 
 
+## Aaron Ruby
+## Tell R your command in the next line
+qf(0.05, 6, 24, lower.tail=FALSE)
+## [1] 2.508189
+## write down the purpose of the above command
+## ----|I used this command to calculate the F value for a study with 6 
+## independent variables and n=31, where alpha shoud be 0.05. This was useful 
+## for a homework problem in BST703
+
+## Dora Marcelin 
+# sample.mean <- mean(variable)
+# sample.n <- length(variable)
+# sample.sd <- sd(variable)
+# sample.se <- sample.sd/sqrt(sample.n)
+# alpha = 0.05
+# degrees.freedom = sample.n - 1
+# t.score = qt(p=alpha/2, df=degrees.freedom,lower.tail=F)
+# margin.error <- t.score * sample.se
+# lower.bound <- sample.mean - margin.error
+# upper.bound <- sample.mean + margin.error
+# print(c(lower.bound,upper.bound))
+## write down the purpose of the above command
+## I learned about Confidence Intervals by myself. Confidence intervals are 
+#one method to express how good an estimate is; the broader the 95% confidence
+#interval for a certain estimate, the more caution is necessary when adopting 
+#the estimate. Confidence intervals serve as a crucial reminder of the 
+#estimates' limitations.
+
