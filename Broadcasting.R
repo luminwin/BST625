@@ -194,7 +194,6 @@ sqldf("select d.*, a.esophagectomy
                     left join treatA as a
                         on d.ID = a.ID")
 
-### RIGHT and FULL OUTER JOINs are not currently supported
 sqldf("select d.ID, d.age, a.esophagectomy 
                  from demo as d right join treatA as a
                         on d.ID = a.ID")
@@ -205,3 +204,21 @@ sqldf("select d.ID, d.age, a.esophagectomy
                     left join demo as d 
                         on d.ID = a.ID")
 
+### left join (if null)
+sqldf("select d.*, a.esophagectomy 
+                 from demo as d 
+                    left join treatA as a
+                        on d.ID = a.ID
+          where esophagectomy is NULL")
+
+sqldf("select d.ID, d.age, a.esophagectomy 
+                 from treatA as a 
+                    inner join demo as d 
+                        on d.ID = a.ID")
+
+## we can rename the columns as before 
+sqldf("select d.ID, d.age, 
+                a.esophagectomy as Esoph
+                 from treatA as a 
+                    inner join demo as d 
+                        on d.ID = a.ID")
