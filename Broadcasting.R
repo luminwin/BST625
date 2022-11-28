@@ -577,3 +577,33 @@ mode(Pain_long)
 # assumed that the code would be mode(Pain_long). However, the output was 
 # "numeric", which is not correct. Lines 57-60, create the mode function. Line 
 # 62-63 give the mode for Pain_long.
+
+## Bader alsuliman
+summary(Pain_long)
+table(Pain_long)
+
+##  Nawaf Alhazmi
+flights <- read.csv("https://luminwin.github.io/BST625/flights.csv")
+summary(flights)
+#summary is a generic function used to produce result summaries of the
+#results of various model fitting functions
+
+
+## Min Lu
+############################# slide 21 from R5_Explor_data_analy_Own_func.ppt
+mySummary <- function(x){
+  
+  if (is.character(x)){
+    
+    table(x) %>% 
+      sort(decreasing = TRUE) %>%
+      head()
+    
+  } else {
+    summary(x)
+  }
+  
+}
+############################# use the above function just like HW6
+lapply(dat, mySummary) 
+lapply(esoph, mySummary) 
