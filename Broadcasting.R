@@ -522,9 +522,58 @@ for (i in 1:200){
 }
 
 
+
+### about duplicated rows:
+## Vaughn Edelson
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+duplicated(dat)
+
+## Kayla Taylor, Master of Public Health (MPH)
+unique(dat)
+
 ## Min Lu: unique() is the same as Vaughn's
 dat[!duplicated(dat),]
 
 ## Min Lu: for "nodupkey" (SAS) --- no duplicated id:  Slide 17 on R7_review_additional.ppt
 
 dat[which(!duplicated(dat$id)), ]
+
+## Daniel Martinez
+even <- seq(1, nrow(dat), 2)
+odd_dat<-dat[ even ,]
+## write down the purpose of the above command
+## ----| Removed all even ID rows.
+
+## Meghal Samir Desai
+# Create a numeric vector
+air_time <- c(156, 153, 149, 223)
+mean(air_time)
+## [1] 170.25
+max(air_time) 
+## [1] 223
+min(air_time) 
+## [1] 149
+## write down the purpose of the above command
+## ----| The purpose of the above command is to find out the average, minimum
+# and maximum air time of flights. ---
+
+## Arielle Bell
+Pain_long <- dat$pain
+getmode <- function(v) {
+  uniqv <- unique(v)
+  uniqv[which.max(table(match(v, uniqv)))]
+}
+result <- getmode(Pain_long)
+print(result)
+## [1] 0
+mode(Pain_long)
+## [1] "numeric"
+## write down the purpose of the above command
+## ----| To find the mode for both numeric or character variables
+## If you want to share something in English, write down your answer after  "## ---|" in the next line.
+## ----| Since Pain_long had 246 observations with a range between 0 and 4, I
+# wanted to find which integer between 0 and 4 occured the most often. I 
+# from Google. Hint: a function is in the format of functionname(). 
+# assumed that the code would be mode(Pain_long). However, the output was 
+# "numeric", which is not correct. Lines 57-60, create the mode function. Line 
+# 62-63 give the mode for Pain_long.
