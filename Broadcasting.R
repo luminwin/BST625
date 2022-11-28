@@ -873,3 +873,53 @@ qf(0.05, 6, 24, lower.tail=FALSE)
 #the estimate. Confidence intervals serve as a crucial reminder of the 
 #estimates' limitations.
 
+
+## Bethly Aubourg
+print (flights%>%drop_na())
+
+## Min Lu: we can but we don't prefer putting space after a function: instead of
+##         print (), we use print()
+
+## Diana Hernandez Payano
+
+## Tell R your command in the next line
+a = c(1, 2, 3, 4 ,5, 6, 7)
+b = c("(blue", "yellow", "green", "orange", "black", "white", "pink")
+c = c("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", 
+      "sunday")
+
+#The list() function in R is used to create a list of elements of 
+#different types. A list can contain numeric, string, or vector elements.
+
+## Min Lu
+list(a, b, c) ## unnamed list
+list(a = a, b = b, c = c) # named list
+
+
+
+## Anastasiya Drandarov
+counts <- table(flights$carrier)
+barplot(counts, main="Carrier Distribution", 
+        xlab="Number of Carriers")
+
+## write down the purpose of the above command
+#this command sorts and counts the carriers of each type
+
+## Belen Hervera
+ggplot (data = flights) + geom_bar (aes(x=carrier), stat = "count")
+## write down the purpose of the above command
+## ----| Used a the ggplot command to create a barplot for the categorical 
+# variable "carrier
+
+## Chen Ye
+
+library(lattice)
+dat <- read.csv("http://courses.washington.edu/b517/Datasets/shoulder.csv")
+dat <- reshape(dat, v.names = "pain", idvar = "id",
+               timevar = "time", direction = "wide")
+#dat$Avg_Pain <- rowMeans(dat[,paste("pain", 1:6, sep = ".")], na.rm = TRUE)
+dat$age_grp <- cut(dat$age, c(10*2:9))
+xyplot(pain.1 ~ pain.2,
+       data = dat,
+       group = age_grp,
+       auto.key = TRUE)
