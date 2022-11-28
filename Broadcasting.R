@@ -653,3 +653,35 @@ library(gganimate)
 p<-ggplot(flights) +
   geom_point(mapping = aes(x = carrier, y = distance))
 plot(p)
+
+
+# Joann Seunarine
+
+# In trying to attempt to learn a new code that might have helped with
+# me the homework but did not work, i learned about the EXCEPT function. 
+# tryExcept(expr, except = { }, error = function(e) { }) is used for errors; 
+# evaluates an expression, and if the expression raises an error it then 
+# evaluates a second expression. I also learned that ! the Logical NOT operator
+# this operator takes each element of the vector and gives the opposite logical
+# value. I also learned that %>% is a combination of two operators. %% gives 
+# the remainder of the first vector with the second, > checks if each element 
+# of the first vector is greater than the corresponding element of the second 
+# vector
+
+## Min Lu: tryExcept is from package {infix}. I recommend tryCatch from {base} R
+## how to give error in r
+## mimic an error: after an error, the rest of the code won't be implemented
+for (i in 1:10) {
+  print(i)
+  if (i==7) stop("Urgh, the iphone is in the blender !")
+}
+
+## after an error, the rest of the code will still be implemented
+for (i in 1:10) {
+  tryCatch({
+    print(i)
+    if (i==7) stop("Urgh, the iphone is in the blender !")
+  }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
+}
+
+## Min Lu: %>% alone is a operater that passing its left as the first argument to its right function
