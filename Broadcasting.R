@@ -272,6 +272,26 @@ sqldf("select *, case
 sqldf("select d.ID, *,
               coalesce(a.Esoph, b.Neo, 'unknown') as treat
                  from demo as d 
+                      left join (
+                      select *, case
+                  when esophagectomy == 'Yes' then 'Esoph'
+                  when esophagectomy == 'No' then 'No-Esoph'
+                    end as Esoph  
+                  from treatA
+                      ) as a
+                        on d.ID = a.ID
+                      left join (
+                      select *, case
+                  when neoadjuvant == 'Yes' then 'Neo'
+                  when neoadjuvant == 'No' then 'No-Neo'
+                    end as Neo  
+                        from treatB
+                      ) as b
+                        on d.ID = b.ID")
+
+sqldf("select d.ID, *,
+              coalesce(a.Esoph, b.Neo, 'unknown') as treat
+                 from demo as d 
                       left join 
                       (select *, case
                   when esophagectomy == 'Yes' then 'Esoph'
