@@ -236,9 +236,76 @@ sqldf("select *, esophagectomy as Esoph from treatA")
 
 ### Let's do subquery again!
 
-sqldf("select d.ID, d.age, a.Esoph, b.neoadjuvant
+sqldf("select d.ID, d.age, a.esophagectomy, b.neoadjuvant
                  from demo as d 
                       left join (select *, esophagectomy as Esoph from treatA) as a
                         on d.ID = a.ID
                       left join treatB as b
+                        on d.ID = b.ID")
+
+### coalesce for NAs
+
+sqldf("select d.ID, *,
+              coalesce(a.esophagectomy, b.neoadjuvant, 'unknown') as treat
+                 from demo as d 
+                      left join treatA as a
+                        on d.ID = a.ID
+                      left join treatB as b
+                        on d.ID = b.ID")
+
+### I want to recode these "yes" and "no"
+
+sqldf("select *, case
+                  when esophagectomy == 'Yes' then 'Esoph'
+                  when esophagectomy == 'No' then 'No-Esoph'
+              end as Esoph  
+      from treatA")
+
+sqldf("select *, case
+                  when neoadjuvant == 'Yes' then 'Neo'
+                  when neoadjuvant == 'No' then 'No-Neo'
+              end as Neo  
+      from treatB")
+
+### Let's do subquery again!
+
+sqldf("select d.ID, *,
+              coalesce(a.Esoph, b.Neo, 'unknown') as treat
+                 from demo as d 
+                      left join 
+                      (select *, case
+                  when esophagectomy == 'Yes' then 'Esoph'
+                  when esophagectomy == 'No' then 'No-Esoph'
+                  end as Esoph  
+                       from treatA)
+                       as a
+                        on d.ID = a.ID
+                      left join 
+                      (select *, case
+                  when neoadjuvant == 'Yes' then 'Neo'
+                  when neoadjuvant == 'No' then 'No-Neo'
+                  end as Neo  
+                      from treatB)
+                        as b
+                        on d.ID = b.ID")
+
+### some fancy coalesce
+sqldf("select d.ID, *,
+              coalesce(a.Esoph, '-') || coalesce(b.Neo, '-') as treat
+                 from demo as d 
+                      left join 
+                      (select *, case
+                  when esophagectomy == 'Yes' then 'Esoph'
+                  when esophagectomy == 'No' then 'No-Esoph'
+                  end as Esoph  
+                       from treatA)
+                       as a
+                        on d.ID = a.ID
+                      left join 
+                      (select *, case
+                  when neoadjuvant == 'Yes' then 'Neo'
+                  when neoadjuvant == 'No' then 'No-Neo'
+                  end as Neo  
+                      from treatB)
+                        as b
                         on d.ID = b.ID")
