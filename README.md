@@ -1,1 +1,1 @@
-## Teaching materials for BST 625 Statistical Programming
+## Teaching materials for Course BST 625 Statistical Programming
